@@ -1,0 +1,61 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($color, $background, $border, $startgradcolor, $endgradcolor, $btn-shadow) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  border-bottom-color: lighten($border, 2%);
+  @include gradient-vertical($startgradcolor, $endgradcolor);
+  @include box-shadow($btn-shadow-x $btn-shadow-y $btn-shadow-blur $btn-shadow inset);
+
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 2%);
+    @include gradient-vertical(darken($startgradcolor, 3%), darken($endgradcolor, 3%));
+    border-color: darken($border, 4%);
+    border-bottom-color: darken($border, 15%);
+    border-style: solid;
+    @include box-shadow($btn-shadow-x $btn-shadow-y $btn-shadow-blur darken($btn-shadow, 2%) inset);
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-color: darken($background, 8%);
+    @include gradient-vertical(darken($startgradcolor, 8%), darken($endgradcolor, 8%));
+    @include box-shadow($btn-shadow-x 2px 6px darken($btn-shadow, 3%) inset);
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}

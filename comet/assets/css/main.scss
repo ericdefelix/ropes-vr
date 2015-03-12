@@ -1,0 +1,932 @@
+// Core variables and mixins
+@import "../../../assets-common/css/bootstrap/variables";
+@import "../../../assets-common/css/bootstrap/mixins/clearfix";
+@import "../../../assets-common/css/bootstrap/mixins/center-block";
+@import "../../../assets-common/css/bootstrap/mixins/image";
+@import "../../../assets-common/css/bootstrap/mixins/grid";
+@import "../../../assets-common/css/bootstrap/mixins/css3-mixins";
+
+// Global
+body {
+	background-image: url(../img/comet-bg.png);
+	background-repeat: repeat;
+	background-size: 50%;
+	padding-bottom: $navbar-height - ($grid-gutter-width / 2);
+}
+
+// 
+// Profile Information
+// --------------------------------------------------
+// 
+
+// Set basic styling
+.profile-info {
+	background-color: $brand-cyan;
+	margin-top: $navbar-height + 2;
+
+	@media (max-width: $screen-xs-max) {
+		padding-top: 2%;
+		padding-bottom: 2%;
+	}
+
+	@media (min-width: $screen-sm-min) {
+		padding-top: $navbar-height / 2;
+		padding-bottom: $navbar-height / 2;
+	}
+
+	@include make-row($grid-gutter-width);
+
+	> .profile-img {
+
+		@media (max-width: $screen-xs-max) {
+			display: none;
+		}
+
+		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+			@include make-sm-column(2);
+		}
+
+		@media (min-width: $screen-md-min) {
+			@include make-md-column(4);
+			@include make-md-column-offset(4);
+		}
+
+		> .avatar {
+			@media (min-width: $screen-md-min){
+				width: 200px;
+				height: 200px;
+			}
+			@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max){
+				width: 95px;
+				height: 95px;
+			}
+		}
+	}
+
+	> .profile-text {
+		color: #fff;
+		font-size: 1.2em;
+		text-align: center;
+
+		@media (max-width: $screen-xs-max) {
+			@include make-xs-column(12);
+			vertical-align: middle;
+		}
+
+		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+			@include make-sm-column(10);
+			text-align: left;
+
+			> .profile-name {
+				font-size: 1.5em;
+			}
+
+			> .profile-metadata {
+				font-size: 0.8em;
+			}
+		}
+
+		@media (min-width: $screen-md-min) {
+			text-align: center;
+			@include make-md-column(4);
+			@include make-md-column-offset(4);
+
+			> .profile-name {
+				font-size: 2em;
+			}
+
+			> .profile-metadata {
+				font-size: 0.8em;
+			}
+		}
+
+		span {
+			font-family: $font-family-alt;
+			@include clearfix;
+		}
+	}
+}
+
+// 
+// Profile Controls
+// --------------------------------------------------
+// 
+
+.navbar-controls {
+	@include make-row;
+	> .navbar-control-btns {
+		.btn-group.active {
+			&:after, &:before {
+				border: solid transparent;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				left: 50%;
+				pointer-events: none;
+			}
+
+			&:after {
+				border-color: rgba(136, 183, 213, 0);
+				border-width: 10px;
+			}
+
+			&:before {
+				border-color: rgba(231, 231, 231, 0);
+				border-width: 11px;
+			}
+		}
+
+		@media (max-width: $screen-xs-max) {
+			@include make-xs-column(12);
+		}
+
+		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+			@include make-sm-column(8);
+			@include make-sm-column-offset(2);
+		}
+
+		@media (min-width: $screen-md-min) {
+			@include make-md-column(6);
+			@include make-md-column-offset(3);
+
+			.btn-group.active {
+				&:after, &:before {
+					top: 100%;
+				}
+
+				&:after {
+					border-top-color: $brand-cyan;
+					margin-left: -10px;
+				}
+
+				&:before {
+					border-top-color: darken($brand-cyan, 7%);
+					margin-left: -11px;
+				}
+			}
+		}
+
+		@media (max-width: $screen-sm-max) {
+			.btn-group.active {
+				&:after, &:before {
+					bottom: 100%;
+				}
+
+				&:after {
+					border-bottom-color: $brand-cyan;
+					margin-left: -10px;
+				}
+
+				&:before {
+					border-bottom-color: darken($brand-cyan, 7%);
+					margin-left: -11px;
+				}
+			}	
+		}
+	}
+
+	// Mimic mobile app navigation
+	position: fixed;
+	bottom: 0;
+	z-index: $zindex-navbar-fixed;
+	border-top: 1px solid darken($brand-cyan, 5%);
+
+	// Reset View on larger screens
+	@media ( min-width: $screen-md-min ) {
+		border-top: none;
+		border-bottom: 1px solid darken($brand-cyan, 5%);
+		position: initial;
+	}
+}
+
+.navbar-control-btns {
+	> .btn-group {
+		.btn-group {
+			&:before {
+
+			}
+
+			.btn {
+				@media (max-width: $screen-xs-max) {
+					padding-top: 2%;
+					padding-bottom: 2%;
+				}
+
+				> .md {
+					@media (max-width: $screen-xs-max) {
+						font-size: 1em;
+					}
+
+					@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+						font-size: 1.3em;
+					}
+
+					@media (min-width: $screen-md-min) {
+						font-size: 1.5em;
+					}
+				}
+					
+				> span {
+					@media (max-width: $screen-xs-max) {
+						font-size: 0.8em;
+					}
+
+					@media (min-width: $screen-md-min) {
+						font-size: 1em;
+					}
+				}
+	
+			}
+		}
+	}
+}
+
+.navbar-cyan {
+	background-color: $brand-cyan;
+	color: #fff;
+	font-family: $font-family-alt;
+}
+
+// 
+// Main Menu
+// --------------------------------------------------
+// 
+.current-user-profile {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	border-right: 1px solid $gray-lighter;
+	border-left: 1px solid $gray-lighter;
+
+	// Negate padding-top and padding-bottom
+	> .btn-group {
+		> .btn.btn-sm {
+			margin-top: -10px;
+			margin-bottom: -9px;
+		}
+	}
+
+	.current-user-img {
+		width: 40px;
+		height: auto;
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+	}
+
+	.current-user-name {
+		color: $gray;
+		vertical-align: bottom;
+		font-size: 1.1em;
+		display: inline-block;
+
+		&:before {
+			content: "Hello,";
+			text-transform: uppercase;
+			font-size: 0.8em;
+			color: $gray-light;
+			text-align: right;
+			position: absolute;
+			top: 10px;
+			left: 15px;
+		}
+
+		> span {
+			max-width: 120px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: inline-block;
+			vertical-align: bottom;
+		}
+	}
+
+	.md {
+		vertical-align: middle;
+	}
+}
+
+.md-alert-custom {
+	font-size: 1.8em;
+	vertical-align: -50%;
+}
+
+.badge-notif {
+	padding: 4px;
+	width: auto;
+	min-width: 18px;
+	height: 18px;
+	border-radius: 18px; 
+	position: absolute;
+	top: 0;
+	margin-left: 10px;
+	font-size: 0.8em;
+	text-align: center;
+	line-height: 12px;
+
+	$red: rgba($brand-red, .9);
+	background-color: darken($red, 5%);
+	color: #fff;
+	@include box-shadow(0,2px,0,rgba(0,0,0,0.2));
+
+	// Hide badge if empty
+	&:empty {
+		display: none;
+	}
+}
+
+// 
+// Score Card
+// --------------------------------------------------
+// 
+
+// Score Card, Feedback, and BLAST! containers
+.timeline-card, .navbar-float {
+	margin-top: 3%;
+
+	@media (max-width: $screen-xs-max) {
+		@include make-xs-column(12);
+	}
+	@include make-sm-column(12);
+	@include make-md-column(12);
+	@include make-lg-column(10);
+	@include make-lg-column-offset(1);
+}
+
+.timeline-card {
+	.panel-heading {
+		.panel-avatar {
+			display: table-cell;
+			.avatar {
+				width: 120px;
+				height: 120px;
+			}
+		}
+		.panel-heading-content {
+			display: table-cell;
+			vertical-align: top;
+		}
+	}
+	.panel-body {
+		.avatar {
+			width: 60px;
+			height: 60px;
+		}
+	}
+}
+
+// Score Card table
+.score-card {
+	$basepx: 100px !default;
+
+	> .panel-heading {
+		padding-bottom: 0;
+
+		.score-card-controls {
+			margin-top: -13px;
+		}
+	}
+
+	> .panel-footer {
+		margin-top: $basepx / 2;
+		.score-card-finalscore {
+			margin-top: -($basepx - 10);
+			@include make-row();
+
+			> .score {
+				text-align: center;
+				color: #fff;
+				font-size: 2em;
+				font-family: $font-family-bold;
+				width: $basepx;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				padding: ($panel-body-padding - 3) 0;
+				@include center-block();
+				@include border-radius(100px);
+
+			}
+
+			&:after {
+				width: 100%;
+				display: table;
+				text-align: center;
+				font-size: 1.2em;
+				font-family: $font-family-bold;
+				content: "Overall Month to Date Rating";
+			}
+		}
+	}
+}
+
+// Score Legend for Static
+.score-legend {
+	margin-bottom: 15px;
+	$basepx: 8px;
+	display: table;
+	@include make-xs-column(12);
+
+	> span {
+		font-size: 0.8em;
+		margin: 0 $basepx;
+		float: right;
+
+		> i {
+			content: "";
+			display: inline-block;
+			width: $basepx;
+			height: $basepx;
+			border-radius: $basepx;
+		}
+	}
+}
+
+// Style the table header
+.score-card-heading-row {
+	border-bottom: 2px solid lighten($gray-light, 30%);
+
+	> .score-item-category {
+		padding-bottom: 0 !important;
+		margin-top: -($grid-gutter-width / 2);
+		margin-bottom: $grid-gutter-width / 2;
+		> span {
+			font-size: 1.8em;
+		}
+	}
+
+	> .score-item-group {
+		> .score-item-xs {
+			span {
+				font-size: 0.8em;
+			}
+		}
+	}
+
+	// Force text to center
+	@media (max-width: $screen-sm-max) {
+		> .score-item-category {
+			text-align: center;
+		}
+	}
+}
+
+// Style the table body
+.score-card-body-row {
+	border-bottom: 1px solid darken($gray-lighter, 12%);
+
+	// Force text to center on smaller screens
+	> .score-item-category {
+		@media (max-width: $screen-sm-max) {
+			text-align: center;
+			background-color: $gray-lighter;
+			border-bottom-left-radius: $border-radius-base;
+			border-bottom-right-radius: $border-radius-base;
+		}
+	}
+
+	> .score-item-category, > .score-item-group {
+		> .score-item-xs > span {
+			font-size: 2em;
+
+			@media (min-width: $screen-md-min) {
+				font-size: 1.4em;
+			}
+		}
+
+		// Score Card Indicators
+		.score-measure {
+			font-size: 1em;
+		}
+
+		.score-status {
+			display: block;
+			clear: both;
+			font-size: 0.8em;
+			text-transform: uppercase;
+			margin-top: 1%;
+		}
+
+		> .score-item-xs > small {
+			text-transform: uppercase;
+			@media (max-width: $screen-sm-max) {
+				display: block;
+				width: 100%;
+				clear: both;
+				text-align: center;
+				margin: auto auto;
+			}
+
+			@media (min-width: $screen-md-min) {
+				display: none;
+				content: "";
+			}
+		}
+
+		// Score Badge
+		> .score-item-xs > .score-badge {
+			color: #fff;
+			font-size: 0.7em;
+			text-transform: uppercase;
+			display: inline-block;
+			max-width: 80px;
+			margin-top: 5px;
+			padding: 0.3em 0.5em;
+			border-radius: 2em;
+
+			&.ongoing {
+				background-color: $brand-cyan;
+			}
+
+			&.void {
+				background-color: $gray;
+			}
+
+			&.done {
+				background-color: $brand-green;
+			}
+		}
+
+		// Adjust the icon
+		> .score-item-xs > .md {
+			@media (min-width: $screen-md-min) {	
+				margin-top: -7px;
+			}
+		}
+	}
+}
+
+// Style the entire table
+.score-card-table {
+	@include make-row();
+	
+	> .score-card-head,
+	> .score-card-body {
+		@include make-xs-column(12, 30px);
+	}
+	
+	.score-card-heading-row, .score-card-body-row {
+		@include clearfix();
+		> div {
+			text-align: center;
+			padding-top: $grid-gutter-width / 2 ;
+			padding-bottom: $grid-gutter-width / 2 ;
+
+			&:empty {
+				background: transparent;
+				content: "";
+			}
+		}
+
+		// Align text to left
+		@media (min-width: $screen-md-min) {
+			> .score-item-category {
+				text-align: left;
+			}
+		}
+
+	}
+
+
+	// Responsive table cells for smaller screens
+	@media (max-width: $screen-sm-max) {
+		.score-item-category,
+		.score-item-group,
+		.score-item-button {
+			@include make-xs-column(12);
+		}
+	}
+
+	// Responsive table cells for larger screens
+	.score-item-category {
+		@include make-md-column(3, 10px);
+	}
+
+	// Create a 7 column cell instead of the 12
+	.score-item-group {
+		@include make-md-column(8,0);
+
+		> .score-item-xs {
+			@media (max-width: $screen-xs-max) {
+				margin-top: $grid-gutter-width / 2;
+				margin-bottom: $grid-gutter-width / 2;
+				@include make-xs-column(6, 10px);
+			}
+
+			@media (max-width: $screen-sm-max) {
+				margin-top: $grid-gutter-width / 2 ;
+				margin-bottom: $grid-gutter-width / 2;
+				@include make-sm-column(3, 10px);
+			}
+	
+			@media (min-width: $screen-md-min) {
+				position: relative;
+				min-height: 1px;
+				padding-left: 5px;
+				padding-right: 5px;
+				float: left;
+				width: percentage(( 1 / 7));
+			}
+		}
+	}
+
+	// Create a place for the Actions button
+	.score-item-button {
+		@include make-md-column(1, 10px);
+	}
+}
+
+// Background Colors
+.score-positive {
+	background-color: $brand-green;
+	color: #fff;
+}
+
+.score-negative {
+	background-color: $brand-red;
+	color: #fff;
+}
+
+// Override the Bootstrab tab for score card styling
+.nav-tabs {
+	border: none;
+
+	> li {
+		
+		&.active { 
+			a {
+				color: $brand-cyan;
+				&:hover, &:focus {
+					color: $brand-cyan;
+				}
+			}
+		}
+
+		> a {
+			color: $gray-light;
+
+			.md {
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+		}
+	}
+}
+
+// Editable Data from Score Card
+.commit-edit {
+	&.locked {
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:after {
+			font-size: 14px;
+			font-family: 'FontAwesome', $font-family-base;
+			content: "\f023";
+			color: $brand-cyan;
+			position: absolute;
+			bottom: 5px;
+			margin-left: 5%;
+		}
+
+		&:hover:after {
+			font-size: 14px;
+			font-family: 'FontAwesome', $font-family-base;
+			content: "\f09c\00a0 edit";
+			color: $brand-warning;
+		}
+
+		> .commit-edit-input {
+			display: none;
+		}
+
+		> .commit-edit-display {
+			display: inline-block;
+		}
+
+		~ .commit-controls {
+			display: none;
+		}
+	}
+
+	&.unlocked {
+		> .commit-edit-input {
+			display: inline-block;
+			text-align: center;
+			font-family: $font-family-bold;
+			color: $brand-green;
+
+			&::-ms-clear {
+				display: none;
+			}
+		}
+
+		> .commit-edit-display {
+			display: none;
+			font-style: normal;
+		}
+
+		+ .commit-controls {
+			position: relative;
+			width: 90px;
+			right: -95px;
+			margin-top: -65px;
+			z-index: $zindex-dropdown - 1;
+		}
+	}
+}
+
+
+// 
+// Team Search
+// --------------------------------------------------
+// 
+
+.team-panel {
+	position: fixed;
+	z-index: $zindex-dropdown - 1;
+	top: $navbar-height + 2;
+
+	@media (max-width: $screen-xs-max) {
+		left: auto;
+		right: 0;
+		bottom: 50px;
+		width: 100%;
+	}
+
+	@media (min-width: $screen-sm-min) {
+		right: 0;
+		bottom: 0;
+		width: 362px;
+	}
+
+	// Closed State
+	display: none;
+
+	// Opened State
+	&.in {
+		display: block !important;
+		&:after, &:before {
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			right: 32px;
+			bottom: 100%;
+			pointer-events: none;
+		}
+
+		&:after {
+			border-color: rgba(136, 183, 213, 0);
+			border-width: 5px;
+			border-bottom-color: $brand-cyan;
+			margin-left: -5px;
+		}
+
+		&:before {
+			border-color: rgba(231, 231, 231, 0);
+			border-width: 6px;
+			border-bottom-color: darken($brand-cyan, 7%);
+			margin-left: -6px;
+		}
+	}
+}
+
+.team-search {
+	background-color: $brand-cyan;
+	bottom: 0;
+	@include box-shadow(-5px, 7px, 40px, rgba(0,0,0,0.2));
+
+	> .team-input-group {
+		padding: ($grid-gutter-width / 2) - 3;
+
+		> .search-input {
+			color: #fff;
+			background-color: transparent;
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+			padding-left: 45px;
+			border-bottom: 1px solid lighten($brand-cyan, 30%);
+
+			&:focus, &:active {
+				border-bottom: 2px solid lighten($brand-cyan, 50%);
+			}
+
+			&::-webkit-input-placeholder {
+			   color: #fff;
+			}
+
+			&:-moz-placeholder { color: #fff; }
+			&::-moz-placeholder { color: #fff; }
+			&:-ms-input-placeholder { color: #fff; }
+		}
+
+		> span {
+			color: #fff;
+			display: block;
+			position: absolute;
+			top: 20px;
+			left: 15px;
+		}
+	}
+
+	> .team-list-group {
+		padding: $grid-gutter-width / 2;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+	@media (max-width: $screen-xs-max) {
+		width: 100%;
+		border: none;
+	}
+
+	@media (min-width: $screen-sm-min) {
+		width: 362px;
+		border-left: 1px solid darken($brand-cyan, 10%);
+	}
+}
+
+.team-list {
+	$item-baseheight: 50px;
+
+	display: table;
+	width: 100%;
+	.team-list-item {
+		@include make-row();
+
+		&:last-child {
+
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			> .item-profile-img > .avatar {
+				border-color: $brand-orange;
+			}
+		}
+
+		> .item-profile-img {
+				padding: $grid-gutter-width / 2;
+				padding-top: 0;
+				display: inline-block;
+				float: left;
+				background-color: $brand-cyan;
+
+			> .avatar {
+				border: 2px solid #fff;
+				width: $item-baseheight;
+				height: $item-baseheight;
+			}
+		}
+
+		> .item-profile-metadata {
+			overflow: hidden;
+			height: $item-baseheight + (($grid-gutter-width / 2) / 2);
+			max-height: $item-baseheight + (($grid-gutter-width / 2) / 2);
+			border-bottom: 1px solid lighten($brand-cyan, 30%);
+		}
+	}
+}
+
+.item-profile-metadata {
+	> span {
+		color: #fff;
+		clear: right;
+		white-space: nowrap;
+		overflow: hidden;
+		display: block;
+		clear: both;
+
+		&:last-child {
+			font-size: 0.8em;
+		}
+	}
+
+	.mask {
+		display: block;
+		color: lighten($brand-cyan, 20%);
+		position: absolute;
+		margin-top: -50px;
+		padding: 15px;
+		right: 0;
+		z-index: $zindex-dropdown - 2;
+		background-color: $brand-cyan;
+		
+		> i {
+			font-size: 1.2em;
+		}
+
+		&:hover {
+			color: #fff;
+			cursor: pointer;
+		}
+	}
+}
+

@@ -1,0 +1,450 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang=""> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>COMET</title>
+    <meta name="description" content="COMET">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.png">
+
+    <!-- Dependencies -->
+    <link rel="stylesheet" href="../assets-common/fonts/fontface.min.css">
+    <link rel="stylesheet" href="../assets-common/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets-common/css/animate.min.css">
+
+    <!-- COMET styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- for the dreaded IE -->
+    <script src="../assets-common/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header navbar-fixed-left">
+                <a class="navbar-brand" href="#">
+                    <img src="../assets-common/img/logo.png" alt="[24]7" class="img-responsive" width="167" height="56">
+                </a>
+            </div>
+        
+            <div class="nav navbar-nav navbar-fixed-right">
+
+                <!-- User Profile -->
+                <div class="current-user-profile">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-transparent dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+                            <div class="current-user-name hidden-xs">
+                                <span>Eric Longfirstname</span>
+                            </div> 
+                            <div class="current-user-img">
+                                <!-- <img src="" class="img-responsive img-rounded" alt="User's Full Name"> -->
+                                <div class="img-rounded img-responsive avatar" style="background-image: url(assets/img/avatar1.jpg);"></div>
+                            </div>
+                            <i class="md md-keyboard-arrow-down md-lg"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                            <li>
+                                <a href="#"><i class="md md-lg md-portrait"></i><span>Change Profile Picture</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="md md-lg md-group"></i><span>View My Team</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="md md-lg md-insert-chart"></i><span>View My Team's Stats</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="md md-lg md-exit-to-app text-danger"></i><span>Sign Out</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Notifications -->
+                <div class="btn-group">
+                    <button class="btn btn-transparent btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <strong class="badge-notif">5</strong>
+                        <i class="md md-notifications md-lg md-alert-custom"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                        <li class="notif-empty">
+                            <a href="#" class="text-center">
+                                <i class="md md-3x md-insert-emoticon"></i>
+                                <span class="center-block">Looks like you've <br>read all your messages.</span>
+                                <span class="center-block">Good job!</span>
+                            </a>
+                        </li>
+                        <li class="notif-item">
+                            <a href="#">
+                                <span class="notif-icon"><i class="md md-lg md-new-releases text-warning"></i></span>
+                                <span class="notif-highlight">Chuck Norris</span>
+                                <span class="notif-action">created a BLAST!.</span>
+                            </a>
+                        </li>
+                        <li class="notif-item">
+                            <a href="#">
+                                <span class="notif-icon"><i class="md md-lg md-comment text-success"></i></span>
+                                <span class="notif-highlight">John Doe</span>
+                                <span class="notif-action">gave you feedback.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Search Team -->
+                <div class="btn-group" data-toggle="tooltip" data-placement="left" title="Search Your Team">
+                    <button class="btn btn-cyan btn-sm dropdown-toggle" onclick="toggle_team()">
+                        <i class="md md-group md-lg"></i>
+                    </button>
+                    
+                    <!-- Append 'in' class to open -->
+                    <div class="team-panel" id="searchParent">
+                        <div class="team-search">
+                            <div class="team-input-group">
+                                <span><i class="md md-2x md-search"></i></span>
+                                <input type="text" class="form-control input-lg search-input" autofocus placeholder="Type a name...">
+                            </div>
+
+                            <!-- Team List Scroll -->
+                            <div class="team-list-group" id="teamListGroup">
+                                <ul class="team-list list-unstyled">
+                                    <li class="team-list-item">
+                                        <div class="item-profile-img">
+                                            <div class="img-circle img-responsive avatar"></div>
+                                        </div>
+                                        <div class="item-profile-metadata">
+                                            <span>John Doe has a very very long long long long name</span>
+                                            <span>UI Developer</span>
+                                            <div class="mask"><i class="md md-launch"></i></div>
+                                        </div>
+                                    </li>
+
+                                    <!-- Demo -->
+                                    <li class="team-list-item">
+                                        <div class="item-profile-img">
+                                            <div class="img-circle img-responsive avatar" style="background-image: url(assets/img/avatar2.jpg);"></div>
+                                        </div>
+                                        <div class="item-profile-metadata">
+                                            <span>Eric de Felix</span>
+                                            <span>UI Developer</span>
+                                        </div>
+                                    </li>
+                                    <!-- Demo -->
+
+                                </ul>
+                            </div>
+                            <!-- Team List Scroll -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Search Team -->
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <!-- Employee Profile Info and controls -->
+        <div class="profile-info">
+            <div class="profile-img">
+                <!-- <img class="img-circle img-responsive center-block" src="" alt="Eric de Felix"> -->
+                <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);"></div>
+            </div>
+            <div class="profile-text">
+                <span class="profile-name">Eric de Felix</span>
+                <span class="profile-position hidden-xs">UI/UX Engineer</span>
+                <span class="profile-metadata hidden-xs">0917-58-4867</span>
+            </div>
+        </div>
+        <!-- Employee Profile Info and controls -->        
+
+        <!-- Navbar responds to different screents -->
+        <nav class="navbar-controls navbar-cyan navbar-dynamic" role="navigation">
+
+            <section class="navbar-control-btns">
+                <div class="btn-group btn-group-justified" role="group" aria-label="Performance Measure, Give Feedback, BLAST!">
+                    <div class="btn-group active" role="group">
+                        <button type="button" class="btn btn-transparent">
+                            <i class="md md-insert-chart"></i>
+                            <span class="center-block">Performance</span>
+                        </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-transparent">
+                            <i class="md md-forum"></i>
+                            <span class="center-block">Feedback</span>
+                        </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-transparent">
+                            <i class="md md-my-library-books"></i>
+                            <span class="center-block">BLAST!</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </nav>
+
+        <!-- Scorecard -->
+        <div class="row">
+            <div class="timeline-card">
+                <div class="panel panel-default score-card">
+                    <div class="panel-heading">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#activeMeasures" aria-controls="active" role="tab" data-toggle="tab">
+                                    <i class="md md-lg md-add-circle visible-xs "></i>
+                                    <span class="hidden-xs">Active Measures</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#deletedMeasures" aria-controls="deleted" role="tab" data-toggle="tab">
+                                    <i class="md md-lg md-remove-circle visible-xs"></i>
+                                    <span class="hidden-xs">Deleted Measures</span>
+                                </a>
+                            </li>
+                            <li class="score-card-controls pull-right">
+                                <button class="btn btn-sm btn-default">
+                                    <i class="md md-lg md-open-in-new text-primary"></i>
+                                    <span class="hidden-xs">View Report</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div class="score-legend">
+                            <span><i class="score-negative"></i> BRIDGE</span>
+                            <span><i class="score-positive"></i> ISP</span>
+                            <span class="text-muted" style="margin-right: 15px;"><i class="md md-lg md-live-help"></i>
+                        </div>
+                        <div role="tabpanel">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="activeMeasures">
+                                    
+                                    <!-- Score Card Responsive Table -->
+                                    <div class="score-card-table">
+
+                                        <!-- Header -->
+                                        <div class="score-card-head">
+                                            <div class="score-card-heading-row">
+                                                <div class="score-item-category">
+                                                    <span>Quality</span>
+                                                </div>
+
+                                                <div class="score-item-group hidden-xs hidden-sm">
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Month to Date Score">
+                                                        <span>MTD Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Previous Month's Score">
+                                                        <span>Dec</span>&nbsp;<span>Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Agreed Target Score">
+                                                        <span>Commitment</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Current Score">
+                                                        <span>Jan</span>&nbsp;<span>Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Improvement">
+                                                        <span>% Improv</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="I dunno what to put here">
+                                                        <span>Indicators</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="BRIDGE">
+                                                        <span>BRIDGE Status</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button hidden-xs hidden-sm"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Header -->
+
+                                        <!-- Body -->
+                                        <div class="score-card-body">
+                                            <div class="score-card-body-row">
+                                                <div class="score-item-category">
+                                                    <span class="score-measure hoverable help" data-toggle="popover" title="Customer&nbsp;Service" data-content="Put measures here">Customer Service Assurance this is very long it will break</span>
+                                                    <span class="score-status text-success"><i class="fa fa-check-circle"></i> Acknowledged</span>
+                                                </div>
+
+                                                <div class="score-item-group">
+                                                    <div class="score-item-xs">
+                                                        <small>MTD Score</small>
+                                                        <span>34.3</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Dec</span> Score</small>
+                                                        <span>80</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Commitment</small>
+                                                        <span class="hoverable commit-edit locked" id="editCommit" onclick="edit_commit()">
+                                                            <input type="text" value="90" class="form-control commit-edit-input input-sm" name="commit" id="commitedValue" onkeypress="return isNumber(event)">
+                                                            <span class="commit-edit-display">90</span>
+                                                        </span>
+                                                        <div class="btn-group btn-group-sm commit-controls">
+                                                            <button class="btn btn-green" onclick="save_commit()"><i class="md md-check"></i></button>
+                                                            <button class="btn btn-burgundy" onclick="cancel_commit()"><i class="md md-close"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Jan</span> Score</small>
+                                                        <span>85</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>% Improvement</small>
+                                                        <span class="unit-percent">5</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Indicators</small>
+                                                        <i class="md md-2x md-close text-danger"></i>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Bridge Status</small>
+                                                        <span class="score-badge ongoing">On-going</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button">
+
+                                                    <!-- Show more actions -->
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="md md-more-horiz md-lg"></i>
+                                                            <span class="visible-xs-inline visible-sm-inline">More Actions </span>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                                                            <li>
+                                                                <a href="#" class="bg-positive"><i class="md md-lg md-thumb-up"></i>
+                                                                    <strong>
+                                                                        <span>Acknowledge this Measure</span>
+                                                                    </strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View My Feedback Thread</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View BLAST! Entries</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- Show more actions -->
+                                                </div>
+                                            </div>
+
+                                            <!-- TO BE REMOVED: For testing only -->
+                                            <div class="score-card-body-row">
+                                                <div class="score-item-category">
+                                                    <span class="score-measure">Customer Service Assurance this is very long it will break</span>
+                                                    <span class="score-status text-warning"><i class="fa fa-question-circle"></i> Pending</span>
+                                                </div>
+
+                                                <div class="score-item-group">
+                                                    <div class="score-item-xs">
+                                                        <small>MTD Score</small>
+                                                        <span>34.3</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Dec</span> Score</small>
+                                                        <span>80</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Commitment</small>
+                                                        <span>90</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Jan</span> Score</small>
+                                                        <span>85</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>% Improvement</small>
+                                                        <span class="unit-percent">5</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Indicators</small>
+                                                        <i class="md md-2x md-check text-success"></i>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Bridge Status</small>
+                                                        <span class="score-badge ongoing">On-going</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button">
+
+                                                    <!-- Show more actions -->
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="md md-more-horiz md-lg"></i>
+                                                            <span class="visible-xs-inline visible-sm-inline"> More Actions</span>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                                                            <li>
+                                                                <a href="#" class="bg-positive"><i class="md md-lg md-thumb-up"></i>
+                                                                    <strong>
+                                                                        <span>Acknowledge this Measure</span>
+                                                                    </strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View My Feedback Thread</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View BLAST! Entries</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- Show more actions -->
+                                                </div>
+                                            </div>
+
+                                            <!-- TO BE REMOVED: For testing only -->
+                                        </div>
+                                        <!-- Body -->
+
+                                    </div>
+                                    <!-- Score Card Responsive Table -->
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="deletedMeasures">
+                                    test2
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="score-card-finalscore">
+                            <span class="score score-positive">34.89</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Scorecard -->
+
+    </div>
+
+    <script src="../assets-common/js/jquery-1.11.2.min.js"></script>
+    <script src="../assets-common/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
