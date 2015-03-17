@@ -172,6 +172,7 @@
                                                 </div>
                                             </li>
                                             <!-- Direct Report item -->
+
                                         </ul>
                                         <!-- Direct Reports -->
                                     </li>
@@ -215,13 +216,13 @@
                             <span class="center-block">Performance</span>
                         </button>
                     </div>
-                    <div class="btn-group active" role="group">
+                    <div class="btn-group" role="group">
                         <button type="button" class="btn btn-transparent">
                             <i class="md md-forum md-lg"></i>
                             <span class="center-block">Feedback</span>
                         </button>
                     </div>
-                    <div class="btn-group" role="group">
+                    <div class="btn-group active" role="group">
                         <button type="button" class="btn btn-transparent">
                             <i class="md md-my-library-books md-lg"></i>
                             <span class="center-block">BLAST!</span>
@@ -235,32 +236,48 @@
         <div class="row">
             <div class="navbar-float">
                 <div class="well">
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-default active" for="feedback_panel"><input type="radio" name="feedback_panel">
-                            <i class="md md-lg md-list visible-xs-inline"></i>
-                            <span class="hidden-xs">Pending Acknowledgements</span>
-                            <span class="badge">24</span>
-                        </label>
-                        <label class="btn btn-default" for="feedback_panel"><input type="radio" name="feedback_panel">
-                            <i class="md md-lg md-history visible-xs-inline"></i>
-                            <span class="hidden-xs">Feedback History</span>
-                            <span class="badge">2</span>
-                        </label>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <i class="md md-filter-list"></i>
+                            <span class="js_dropdown-select-value">Most Recent</span>
+                            <i class="md md-lg md-keyboard-arrow-down"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-custom pull-right js_dropdown-select" role="menu">
+                            <li><a href ><span>Most Recent</span></a></li>
+                            <li><a href ><span>Top Rated (Employee)</span></a></li>
+                            <li><a href ><span>Top Rated (Supervisor)</span></a></li>
+                            <li><a href ><span>Most Improved</span></a></li>
+                        </ul>
                     </div>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#filterList" data-backdrop="static">
-                        <i class="md md-lg md-filter-list"></i>
-                        <span class="hidden-xs">Filter List</span>
+
+                    <button type="button" class="btn btn-default">Calendar</button>
+
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#browseBLAST" data-keyboard="false" data-backdrop="static" onclick="resize_container_modal()">
+                        <i class="md md-my-library-books visible-xs-inline"></i>
+                        <span class="hidden-xs"><i class="md md-launch"></i> Browse BLAST! Library</span>
                     </button>
+
                     <div class="pull-right">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newFeedback" data-keyboard="false" data-backdrop="static">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newBLAST" data-keyboard="false" data-backdrop="static">
                             <i class="md md-my-library-add"></i> 
-                            <span class="hidden-xs">New Feedback</span>
+                            <span class="hidden-xs">New BLAST! Entry</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Nav -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Carousel -->
+                <div class="carousel">
+                    this is where the carousel sits
+                </div>
+                <!-- Carousel -->
+            </div>
+        </div>
 
         <!-- Feedback -->
         <div class="row">
@@ -472,96 +489,217 @@
 
     <!-- All the modals in the world -->
 
-    <!-- New Feedback -->
-    <div class="modal fade" id="newFeedback" tabindex="-1" role="dialog" aria-labelledby="newFeedback" aria-hidden="true">
+    <!-- New BLAST! -->
+    <div class="modal fade" id="newBLAST" tabindex="-1" role="dialog" aria-labelledby="newBLAST" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <form action="">
                     <div class="modal-header">
-                        <h4 class="modal-title text-center">New Feedback</h4>
+                        <h4 class="modal-title text-center">New BLAST! Entry</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-4">
-                                <h4 class="h4"><i class="md md-input"></i> Title Placeholder</h4>
+                            <div class="col-md-6">
+                                <h4 class="h4"><i class="md md-settings"></i> Set Title and Scope of BLAST! Entry</h4>
                                 <div class="well">
                                     <div class="form-group">
-                                        <label for="" class="control-label">Choose Form</label>
+                                        <label for="" class="control-label">BLAST! Title</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Select one or more applicable target(s) to this plan</label>
                                         <select name="" id="" class="form-control"></select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="control-label">Choose Category</label>
-                                        <select name="" id="" class="form-control"></select>
+                                        <label for="" class="control-label">Selected Measures</label>
+                                        <div class="well well-sm selected-measure-container">
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <h4 class="h4">Another placeholder</h4>
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="control-label">Strengths</label>
-                                    <textarea name="" id="" cols="30" rows="2" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Weaknesses</label>
-                                    <textarea name="" id="" cols="30" rows="2" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Areas for Improvements</label>
-                                    <textarea name="" id="" cols="30" rows="2" class="form-control"></textarea>
+                                    <label for="" class="control-label">General Plan</label>
+                                    <textarea name="" id="" cols="30" rows="15" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="modal-footer">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <button type="button" class="btn btn-transparent" data-dismiss="modal">Discard Changes</button>
-                                <button type="button" class="btn btn-primary">Save Feedback</button>  
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Discard Changes</button>
+                        <button type="button" class="btn btn-primary">Save BLAST!</button>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Filter List -->
-    <div class="modal fade" id="filterList" tabindex="-1" role="dialog" aria-labelledby="newFeedback" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
+    <!-- Browse BLAST! -->
+    <div class="modal fade js_modal" id="browseBLAST" tabindex="-1" role="dialog" aria-labelledby="browseBLAST" aria-hidden="true">
+        <div class="modal-dialog modal-xlg">
             <div class="modal-content">
                 <form action="">
                     <div class="modal-header">
-                        <h4 class="modal-title text-center">Filter List</h4>
+                        <h4 class="modal-title text-center">Browsing <span class="h3">3</span> entries in BLAST! Library</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Select Category</label>
-                                    <select name="" id="" class="form-control"></select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Coaching Session Date</label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Date Acknowledged</label>
 
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Sort By</label>
-                                    <select name="" id="" class="form-control">
-                                        <option value="ascending">Ascending</option>
-                                        <option value="descending">Descending</option>
-                                    </select>
+                            <!-- Filter -->
+                            <div class="col-md-4">
+                                <div class="well" style="margin-bottom: 0;">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Action Plan</label>
+                                        <select name="" id="" class="form-control"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Author</label>
+                                        <select name="" id="" class="form-control"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="control-label btn-block">Ratings</label>
+                                        <div class="h_justified">
+                                            <div class="h_justified-group">                                        
+                                                <label class="control-label">Employee</label>
+                                                <div class="btn-group btn-block btn-block-left">
+                                                    <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="js_dropdown-select-value">5 stars</span>
+                                                        <i class="md md-lg md-keyboard-arrow-down caret-chevron"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-custom pull-right js_dropdown-select" role="menu">
+                                                        <li><a href ><span>5</span> stars</a></li>
+                                                        <li><a href ><span>4</span> stars</a></li>
+                                                        <li><a href ><span>3</span> stars</a></li>
+                                                        <li><a href ><span>2</span> stars</a></li>
+                                                        <li><a href ><span>1</span> star</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="h_justified-group">
+                                                <label class="control-label">Supervisor</label>
+                                                <div class="btn-group btn-block btn-block-left">
+                                                    <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="js_dropdown-select-value">5 stars</span>
+                                                        <i class="md md-lg md-keyboard-arrow-down caret-chevron"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-custom pull-right js_dropdown-select" role="menu">
+                                                        <li><a href ><span>5</span> stars</a></li>
+                                                        <li><a href ><span>4</span> stars</a></li>
+                                                        <li><a href ><span>3</span> stars</a></li>
+                                                        <li><a href ><span>2</span> stars</a></li>
+                                                        <li><a href ><span>1</span> star</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Select a Program / Project</label>
+                                        <select name="" id="" class="form-control"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Select LOB</label>
+                                        <select name="" id="" class="form-control"></select>
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="button" class="btn btn-transparent">
+                                            <i class="md md-lg md-clear-all"></i>
+                                            Clear Filter
+                                        </button>
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="md md-lg md-filter-list"></i> Apply Filter
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- Filter -->
+
+                            <!-- Library -->
+                            <div class="col-md-8">
+                                <div class="modal-scroll-container js_modal-container">
+
+                                    <!-- Library Card Item -->
+                                    <div class="library-card">
+                                        <div class="panel panel-default-timeline">
+                                            <div class="panel-heading">
+                                                <!-- Post Metadata -->
+                                                <div class="panel-heading-content">
+                                                    <span class="subject-heading">Innovation</span>
+                                                    <span class="subject-sub-heading">Form and Function</span>
+
+                                                    <small class="text-muted">
+                                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                                    </small>
+
+                                                </div>
+                                                <!-- Post Metadata -->
+
+                                                <!-- Author's Post -->
+                                                <div class="panel-author-post">
+                                                    <div class="pane-post-ratings well well-sm">
+                                                        <div class="feedback-rating-item no-border-left">
+                                                            <span class="rate-one">Supervisor: 
+                                                                <b class="rating">3</b>
+                                                                <i class="md md-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="feedback-rating-item">
+                                                            <span class="rate-four">Employee:
+                                                                <b class="rating">4</b>
+                                                                <i class="md md-star"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="panel-post-content">
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    </p>
+
+                                                    <!-- Use as Template -->
+                                                    <button type="button" class="btn btn-block btn-transparent" onclick="open_library_controls(this)">
+                                                        <i class="md md-lg md-note-add text-success"></i>
+                                                        Create New BLAST! from this entry
+                                                    </button>
+                                                    <!-- Use as Template -->
+
+                                                    <!-- Library Controls -->
+                                                    <div class="library-controls js_init_hidden js_library-controls">
+                                                        <div class="form-group">
+                                                            <label for="" class="control-label">Select one or more target(s) applicable to this plan</label>
+                                                            <select name="" id="" class="form-control"></select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="selected-measures">
+                                                                <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="pull-right">
+                                                                <button type="button" class="btn btn-transparent" onclick="close_library_controls(this)">
+                                                                    <i class="md md-lg md-close"></i> Back to View
+                                                                </button>
+                                                                <button type="button" class="btn btn-success" onclick="apply_library()">
+                                                                    <i class="md md-lg md-check"></i> Apply and Close Library
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Library Controls -->
+                                                </div>
+                                                <!-- Author's Post -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Library Card Item -->
+                                </div>
+                            </div>
+                            <!-- Library -->
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Apply Filter</button>
+                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Close BLAST! Library</button>
                     </div>
                 </form>
             </div>

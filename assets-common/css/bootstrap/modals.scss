@@ -31,7 +31,7 @@
   // When fading in the modal, animate it to slide down
   &.fade .modal-dialog {
     @include translate(0, -25%);
-    @include transition-transform(0.3s ease-out);
+    @include transition-transform(0.3s cubic-bezier(.77,.59,.26,.9));
   }
   &.in .modal-dialog { @include translate(0, 0) }
 }
@@ -53,8 +53,9 @@
   background-color: $modal-content-bg;
   border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
   border: 1px solid $modal-content-border-color;
+  border-bottom: 1px solid #BEBEBE;
   border-radius: $border-radius-large;
-  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  @include box-shadow(0 20px 50px rgba(95, 95, 95, 0.6));
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
@@ -75,13 +76,18 @@
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
-  padding: $modal-title-padding;
-  border-bottom: 1px solid $modal-header-border-color;
+  padding: ($modal-title-padding - 5) $modal-title-padding;
+  color: #fff;
+  background-color: $gray;
   min-height: ($modal-title-padding + $modal-title-line-height);
+  border-top-left-radius: $border-radius-large;
+  border-top-right-radius: $border-radius-large;
 }
 // Close icon
-.modal-header .close {
-  margin-top: -2px;
+.modal-header .btn-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 
 // Title text within header
@@ -94,7 +100,7 @@
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
-  padding: $modal-inner-padding;
+  padding: $modal-inner-padding * 2;
 }
 
 // Footer (for actions)
@@ -136,7 +142,7 @@
     margin: 30px auto;
   }
   .modal-content {
-    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
+    @include box-shadow(0 20px 50px rgba(95, 95, 95, 0.6));
   }
 
   // Modal sizes
@@ -145,4 +151,24 @@
 
 @media (min-width: $screen-md-min) {
   .modal-lg { width: $modal-lg; }
+  .modal-xlg { width: $modal-lg; }
+}
+
+@media (min-width: $screen-lg-min) {
+  .modal-xlg { width: $modal-xlg - 100; }
+}
+
+@media (min-width: $screen-xlg-min) {
+  .modal-xlg { width: $modal-xlg; }
+}
+
+// Scroll
+.modal-scroll-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 300px;
+  padding: 10px;
+  border: 1px solid lighten($gray, 40%);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }

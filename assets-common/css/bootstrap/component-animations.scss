@@ -9,7 +9,7 @@
 
 .fade {
   opacity: 0;
-  @include transition(opacity .2s cubic-bezier(.11,.5,.34,.97));
+  @include transition(opacity .2s cubic-bezier(.44,.01,.65,.98));
   &.in {
     opacity: 1;
   }

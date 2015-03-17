@@ -221,6 +221,19 @@
 }
 
 
+// Block and left aligned button groups
+// ----------------------
+.btn-block-left {
+  .btn {
+    text-align: left;
+    > .caret-chevron {
+      display: inline-block;
+      float: right;
+      padding-top: 4px;
+    }
+  }
+}
+
 // Checkbox and radio options
 //
 // In order to support the browser's form validation feedback, powered by the

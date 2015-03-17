@@ -157,6 +157,7 @@ output {
 // Reset height for `textarea`s
 textarea.form-control {
   height: auto;
+  resize: none;
 }
 
 
@@ -572,4 +573,11 @@ input[type="checkbox"] {
       }
     }
   }
+}
+
+// Style label text inside form-group
+.form-group > .control-label {
+  text-transform: uppercase;
+  color: $gray;
+  font-size: 0.9em;
 }

@@ -11,7 +11,7 @@
   visibility: visible;
   // Reset font and text properties given new insertion method
   font-family: $font-family-base;
-  font-size: $font-size-small;
+  font-size: $font-size-base;
   font-weight: normal;
   line-height: 1.4;
   @include opacity(0);
@@ -31,7 +31,7 @@
   text-align: center;
   text-decoration: none;
   background-color: $tooltip-bg;
-  border-radius: $border-radius-base + 29;
+  border-radius: $border-radius-base;
 }
 
 // Arrows

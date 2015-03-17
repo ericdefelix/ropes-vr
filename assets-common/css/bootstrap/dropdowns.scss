@@ -42,7 +42,7 @@
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   background-color: $dropdown-bg;
   border: 1px solid #FFFFFF;
-  border-top: 1px solid #E7E7E7;
+  border-top: 1px solid #D0D0D0;
   border-bottom: 1px solid #B3B3B3;
   border-radius: $border-radius-base;
   @include box-shadow(0 5px 15px 0 rgba(0,0,0,.3));
@@ -64,11 +64,12 @@
   // Links within the dropdown menu
   > li > a {
     display: block;
-    padding: 15px 15px;
+    padding: 18px 15px;
     clear: both;
     font-weight: normal;
     line-height: $line-height-base;
     color: $dropdown-link-color;
+    cursor: pointer;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
   }
 }
@@ -221,8 +222,6 @@
 // Menu is aligned on the main header's base and consumes the entire screen on mobile phones
 .dropdown-menu-custom {
   margin-top: 11px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 
   > li {
     .md {
@@ -269,7 +268,7 @@
 
   &:before {
     border-color: rgba(231, 231, 231, 0);
-    border-bottom-color: #E7E7E7;
+    border-bottom-color: darken(#D0D0D0, 10%);
     border-width: 11px;
     margin-left: -11px;
   }

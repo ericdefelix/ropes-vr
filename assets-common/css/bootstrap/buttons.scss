@@ -118,6 +118,7 @@
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
     background-color: transparent;
+    cursor: pointer;
   }
   &[disabled],
   fieldset[disabled] & {
@@ -136,7 +137,7 @@
 .btn-transparent {
   color: inherit;
   font-weight: normal;
-  border-radius: 0;
+  border-radius: $border-radius-base;
 
   &,
   &:active,
@@ -156,7 +157,7 @@
   &:focus {
     color: inherit;
     text-decoration: none;
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.08);
   }
   &[disabled],
   fieldset[disabled] & {
@@ -171,15 +172,16 @@
 // Create floating buttons
 // --------------------------------------------------
 .btn-float {
-  position: absolute;
+  display: block;
+  position: absolute ;
+  top: ($grid-gutter-width / 2) + 5;
   &.btn-float-left {
-    left: 30px;
+    left: $grid-gutter-width + ($padding-base-horizontal / 2);
   }
   &.btn-float-right {
-    right: 30px;
+    right: $grid-gutter-width + ( $padding-base-horizontal / 2);
   }
 }
-
 
 // Button Sizes
 // --------------------------------------------------

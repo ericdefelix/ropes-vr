@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../assets-common/fonts/fontface.min.css">
     <link rel="stylesheet" href="../assets-common/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets-common/css/animate.min.css">
+    <link rel="stylesheet" href="../assets-common/css/jquery.mCustomScrollbar.min.css">
 
     <!-- COMET styles -->
     <link rel="stylesheet" href="assets/css/main.css">
@@ -51,19 +52,27 @@
                             </div> 
                             <div class="current-user-img">
                                 <!-- <img src="" class="img-responsive img-rounded" alt="User's Full Name"> -->
-                                <div class="img-rounded img-responsive avatar" style="background-image: url(assets/img/avatar1.jpg);"></div>
+                                <div class="img-rounded img-responsive avatar" style="background-image: url(assets/img/avatar1.jpg);"></div> 
                             </div>
                             <i class="md md-keyboard-arrow-down md-lg"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
                             <li>
+                                <a href="#"><i class="md md-lg md-group"></i><span>My Team</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="md md-lg md-insert-chart"></i><span>My Team's Stats</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="md md-lg md-trending-up"></i><span>Trends and Forecast</span></a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#"><i class="md md-lg md-settings-applications"></i><span>Admin Forecast</span></a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <a href="#"><i class="md md-lg md-portrait"></i><span>Change Profile Picture</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="md md-lg md-group"></i><span>View My Team</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="md md-lg md-insert-chart"></i><span>View My Team's Stats</span></a>
                             </li>
                             <li>
                                 <a href="#"><i class="md md-lg md-exit-to-app text-danger"></i><span>Sign Out</span></a>
@@ -75,7 +84,7 @@
 
                 <!-- Notifications -->
                 <div class="btn-group">
-                    <button class="btn btn-transparent btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <button type="button" class="btn btn-transparent btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <strong class="badge-notif">5</strong>
                         <i class="md md-notifications md-lg md-alert-custom"></i>
                     </button>
@@ -105,45 +114,69 @@
                 </div>
 
                 <!-- Search Team -->
-                <div class="btn-group" data-toggle="tooltip" data-placement="left" title="Search Your Team">
-                    <button class="btn btn-cyan btn-sm dropdown-toggle" onclick="toggle_team()">
+                <div class="btn-group" data-toggle="tooltip" data-placement="left" title="Search Your Team [Alt+F]">
+                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" onclick="toggle_team()">
                         <i class="md md-group md-lg"></i>
                     </button>
-                    
                     <!-- Append 'in' class to open -->
                     <div class="team-panel" id="searchParent">
                         <div class="team-search">
                             <div class="team-input-group">
                                 <span><i class="md md-2x md-search"></i></span>
-                                <input type="text" class="form-control input-lg search-input" autofocus placeholder="Type a name...">
+                                <input type="text" class="form-control input-lg search-input mousetrap js_search-input" autofocus placeholder="Enter Employee Name or ID...">
                             </div>
 
                             <!-- Team List Scroll -->
-                            <div class="team-list-group" id="teamListGroup">
+                            <div class="team-list-group js_custom-scroll" id="teamListGroup" data-mcs-theme="minimal-dark">
                                 <ul class="team-list list-unstyled">
+
+                                    <!-- Remove style: background-image if no profile image provided -->
                                     <li class="team-list-item">
                                         <div class="item-profile-img">
                                             <div class="img-circle img-responsive avatar"></div>
                                         </div>
                                         <div class="item-profile-metadata">
-                                            <span>John Doe has a very very long long long long name</span>
-                                            <span>UI Developer</span>
-                                            <div class="mask"><i class="md md-launch"></i></div>
+                                            <span><i class="md md-group"></i> John Doe has a very very long long long long name</span>
+                                            <span><i class="md md-work"></i> UI Developer</span>
+                                            <div class="mask"></div>
                                         </div>
                                     </li>
+                                    <!-- Remove style: background-image if no profile image provided -->
 
-                                    <!-- Demo -->
-                                    <li class="team-list-item">
+                                    <!-- Superior and direct reports -->
+                                    <li class="team-list-item js_team-list-item">
                                         <div class="item-profile-img">
                                             <div class="img-circle img-responsive avatar" style="background-image: url(assets/img/avatar2.jpg);"></div>
                                         </div>
                                         <div class="item-profile-metadata">
-                                            <span>Eric de Felix</span>
-                                            <span>UI Developer</span>
+                                            <span><i class="md md-group"></i> Eric de Felix</span>
+                                            <span><i class="md md-work"></i> UI Developer</span>
+                                            <div class="mask">
+                                                <button type="button" class="btn btn-xs btn-transparent js_expand_directs" onclick="expand_directs(this)">
+                                                    <i class="md md-expand-more md-2x"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </li>
-                                    <!-- Demo -->
 
+                                        <!-- Direct Reports -->
+                                        <ul class="team-list team-sublist list-unstyled js_team-sublist js_init_hidden">
+                                            <!-- Direct Report item -->
+                                            <li class="team-list-item">
+                                                <div class="item-profile-img">
+                                                    <div class="img-circle img-responsive avatar" style="background-image: url(assets/img/avatar2.jpg);"></div>
+                                                </div>
+                                                <div class="item-profile-metadata">
+                                                    <span><i class="md md-person"></i> John Doe</span>
+                                                    <span><i class="md md-work"></i> UI Junior</span>
+                                                    <div class="mask"></div>
+                                                </div>
+                                            </li>
+                                            <!-- Direct Report item -->
+
+                                        </ul>
+                                        <!-- Direct Reports -->
+                                    </li>
+                                    <!-- Superior and direct reports -->
                                 </ul>
                             </div>
                             <!-- Team List Scroll -->
@@ -219,7 +252,7 @@
                                 </a>
                             </li>
                             <li class="score-card-controls pull-right">
-                                <button class="btn btn-sm btn-default">
+                                <button class="btn btn-default">
                                     <i class="md md-lg md-open-in-new text-primary"></i>
                                     <span class="hidden-xs">View Report</span>
                                 </button>
@@ -325,8 +358,8 @@
                                                 <div class="score-item-button">
 
                                                     <!-- Show more actions -->
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                                             <i class="md md-more-horiz md-lg"></i>
                                                             <span class="visible-xs-inline visible-sm-inline">More Actions </span>
                                                         </button>
@@ -391,8 +424,8 @@
                                                 <div class="score-item-button">
 
                                                     <!-- Show more actions -->
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                                             <i class="md md-more-horiz md-lg"></i>
                                                             <span class="visible-xs-inline visible-sm-inline"> More Actions</span>
                                                         </button>
@@ -444,6 +477,9 @@
 
     <script src="../assets-common/js/jquery-1.11.2.min.js"></script>
     <script src="../assets-common/js/bootstrap.min.js"></script>
+    <script src="../assets-common/js/velocity.min.js"></script>
+    <script src="../assets-common/js/mousetrap.min.js"></script>
+    <script src="../assets-common/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 

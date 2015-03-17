@@ -26,7 +26,8 @@ kbd {
   font-size: 90%;
   color: $kbd-color;
   background-color: $kbd-bg;
-  border-radius: $border-radius-small;
+  border-radius: 2px;
+  border: 1px solid #CFCFCF;
   box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
 
   kbd {
