@@ -159,7 +159,7 @@
 }
 
 
-// Brand/project name
+// [24]7 Logo
 
 .navbar-brand {
   float: left;
@@ -175,11 +175,14 @@
 
   > img {
     @media (max-width: $screen-xs-max) {
-      width: 70px;
-      margin-top: 5px;
+      height: $navbar-height - ($navbar-padding-vertical + $navbar-padding-horizontal);
+      width: auto;
+      margin-top: 2px;
     }
     @media (min-width: $screen-sm-min) {
-      width: 96px;
+      height: $navbar-height - ($navbar-padding-vertical + $navbar-padding-horizontal);
+      margin-top: 2px;
+      width: auto;
     }
     display: block;
   }

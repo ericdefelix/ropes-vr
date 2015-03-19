@@ -37,7 +37,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header navbar-fixed-left">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets-common/img/logo.png" alt="[24]7" class="img-responsive" width="167" height="56">
+                    <img src="../assets-common/img/logo.png" alt="[24]7">
                 </a>
             </div>
         
@@ -72,7 +72,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#"><i class="md md-lg md-portrait"></i><span>Change Profile Picture</span></a>
+                                <a href="#" data-toggle="modal" data-target="#changeProfilePhoto" data-backdrop="static" data-keyboard="false"><i class="md md-lg md-portrait"></i><span>Change Profile Picture</span></a>
                             </li>
                             <li>
                                 <a href="#"><i class="md md-lg md-exit-to-app text-danger"></i><span>Sign Out</span></a>
@@ -452,9 +452,193 @@
                                             <!-- TO BE REMOVED: For testing only -->
                                         </div>
                                         <!-- Body -->
-
                                     </div>
                                     <!-- Score Card Responsive Table -->
+                                    <hr class="score-divider">
+
+                                    <div class="score-card-table">
+
+                                        <!-- Header -->
+                                        <div class="score-card-head">
+                                            <div class="score-card-heading-row">
+                                                <div class="score-item-category">
+                                                    <span>Quality</span>
+                                                </div>
+
+                                                <div class="score-item-group hidden-xs hidden-sm">
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Month to Date Score">
+                                                        <span>MTD Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Previous Month's Score">
+                                                        <span>Dec</span>&nbsp;<span>Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Agreed Target Score">
+                                                        <span>Commitment</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Current Score">
+                                                        <span>Jan</span>&nbsp;<span>Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Improvement">
+                                                        <span>% Improv</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="I dunno what to put here">
+                                                        <span>Indicators</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="BRIDGE">
+                                                        <span>BRIDGE Status</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button hidden-xs hidden-sm"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Header -->
+
+                                        <!-- Body -->
+                                        <div class="score-card-body">
+                                            <div class="score-card-body-row">
+                                                <div class="score-item-category">
+                                                    <span class="score-measure hoverable help" data-toggle="popover" title="Customer&nbsp;Service" data-content="Put measures here">Customer Service Assurance this is very long it will break</span>
+                                                    <span class="score-status text-success"><i class="fa fa-check-circle"></i> Acknowledged</span>
+                                                </div>
+
+                                                <div class="score-item-group">
+                                                    <div class="score-item-xs">
+                                                        <small>MTD Score</small>
+                                                        <span>34.3</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Dec</span> Score</small>
+                                                        <span>80</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Commitment</small>
+                                                        <span class="hoverable commit-edit locked" id="editCommit" onclick="edit_commit()">
+                                                            <input type="text" value="90" class="form-control commit-edit-input input-sm" name="commit" id="commitedValue" onkeypress="return isNumber(event)">
+                                                            <span class="commit-edit-display">90</span>
+                                                        </span>
+                                                        <div class="btn-group btn-group-sm commit-controls">
+                                                            <button class="btn btn-green" onclick="save_commit()"><i class="md md-check"></i></button>
+                                                            <button class="btn btn-burgundy" onclick="cancel_commit()"><i class="md md-close"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Jan</span> Score</small>
+                                                        <span>85</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>% Improvement</small>
+                                                        <span class="unit-percent">5</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Indicators</small>
+                                                        <i class="md md-2x md-close text-danger"></i>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Bridge Status</small>
+                                                        <span class="score-badge ongoing">On-going</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button">
+
+                                                    <!-- Show more actions -->
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="md md-more-horiz md-lg"></i>
+                                                            <span class="visible-xs-inline visible-sm-inline">More Actions </span>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                                                            <li>
+                                                                <a href="#" class="bg-positive"><i class="md md-lg md-thumb-up"></i>
+                                                                    <strong>
+                                                                        <span>Acknowledge this Measure</span>
+                                                                    </strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View My Feedback Thread</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View BLAST! Entries</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- Show more actions -->
+                                                </div>
+                                            </div>
+
+                                            <!-- TO BE REMOVED: For testing only -->
+                                            <div class="score-card-body-row">
+                                                <div class="score-item-category">
+                                                    <span class="score-measure">Customer Service Assurance this is very long it will break</span>
+                                                    <span class="score-status text-warning"><i class="fa fa-question-circle"></i> Pending</span>
+                                                </div>
+
+                                                <div class="score-item-group">
+                                                    <div class="score-item-xs">
+                                                        <small>MTD Score</small>
+                                                        <span>34.3</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Dec</span> Score</small>
+                                                        <span>80</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Commitment</small>
+                                                        <span>90</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Jan</span> Score</small>
+                                                        <span>85</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>% Improvement</small>
+                                                        <span class="unit-percent">5</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Indicators</small>
+                                                        <i class="md md-2x md-check text-success"></i>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Bridge Status</small>
+                                                        <span class="score-badge ongoing">On-going</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button">
+
+                                                    <!-- Show more actions -->
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="md md-more-horiz md-lg"></i>
+                                                            <span class="visible-xs-inline visible-sm-inline"> More Actions</span>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                                                            <li>
+                                                                <a href="#" class="bg-positive"><i class="md md-lg md-thumb-up"></i>
+                                                                    <strong>
+                                                                        <span>Acknowledge this Measure</span>
+                                                                    </strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View My Feedback Thread</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View BLAST! Entries</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- Show more actions -->
+                                                </div>
+                                            </div>
+
+                                            <!-- TO BE REMOVED: For testing only -->
+                                        </div>
+                                        <!-- Body -->
+
+                                    </div>
 
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="deletedMeasures">
@@ -472,8 +656,51 @@
             </div>
         </div>
         <!-- Scorecard -->
-
     </div>
+
+    
+    <!-- Modals -->
+    <!-- Change Profile Image -->
+    <div class="modal fade" id="changeProfilePhoto" tabindex="-1" role="dialog" aria-labelledby="changeProfilePhoto" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <form action="">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Change Your Profile Image</h4>
+                        <small class="text-center center-block">Image should be less than 2mb</small>
+                    </div>
+                    <!--  -->
+                    <div class="modal-body-profile">
+                        <div class="profile-img center-block">
+                            <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);">
+
+                                <!-- Profile Photo Picker -->
+                                <div class="avatar-picker center-block">
+                                    <input type="file" class="picker" id="picker">
+                                    <span class="icon">
+                                        <i class="md md-5x md-photo-camera"></i>
+                                    </span>
+                                </div>
+                                <!-- Profile Photo Picker -->
+
+                            </div>
+
+                        </div>
+                        <div class="profile-change-control">
+                            <div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+                                <button type="button" class="btn btn-block btn-lg btn-primary"><i class="md md-lg md-check"></i> Apply</button>
+                                <button type="button" class="btn btn-block btn-transparent" data-dismiss="modal"><i class="md md-lg md-close"></i> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Change Profile Image -->
+    
+    <!-- Modals -->
 
     <script src="../assets-common/js/jquery-1.11.2.min.js"></script>
     <script src="../assets-common/js/bootstrap.min.js"></script>

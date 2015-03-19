@@ -158,7 +158,7 @@ function resize_container_search() {
 function resize_container_modal() {
     var child = $('.js_modal-container');
     var body = $(document).height();
-    var totalHeight = body - 600;
+    var totalHeight = body - 620;
 
     child.css({ height: totalHeight + 'px' }); 
 }

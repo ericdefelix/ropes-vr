@@ -708,6 +708,8 @@ body {
 .score-card-body-row {
 	border-bottom: 1px solid darken($gray-lighter, 12%);
 
+	&:last-child { border-bottom: none; }
+
 	// Force text to center on smaller screens
 	> .score-item-category {
 		@media (max-width: $screen-sm-max) {
@@ -792,6 +794,19 @@ body {
 // Style the entire table
 .score-card-table {
 	@include make-row();
+	
+	& + .score-divider {
+		margin-left: -$grid-gutter-width;
+		margin-right: -$grid-gutter-width;
+		margin-bottom: $grid-gutter-width;
+		margin-top: $grid-gutter-width / 2;
+		border-top: 1px solid #BEBEBE;
+		border-bottom: 1px solid #E4E4E4;
+	}
+
+	&:last-child + .score-divider {
+		display: none;
+	}
 	
 	> .score-card-head,
 	> .score-card-body {
@@ -1182,6 +1197,87 @@ body {
 			cursor: pointer;
 		}
 	}
+}
+
+// Change Profile Photo
+.modal-body-profile {
+	display: table;
+	width: 100%;
+	padding: $grid-gutter-width;
+	background-color: $brand-cyan;
+	border-bottom-right-radius: $border-radius-base;
+	border-bottom-left-radius: $border-radius-base;
+
+	.profile-img {
+		padding: $grid-gutter-width / 2 ;
+		position: relative;
+
+		.avatar {
+			width: $avatar-lg;
+			height: $avatar-lg;
+			position: relative;
+		}
+
+		.avatar-picker {
+			width: $avatar-lg - 10;
+			height: $avatar-lg - 10;
+			position: relative;
+			border-radius: $avatar-lg;
+			background-color: rgba(255,255,255,0.1);
+
+			.icon {
+				display: table-cell;
+				width: $avatar-lg - 10;
+				height: $avatar-lg - 10;
+				vertical-align: middle;
+				> i.md {
+					display: block;
+					text-align: center;
+					color: #fff;
+					opacity: 0.3;
+				}
+			}
+
+			&:hover {
+				cursor: pointer;
+				background-color: rgba(255,255,255,0.3);
+
+				.icon {
+					> i.md {
+						color: #fff;
+						opacity: 0.8;
+					}
+				}
+			}
+		}
+
+		.avatar-picker > .picker {
+			width: $avatar-lg;
+			height: $avatar-lg;
+			position: absolute;
+			top: 0;
+			left: 0;
+			// visibility: hidden;
+			opacity: 0;
+			z-index: $zindex-modal;
+		}
+		.picker {
+			&:hover {
+				cursor: pointer;
+			}
+
+			&:active, &:focus {
+				outline: none;
+			}
+		}
+	}
+
+	.profile-change-control {
+		display: block;
+		clear: both;
+		position: relative;
+	}
+
 }
 
 // Misc Helpers

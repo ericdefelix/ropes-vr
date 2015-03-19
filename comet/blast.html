@@ -72,7 +72,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#"><i class="md md-lg md-portrait"></i><span>Change Profile Picture</span></a>
+                                <a href="#" data-toggle="modal" data-target="#changeProfilePhoto" data-backdrop="static" data-keyboard="false"><i class="md md-lg md-portrait"></i><span>Change Profile Picture</span></a>
                             </li>
                             <li>
                                 <a href="#"><i class="md md-lg md-exit-to-app text-danger"></i><span>Sign Out</span></a>
@@ -705,6 +705,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Change Profile Image -->
+    <div class="modal fade" id="changeProfilePhoto" tabindex="-1" role="dialog" aria-labelledby="changeProfilePhoto" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <form action="">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Change Your Profile Image</h4>
+                        <small class="text-center center-block">Image should be less than 2mb</small>
+                    </div>
+                    <!--  -->
+                    <div class="modal-body-profile">
+                        <div class="profile-img center-block">
+                            <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);">
+
+                                <!-- Profile Photo Picker -->
+                                <div class="avatar-picker center-block">
+                                    <input type="file" class="picker" id="picker">
+                                    <span class="icon">
+                                        <i class="md md-5x md-photo-camera"></i>
+                                    </span>
+                                </div>
+                                <!-- Profile Photo Picker -->
+
+                            </div>
+
+                        </div>
+                        <div class="profile-change-control">
+                            <div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+                                <button type="button" class="btn btn-block btn-lg btn-primary"><i class="md md-lg md-check"></i> Apply</button>
+                                <button type="button" class="btn btn-block btn-transparent" data-dismiss="modal"><i class="md md-lg md-close"></i> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Change Profile Image -->
 
     <!-- All the modals in the world -->
 

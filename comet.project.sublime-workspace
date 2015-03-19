@@ -4,6 +4,142 @@
 		"selected_items":
 		[
 			[
+				"z",
+				"z-index"
+			],
+			[
+				"avat",
+				"avatar-lg"
+			],
+			[
+				"base",
+				"border-radius-base"
+			],
+			[
+				"border-b",
+				"border-bottom-right-radius"
+			],
+			[
+				"nav",
+				"navbar-height"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"modal",
+				"modal-xlg"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"paddi",
+				"padding"
+			],
+			[
+				"bra",
+				"brand-cyan"
+			],
+			[
+				"oue",
+				"outerHeight	.outerHeight()"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"js_d",
+				"js_dropdown-select-value"
+			],
+			[
+				"pare",
+				"parent	.parent()"
+			],
+			[
+				"dis",
+				"disabled	Event"
+			],
+			[
+				"paren",
+				"parentsUntil	.parentsUntil()"
+			],
+			[
+				"clo",
+				"closest	.closest()"
+			],
+			[
+				"js_comm",
+				"js_comment-input"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"has",
+				"hasClass	.hasClass()"
+			],
+			[
+				"htm",
+				"innerHTML	Element"
+			],
+			[
+				"cu",
+				"cursor"
+			],
+			[
+				"border-",
+				"border-radius-large"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"btn-def",
+				"btn-default-color"
+			],
+			[
+				"borde",
+				"border-radius-base"
+			],
+			[
+				"well",
+				"well-bg"
+			],
+			[
+				"brand-",
+				"brand-cyan"
+			],
+			[
+				"bran-",
+				"brand-orange"
+			],
+			[
+				"pad",
+				"padding-base-horizontal"
+			],
+			[
+				"paddin",
+				"padding-base-vertical"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"avata",
+				"avatar-base-size"
+			],
+			[
 				"ba",
 				"background-color"
 			],
@@ -60,14 +196,6 @@
 				"avatar-default-bg"
 			],
 			[
-				"borde",
-				"border-bottom-left-radius"
-			],
-			[
-				"bra",
-				"brand-cyan"
-			],
-			[
 				"font-fa",
 				"font-family-bold"
 			],
@@ -99,23 +227,111 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "comet/assets/css/main.scss",
+			"settings":
+			{
+				"buffer_size": 23566,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets-common/css/bootstrap/buttons.scss",
+			"settings":
+			{
+				"buffer_size": 5549,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets-common/css/bootstrap/mixins/nav-divider.scss",
+			"settings":
+			{
+				"buffer_size": 254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "comet/assets/js/main.js",
+			"settings":
+			{
+				"buffer_size": 5470,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets-common/css/bootstrap.min.scss",
+			"settings":
+			{
+				"buffer_size": 1284,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets-common/css/bootstrap/variables.scss",
+			"settings":
+			{
+				"buffer_size": 34104,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "comet/feedback.html",
+			"settings":
+			{
+				"buffer_size": 36515,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "comet/performance.html",
+			"settings":
+			{
+				"buffer_size": 33406,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "comet/blast.html",
+			"settings":
+			{
+				"buffer_size": 47336,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "comet/trends-forecast.html",
+			"settings":
+			{
+				"buffer_size": 20917,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "comet/admin-forecast.html",
+			"settings":
+			{
+				"buffer_size": 20917,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/SASS Build/SASS - Compressed.sublime-build",
 	"command_palette":
 	{
-		"height": 267.0,
+		"height": 87.0,
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"list",
 				"Package Control: List Packages"
 			],
 			[
 				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"insta",
 				"Package Control: Install Package"
 			],
 			[
@@ -148,6 +364,33 @@
 	},
 	"file_history":
 	[
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/modals.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/fonts/fontface.min.css",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/type.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/button-groups.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/forms.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/scaffolding.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/grid.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/bs3test.html",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/panels.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/Project Libraries/[24]7 UI Framework/sass/style.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/tooltip.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/component-animations.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/comet/index.html",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/jquery.mCustomScrollbar.min.css",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/jquery.mCustomScrollbar.css",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/comet/assets/js/shortcuts.js",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/code.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/utilities.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/animate.min.css",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/dropdowns.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/js/velocity.min.js",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/Content/assets-common/fonts/fontface.min.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/Content/assets-common/fonts/fontface.min.css",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/navbar.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/badges.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/buttons.scss",
+		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/comet/assets-common/css/bootstrap/mixins/buttons.scss",
 		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/assets-common/bs3test.html",
 		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/assets-common/css/bootstrap/jumbotron.scss",
 		"/Users/eric.defelix/Documents/Eric_Projects/_DEV/assets-common/css/bootstrap/panels.scss",
@@ -240,134 +483,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"inline-block",
-			"styl",
-			"timeline",
-			"score-card-panel",
-			"md-lg",
-			"navbar-float",
-			"navbar",
-			"lef",
-			"class=\"btn btn-default",
-			"=\"btn btn-default\"",
-			"left",
-			"transi",
-			"mask",
-			"profile",
-			"Profile",
-			"profile",
-			"nowrap",
-			"input",
-			"hoverable",
-			"@media",
-			"md-grou",
-			"fa",
-			"lock",
-			"score-item-xs",
-			"<div class=\"score-item-xs\">",
-			"MTD Sc",
-			"horiz",
-			"border-rad",
-			"tooltip",
-			"tootlip",
-			"avatar",
-			"indicator",
-			"profile-img",
-			"avatar",
-			"open",
-			"Feed",
-			"default-radius",
-			"rad",
-			"score-item-cate",
-			"score-item-grou",
-			"score-card-heading-row",
-			"score-item-group",
-			"score-item-grou",
-			"md",
-			"horiz",
-			"score-item-xs",
-			"Pending",
-			"Ackno",
-			"make-xs",
-			"make-md",
-			"score-item-md",
-			"columns",
-			"text-danger",
-			"5",
-			"lg",
-			"col-1",
-			"col",
-			"\"c\"",
-			"c",
-			"font-fam",
-			"font-fami",
-			"padding:",
-			"nav",
-			"nav>li>a",
-			"panel-footer",
-			"dropdown-menu",
-			"md-",
-			"color",
-			"dropdown-link-color",
-			"dropdown-link",
-			"dropdo",
-			"tran",
-			"transp",
-			"transo",
-			"                            <li class=\"divider\"></li>",
-			"md-lg",
-			"\"#\">",
-			"href",
-			"<span>",
-			"<a href=\"\"></a>",
-			"ul",
-			"bootstrap",
-			"state-success",
-			"r, $alert",
-			"$alert",
-			"zindex",
-			"caret",
-			"lighten(",
-			"text-danger",
-			"alert",
-			"text",
-			"text-warning",
-			"popover",
-			"fade",
-			"popover",
-			"arrow",
-			"caret",
-			"popover",
-			"dropdown",
-			"close",
-			"state-success-text",
-			"input-warning",
-			"padding",
-			"form-",
-			"rgba",
-			"easing",
-			"transi",
-			"4",
-			"<a",
-			"a",
-			"15",
-			"-border);",
-			"-border",
-			"active",
+			"cla",
+			"button",
+			"span",
+			"\"btn",
+			"0",
+			"profile-info",
+			"woff",
+			"function",
+			"<select name=\"\" id=\"\" class=\"form-control\"></select>",
+			"</label>",
+			"up\">",
+			"back",
+			"Browse",
+			"screen",
+			"timeline-card",
+			"well-sm",
+			"well",
+			"<button",
+			"control-labe",
 			"btn-group",
-			"input-group",
-			"input-griy",
-			"active",
-			"link-hover-color",
-			"5",
-			"fafafa",
-			"Component",
-			"component",
+			"sub-label",
+			"control-label",
+			"text-muted",
+			"dropdown-toggle",
+			"well",
+			"wekk",
+			"well",
+			"btn-group.btn.bloc",
+			"btn-group",
+			"stars",
+			" input-sm",
+			"blas title",
+			"btn-group",
+			"panel-avatar",
+			"Esc",
+			"escape",
+			"Excape",
+			"27px",
+			"commit-control",
+			"</a>",
+			"href",
+			"=\"#\"",
+			"blas",
+			"dropd",
+			"panel-post",
+			"panel-post-content",
+			"score-legen",
+			"perfor",
+			"js_comment-edit-mode",
+			"input-sm",
+			"oup\">",
+			"50",
+			"font-size",
+			"team-list",
+			"minimal-dark",
+			"panel-commen",
+			"50px",
+			"metadata",
+			"sup",
+			"badge-notif",
+			"btn-l",
+			"btn-link",
+			"kbd",
+			"js_comment-input",
+			"'.panel-body'",
+			"()",
+			"href",
+			"divider",
+			"panel-divider",
+			"hr",
+			"3/5",
+			"velocity",
+			"transparent",
+			"panel-post-contn",
+			"panel-comment-controls",
+			"transparent",
+			"well",
+			"panel-",
+			"link",
+			"small",
+			"span",
+			"textarea",
+			"form-grou",
+			"<div class=\"form-group\">",
+			"form-group",
+			"modal",
+			"fade",
+			"radius",
+			"padding",
+			"modal",
+			"data",
+			"New Feedbac",
+			"text-muted",
+			"button",
+			"padding",
+			"radius",
+			"raidus-base",
+			"transp",
+			"small",
+			"after",
+			":after",
+			".arrow_box",
+			"sub",
+			"small",
+			"4",
+			"panel-post-content",
+			"6",
+			"-rate",
+			"padding",
+			"well",
+			"feedback",
+			"border-top",
+			"<i class=\"md md-star\"></i>",
+			"dropdown",
+			"dropd",
+			"filter",
+			"assets",
+			"btn-xs ",
+			"button",
 			"default",
-			"button-variant",
-			"color",
-			"box-shadow",
-			"gradient-horizontal"
+			"feedback",
+			"role",
+			"label",
+			"btn-grou",
+			"badge",
+			"feedbac",
+			"Feedbac",
+			"float"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -385,13 +628,316 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "comet/assets/css/main.scss",
+					"settings":
+					{
+						"buffer_size": 23566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21604,
+								21604
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 17215.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "assets-common/css/bootstrap/buttons.scss",
+					"settings":
+					{
+						"buffer_size": 5549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5286,
+								5286
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2856.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets-common/css/bootstrap/mixins/nav-divider.scss",
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								203,
+								203
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "comet/assets/js/main.js",
+					"settings":
+					{
+						"buffer_size": 5470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3304,
+								3304
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1562.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		},
 		{
+			"selected": 6,
 			"sheets":
 			[
+				{
+					"buffer": 4,
+					"file": "assets-common/css/bootstrap.min.scss",
+					"settings":
+					{
+						"buffer_size": 1284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								324,
+								324
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "assets-common/css/bootstrap/variables.scss",
+					"settings":
+					{
+						"buffer_size": 34104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13550,
+								13537
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4078.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "comet/feedback.html",
+					"settings":
+					{
+						"buffer_size": 36515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4111,
+								4111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 906.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "comet/performance.html",
+					"settings":
+					{
+						"buffer_size": 33406,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4111,
+								3826
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 843.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "comet/blast.html",
+					"settings":
+					{
+						"buffer_size": 47336,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4111,
+								4111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 887.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "comet/trends-forecast.html",
+					"settings":
+					{
+						"buffer_size": 20917,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4111,
+								4111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 827.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "comet/admin-forecast.html",
+					"settings":
+					{
+						"buffer_size": 20917,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4111,
+								4111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 974.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -428,7 +974,7 @@
 		"rows":
 		[
 			0.0,
-			0.616304403005,
+			0.201224181138,
 			1.0
 		]
 	},
@@ -448,16 +994,148 @@
 		"selected_items":
 		[
 			[
+				"adm",
+				"comet/admin-forecast.html"
+			],
+			[
+				"font",
+				"assets-common/fonts/fontface.min.css"
+			],
+			[
+				"tren",
+				"comet/trends-forecast.html"
+			],
+			[
+				"moda",
+				"assets-common/css/bootstrap/modals.scss"
+			],
+			[
+				"sca",
+				"assets-common/css/bootstrap/scaffolding.scss"
+			],
+			[
+				"gri",
+				"assets-common/css/bootstrap/grid.scss"
+			],
+			[
+				"for",
+				"assets-common/css/bootstrap/forms.scss"
+			],
+			[
+				"butt",
+				"assets-common/css/bootstrap/button-groups.scss"
+			],
+			[
 				"pane",
 				"assets-common/css/bootstrap/panels.scss"
+			],
+			[
+				"typ",
+				"assets-common/css/bootstrap/type.scss"
+			],
+			[
+				"bs3",
+				"assets-common/bs3test.html"
+			],
+			[
+				"blas",
+				"comet/blast.html"
+			],
+			[
+				"per",
+				"comet/performance.html"
+			],
+			[
+				"too",
+				"assets-common/css/bootstrap/tooltip.scss"
+			],
+			[
+				"cust",
+				"assets-common/css/jquery.mCustomScrollbar.min.css"
+			],
+			[
+				"scroll",
+				"assets-common/css/jquery.mCustomScrollbar.css"
+			],
+			[
+				"code",
+				"assets-common/css/bootstrap/code.scss"
+			],
+			[
+				"ut",
+				"assets-common/css/bootstrap/utilities.scss"
+			],
+			[
+				"type",
+				"assets-common/css/bootstrap/type.scss"
+			],
+			[
+				"drop",
+				"assets-common/css/bootstrap/dropdowns.scss"
+			],
+			[
+				"vel",
+				"assets-common/js/velocity.min.js"
+			],
+			[
+				"co",
+				"assets-common/css/bootstrap/component-animations.scss"
+			],
+			[
+				"anim",
+				"assets-common/css/animate.min.css"
+			],
+			[
+				"main",
+				"comet/assets/js/main.js"
+			],
+			[
+				"navdi",
+				"assets-common/css/bootstrap/mixins/nav-divider.scss"
+			],
+			[
+				"dropd",
+				"assets-common/css/bootstrap/dropdowns.scss"
 			],
 			[
 				"but",
 				"assets-common/css/bootstrap/buttons.scss"
 			],
 			[
-				"bs3",
-				"assets-common/bs3test.html"
+				"fon",
+				"Content/assets-common/fonts/fontface.min.scss"
+			],
+			[
+				"in",
+				"comet/index.html"
+			],
+			[
+				"badg",
+				"assets-common/css/bootstrap/badges.scss"
+			],
+			[
+				"navbar",
+				"assets-common/css/bootstrap/navbar.scss"
+			],
+			[
+				"button",
+				"assets-common/css/bootstrap/mixins/buttons.scss"
+			],
+			[
+				"na",
+				"assets-common/css/bootstrap/navbar.scss"
+			],
+			[
+				"var",
+				"assets-common/css/bootstrap/variables.scss"
+			],
+			[
+				"fe",
+				"comet/feedback.html"
+			],
+			[
+				"bo",
+				"assets-common/css/bootstrap.min.scss"
 			],
 			[
 				"feed",
@@ -480,32 +1158,12 @@
 				"assets-common/css/bootstrap/mixins/css3-mixins.scss"
 			],
 			[
-				"fon",
-				"assets-common/fonts/fontface.min.css"
-			],
-			[
 				"font-var",
 				"assets-common/fonts/font-awesome/src/_variables.scss"
 			],
 			[
-				"too",
-				"assets-common/css/bootstrap/tooltip.scss"
-			],
-			[
 				"pop",
 				"assets-common/css/bootstrap/popovers.scss"
-			],
-			[
-				"ut",
-				"assets-common/css/bootstrap/utilities.scss"
-			],
-			[
-				"anim",
-				"assets-common/css/animate.min.css"
-			],
-			[
-				"drop",
-				"assets-common/css/bootstrap/dropdowns.scss"
 			],
 			[
 				"com",
@@ -524,16 +1182,8 @@
 				"assets-common/js/bootstrap.min.js"
 			],
 			[
-				"sca",
-				"assets-common/css/bootstrap/scaffolding.scss"
-			],
-			[
 				"dop",
 				"assets-common/css/bootstrap/dropdowns-arrowed.scss"
-			],
-			[
-				"main",
-				"comet/assets/js/main.js"
 			],
 			[
 				"grid",
@@ -552,16 +1202,8 @@
 				"assets-common/css/bootstrap/badges.scss"
 			],
 			[
-				"font",
-				"assets-common/fonts/fontface.min.scss"
-			],
-			[
 				"fonts",
 				"assets-common/fonts/fontface.min.css"
-			],
-			[
-				"typ",
-				"assets-common/css/bootstrap/type.scss"
 			],
 			[
 				"nav",
@@ -572,24 +1214,12 @@
 				"assets-common/css/bootstrap/dropdowns.scss"
 			],
 			[
-				"in",
-				"comet/index.html"
-			],
-			[
 				"panel",
 				"assets-common/css/bootstrap/panels.scss"
 			],
 			[
 				"boo",
 				"assets-common/css/bootstrap.min.scss"
-			],
-			[
-				"var",
-				"assets-common/css/bootstrap/variables.scss"
-			],
-			[
-				"for",
-				"css/bootstrap/mixins/forms.scss"
 			],
 			[
 				"form",
@@ -614,10 +1244,6 @@
 			[
 				"text",
 				"css/bootstrap/mixins/text-emphasis.scss"
-			],
-			[
-				"co",
-				"css/bootstrap/component-animations.scss"
 			],
 			[
 				"tool",
@@ -664,10 +1290,6 @@
 				"css/bootstrap/buttons.scss"
 			],
 			[
-				"moda",
-				"css/bootstrap/modals.scss"
-			],
-			[
 				"page",
 				"css/bootstrap/pager.scss"
 			],
@@ -704,10 +1326,6 @@
 				"css/bootstrap/mixins/gradients.scss"
 			],
 			[
-				"bo",
-				"css/bootstrap.min.scss"
-			],
-			[
 				"vari",
 				"css/bootstrap/variables.scss"
 			],
@@ -742,6 +1360,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 247.0,
+	"side_bar_width": 50.0,
 	"status_bar_visible": true
 }
