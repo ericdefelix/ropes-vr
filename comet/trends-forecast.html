@@ -188,196 +188,321 @@
         </div>
     </nav>
 
-    <div class="container-fluid">    
+    <div class="container-fluid">
 
-        <!-- Nav -->
-        <div class="row">
-            <div class="navbar-float push-down">
-                <div class="well">
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-default active" for="feedback_panel"><input type="radio" name="feedback_panel">
-                            <i class="md md-lg md-list visible-xs-inline"></i>
-                            <span class="hidden-xs">Draft</span>
-                            <span class="badge">24</span>
-                        </label>
-                        <label class="btn btn-default" for="feedback_panel"><input type="radio" name="feedback_panel">
-                            <i class="md md-lg md-history visible-xs-inline"></i>
-                            <span class="hidden-xs">Published</span>
-                            <span class="badge">2</span>
-                        </label>
+        <!-- Employee Profile Info and controls -->
+        <div class="profile-info">
+            <div class="profile-img">
+                <!-- <img class="img-circle img-responsive center-block" src="" alt="Eric de Felix"> -->
+                <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);"></div>
+            </div>
+            <div class="profile-text">
+                <span class="profile-name">Eric de Felix</span>
+                <span class="profile-position hidden-xs">UI/UX Engineer</span>
+                <span class="profile-metadata hidden-xs">0917-58-4867</span>
+            </div>
+        </div>
+        <!-- Employee Profile Info and controls -->        
+
+        <!-- Navbar responds to different screents -->
+        <nav class="navbar-controls navbar-cyan navbar-dynamic" role="navigation">
+
+            <section class="navbar-control-btns">
+                <div class="btn-group btn-group-justified" role="group" aria-label="Performance Measure, Give Feedback, BLAST!">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-transparent">
+                            <i class="md md-insert-chart md-lg"></i>
+                            <span class="center-block">Performance</span>
+                        </button>
                     </div>
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newForecast" data-keyboard="false" data-backdrop="static">
-                            <i class="md md-my-library-add"></i> 
-                            <span class="hidden-xs">New Forecast</span>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-transparent">
+                            <i class="md md-forum md-lg"></i>
+                            <span class="center-block">Feedback</span>
+                        </button>
+                    </div>
+                    <div class="btn-group active" role="group">
+                        <button type="button" class="btn btn-transparent">
+                            <i class="md md-my-library-books md-lg"></i>
+                            <span class="center-block">BLAST!</span>
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </nav>
+        <!-- Navbar responds to different screents -->
+
         <!-- Nav -->
-
-        <!-- Feedback -->
         <div class="row">
-            <div class="timeline-card">
-                <div class="panel panel-default-timeline">
-                    <div class="panel-heading">
-
+            <div class="navbar-float">
+                <div class="well">
+                    <div class="form-group-inline inline-block">
+                        <label for="" class="control-label">FROM</label>
+                        <button class="btn btn-default">Calendar </button>
                     </div>
-
-                    <div class="panel-body">
-
+                    <div class="form-group-inline inline-block">
+                        <label for="" class="control-label">TO</label>
+                        <button class="btn btn-default">Calendar </button>
+                    </div>
+                    <div class="form-group-inline inline-block">
+                        <label for="" class="control-label">Metric</label>
+                        <div class="inline-block">
+                            <select name="" id="" class="form-control"></select>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Feedback -->
+        <!-- Nav -->
 
-    </div>
-
-    <!-- All the modals in the world -->
-
-    <!-- New Forecast -->
-    <div class="modal fade" id="newForecast" tabindex="-1" role="dialog" aria-labelledby="newForecast" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-center">New Forecast</h4>
+        <!-- Trends and Forecast -->
+        <div class="row">
+            <div class="timeline-card">
+                <div class="panel panel-default score-card">
+                    <div class="panel-heading">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation">
+                                <a href="#metricPerformance" aria-controls="active" role="tab" data-toggle="tab">
+                                    <i class="md md-lg md-add-circle visible-xs "></i>
+                                    <span class="hidden-xs">Metric Performance</span>
+                                </a>
+                            </li>
+                            <li role="presentation" class="active">
+                                <a href="#predictiveRetentionSystem" aria-controls="deleted" role="tab" data-toggle="tab">
+                                    <i class="md md-lg md-remove-circle visible-xs"></i>
+                                    <span class="hidden-xs">Predictive Retention System</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Department</label>
-                                    <select name="" id="" class="form-control"></select>
+
+                    <!-- Panel Body -->
+                    <div class="panel-body">
+                        <div role="tabpanel">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane" id="metricPerformance">
+                                    
+
+
                                 </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Program</label>
-                                    <select name="" id="" class="form-control"></select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Subprogram</label>
-                                    <select name="" id="" class="form-control"></select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Metric</label>
-                                    <select name="" id="" class="form-control"></select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Slope (B1)</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Intercept (B0)</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Pearson R</label>
-                                    <input type="text" class="form-control">
+                                <div role="tabpanel" class="tab-pane active" id="predictiveRetentionSystem">
+                                    <div class="row">
+
+                                        <!-- Retention Drivers -->
+                                        <div class="col-md-4">
+                                            <h4>Retention Drivers</h4>
+
+                                            <!-- Retention Drivers -->
+                                            <div class="list-group h_list-group-custom h_remove-bottom-margin">
+                                                <div class="list-group-item">
+                                                    <h5 class="list-group-heading text-danger">Average GRRID Rating</h5>
+                                                    <i class="md md-error md-lg fa-fw text-danger" data-toggle="tooltip" data-placement="left" title="Needs Attention"></i>
+                                                    <div class="list-item">
+                                                        <div class="list-sub-item">
+                                                            <span>Rating</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Distance to Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="list-group-item">
+                                                    <h5 class="list-group-heading text-success">ISP (Individualized Succession Planning)</h5>
+                                                    <i class="md md-lg fa-fw text-success"></i>
+                                                    <div class="list-item">
+                                                        <div class="list-sub-item">
+                                                            <span>Rating</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Distance to Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="list-group-item">
+                                                    <h5 class="list-group-heading text-success">Rewards &amp; Recognition</h5>
+                                                    <i class="md md-lg fa-fw text-success"></i>
+                                                    <div class="list-item">
+                                                        <div class="list-sub-item">
+                                                            <span>Rating</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Distance to Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="list-group-item">
+                                                    <h5 class="list-group-heading text-danger">VL Utilization</h5>
+                                                    <i class="md md-error md-lg fa-fw text-danger" data-toggle="tooltip" data-placement="left" title="Needs Attention"></i>
+                                                    <div class="list-item">
+                                                        <div class="list-sub-item">
+                                                            <span>Rating</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Distance to Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="list-group-item">
+                                                    <h5 class="list-group-heading text-success">Company Events Attended</h5>
+                                                    <i class="md md-lg fa-fw text-success"></i>
+                                                    <div class="list-item">
+                                                        <div class="list-sub-item">
+                                                            <span>Rating</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                        <div class="list-sub-item">
+                                                            <span>Distance to Target</span>
+                                                            <span>3.0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Retention Drivers -->
+
+                                        </div>
+                                        <!-- Retention Drivers -->
+
+                                        <!-- Needs Attention  -->
+                                        <div class="col-md-8">
+                                            <h4>Things to Discuss with
+                                                <span>Catherine</span>
+                                            </h4>
+                                            <h5 class="h5"><i class="md md-event-note"></i> less than 49 months</h5>
+                                            <div class="panel-group-list">
+                                                <div class="panel-colored panel-colored-cyan panel-hover closed" onclick="expand_panel(this)">
+                                                    <div class="panel-colored-heading">
+                                                        <h4 class="panel-heading-title h4">Average GRRID Rating</h4>
+                                                        <h5 class="panel-heading-title h5">Rewards &amp; Recognition</h5>
+
+                                                        <div class="panel-status-indicator" data-toggle="tooltip" data-placement="left" title="Needs Attention">
+                                                            <i class="md md-2x md-error text-danger"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-colored-body js_panel-body js_init_hidden animated">
+                                                        <p>
+                                                            <span>Catherine</span> received <span>0</span>. On average, agents with the same tenure receive about <strong>5.00</strong> awards.
+                                                        </p>
+
+                                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-colored panel-colored-green panel-hover closed" onclick="expand_panel(this)">
+                                                    <div class="panel-colored-heading">
+                                                        <h4 class="panel-heading-title h4">ISP (Individualized Succession Planning)</h4>
+                                                        <h5 class="panel-heading-title h5">Rewards &amp; Recognition</h5>
+                                                    </div>
+                                                    <div class="panel-colored-body js_panel-body js_init_hidden animated">
+                                                        <p>
+                                                            <span>Catherine</span> received <span>0</span>. On average, agents with the same tenure receive about <strong>5.00</strong> awards.
+                                                        </p>
+
+                                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-colored panel-colored-burgundy panel-hover closed" onclick="expand_panel(this)">
+                                                    <div class="panel-colored-heading">
+                                                        <h4 class="panel-heading-title h4">Rewards &amp; Recognition</h4>
+                                                        <h5 class="panel-heading-title h5">Rewards &amp; Recognition</h5>
+                                                    </div>
+                                                    <div class="panel-colored-body js_panel-body js_init_hidden animated">
+                                                        <p>
+                                                            <span>Catherine</span> received <span>0</span>. On average, agents with the same tenure receive about <strong>5.00</strong> awards.
+                                                        </p>
+
+                                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-colored panel-colored-blue panel-hover closed" onclick="expand_panel(this)">
+                                                    <div class="panel-colored-heading">
+                                                        <h4 class="panel-heading-title h4">VL Utilization</h4>
+                                                        <h5 class="panel-heading-title h5">Rewards &amp; Recognition</h5>
+
+                                                        <div class="panel-status-indicator" data-toggle="tooltip" data-placement="left" title="Needs Attention">
+                                                            <i class="md md-2x md-error text-danger"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-colored-body js_panel-body js_init_hidden animated">
+                                                        <p>
+                                                            <span>Catherine</span> received <span>0</span>. On average, agents with the same tenure receive about <strong>5.00</strong> awards.
+                                                        </p>
+
+                                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-colored panel-colored-red panel-hover closed" onclick="expand_panel(this)">
+                                                    <div class="panel-colored-heading">
+                                                        <h4 class="panel-heading-title h4">Company Events Attended</h4>
+                                                        <h5 class="panel-heading-title h5">Rewards &amp; Recognition</h5>
+                                                    </div>
+                                                    <div class="panel-colored-body js_panel-body js_init_hidden animated">
+                                                        <p>
+                                                            <span>Catherine</span> received <span>0</span>. On average, agents with the same tenure receive about <strong>5.00</strong> awards.
+                                                        </p>
+
+                                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Needs Attention  -->
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Panel Body -->
 
-                    <div class="modal-footer">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <button type="button" class="btn btn-transparent" data-dismiss="modal">Discard Changes</button>
-                                <button type="button" class="btn btn-primary">Save Forecast</button>  
-                            </div>
-                        </div>
-                    </div>
-
-                </form>
+                </div>
             </div>
         </div>
+        <!-- Trends and Forecast -->
+
     </div>
 
-    <!-- Filter List -->
-    <div class="modal fade" id="filterList" tabindex="-1" role="dialog" aria-labelledby="newFeedback" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <form action="">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-center">Filter List</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label for="" class="control-label">Select Category</label>
-                                    <select name="" id="" class="form-control"></select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Coaching Session Date</label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Date Acknowledged</label>
-
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="control-label">Sort By</label>
-                                    <select name="" id="" class="form-control">
-                                        <option value="ascending">Ascending</option>
-                                        <option value="descending">Descending</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Apply Filter</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Change Profile Image -->
-    <div class="modal fade" id="changeProfilePhoto" tabindex="-1" role="dialog" aria-labelledby="changeProfilePhoto" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <form action="">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-center">Change Your Profile Image</h4>
-                        <small class="text-center center-block">Image should be less than 2mb</small>
-                    </div>
-                    <!--  -->
-                    <div class="modal-body-profile">
-                        <div class="profile-img center-block">
-                            <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);">
-
-                                <!-- Profile Photo Picker -->
-                                <div class="avatar-picker center-block">
-                                    <input type="file" class="picker" id="picker">
-                                    <span class="icon">
-                                        <i class="md md-5x md-photo-camera"></i>
-                                    </span>
-                                </div>
-                                <!-- Profile Photo Picker -->
-
-                            </div>
-
-                        </div>
-                        <div class="profile-change-control">
-                            <div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
-                                <button type="button" class="btn btn-block btn-lg btn-primary"><i class="md md-lg md-check"></i> Apply</button>
-                                <button type="button" class="btn btn-block btn-transparent" data-dismiss="modal"><i class="md md-lg md-close"></i> Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Change Profile Image -->
-
-    <!-- All the modals in the world -->
 
     <script src="../assets-common/js/jquery-1.11.2.min.js"></script>
     <script src="../assets-common/js/bootstrap.min.js"></script>

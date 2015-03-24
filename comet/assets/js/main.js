@@ -144,6 +144,15 @@ function apply_library() {
 
 }
 
+// Trends and Forecast
+function expand_panel(elem) {
+    $(elem).find('.js_panel-body').removeClass('js_init_hidden').addClass('flash');
+
+    if ($(elem).hasClass('closed')) {
+        $(elem).removeClass('closed');
+    }
+}
+
 // Stretch container down to bottom
 function resize_container_search() {
     var child = $('#teamListGroup');
@@ -157,11 +166,20 @@ function resize_container_search() {
 
 function resize_container_modal() {
     var child = $('.js_modal-container');
-    var body = $(document).height();
-    var totalHeight = body - 620;
+    var body = $(window).height();
+    var totalHeight = body - 280;
+
+    child.css({ height: totalHeight + 'px' });
+    resize_container_modal_xs()
+}
+
+function resize_container_modal_xs() {
+    var child = $('.js_modal-container-xs');
+    var totalHeight = $('.js_modal-container').height() - 178;
 
     child.css({ height: totalHeight + 'px' }); 
 }
+
 resize_container_modal()
 
 var resizeTimer;
@@ -173,6 +191,95 @@ $(window).resize(function() {
 
 resize_container_search();
 
+// BLAST! Carousel
+// =========================================
+//
+
+// Initialize Variables
+var carousel_id = "#" + $('.carousel').get(0).id;
+var li = carousel_id + ' .js_scroll-numbers li';
+
+var $carousel_scroll = $(carousel_id).find('.js_carousel-scroll');
+var $carousel_list = $(carousel_id).find('.js_carousel-list');;
+
+var step = $carousel_scroll.outerHeight() - 2;
+var steplimit = $(carousel_id).find('.js_carousel-list').outerHeight() - step - 2; // 2 accommodates the 2px margin-bottom
+var init_step = 0;
+var tick = init_step; // Watch variable for offset updates
+
+function carousel_prev_slide(elem) {
+    if (tick <= 0 ) {
+        return false;
+    }
+    else {
+        tick = tick - step; // Update ticker
+        $(elem).siblings('.js_scroll-numbers').children('li.active').prev('li').addClass('active');
+        $(elem).siblings('.js_scroll-numbers').children('li.active').last('li.active').removeClass('active');
+    }
+
+    $carousel_list.velocity(
+        "scroll",
+        {
+            translateZ: 0, // Force Hardware Acceleration
+            container: $carousel_scroll,
+            duration: 450,
+            easing: [ .99,.01,.33,1],
+            offset: tick
+        });
+}
+
+function carousel_next_slide(elem) {
+    if (tick >= steplimit ) {
+        return false;
+    }
+    else {
+        tick = tick + step; // Update ticker
+        $(elem).siblings('.js_scroll-numbers').children('li.active').next('li').addClass('active');
+        $(elem).siblings('.js_scroll-numbers').children('li.active').first('li.active').removeClass('active');
+    }
+
+    $carousel_list.velocity(
+        "scroll",
+        {
+            translateZ: 0, // Force Hardware Acceleration
+            container: $carousel_scroll,
+            duration: 450,
+            easing: [ .99,.01,.33,1],
+            offset: tick
+        });
+}
+
+// Count how many slides are to be rendered
+function render_slidenum() {
+    var list_len = Math.ceil( $carousel_list.children().length / 5 );
+
+    for (var i = list_len - 1; i >= 0; i--) {
+        $(carousel_id).find('.js_scroll-numbers').append('<li></li>');
+    }
+
+    $(carousel_id).find('.js_scroll-numbers li').first().addClass('active');
+}
+render_slidenum();
+
+// Go to respective slide when slide number is clicked
+$(document).on('click', li , function(event) {
+    var index = $(li).index(this) + 1;
+    tick = (step * index) - step; // Update ticker
+
+    $carousel_list.velocity(
+        "scroll",
+        {
+            translateZ: 0, // Force Hardware Acceleration
+            container: $carousel_scroll,
+            duration: 450,
+            easing: [ .99,.01,.18,.98],
+            offset: tick
+        });
+
+    // Tag who's active
+    $(this).siblings('li').removeClass("active");
+    $(this).addClass('active');
+});
 
 // Keyboard Shortcuts
 // =========================================

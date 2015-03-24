@@ -63,9 +63,6 @@
                             <li>
                                 <a href="#"><i class="md md-lg md-insert-chart"></i><span>My Team's Stats</span></a>
                             </li>
-                            <li>
-                                <a href="#"><i class="md md-lg md-trending-up"></i><span>Trends and Forecast</span></a>
-                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="#"><i class="md md-lg md-settings-applications"></i><span>Admin Forecast</span></a>
@@ -231,6 +228,7 @@
                 </div>
             </section>
         </nav>
+        <!-- Navbar responds to different screents -->
 
         <!-- Nav -->
         <div class="row">
@@ -269,19 +267,117 @@
         </div>
         <!-- Nav -->
 
+        <!-- Custom Carousel -->
         <div class="row">
-            <div class="col-xs-12">
-                <!-- Carousel -->
-                <div class="carousel">
-                    this is where the carousel sits
+            <div class="carousel" id="carousel">
+                <!-- Carousel Scroll -->
+                <div class="carousel-scroll js_carousel-scroll">
+                    <ol class="carousel-list js_carousel-list">
+
+                        <!-- Repeatable -->
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail" data-toggle="modal" data-target="#viewFeaturedBLAST" data-backdrop="true">
+                                <span class="carousel-title">Thumbnail Title</span>
+                                <small>Author's Name</small>
+                            </div>
+                        </li>
+                        <!-- Repeatable -->
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Thumbnail Title is very very long it will break</span>
+                                <small>Author's Name</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">ThumbnailTitleWithNoSpacesItWillBreakTheLayout</span>
+                                <small>Author's Name</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Thumbnail Title</span>
+                                <small>Author's Name</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Thumbnail Title</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Can't see</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Thumbnail Title</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Can't see</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Thumbnail Title</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Can't see</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Thumbnail Title</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+
+                        <li class="carousel-item">
+                            <div class="carousel-thumbnail">
+                                <span class="carousel-title">Can't see</span>
+                                <small>Author's Name test is so so long it will break</small>
+                            </div>
+                        </li>
+                    </ol>
                 </div>
-                <!-- Carousel -->
+                <!-- Carousel Scroll -->
+
+                <!-- Carousel Controls -->
+                <div class="carousel-scroll-controls">
+                    <button class="btn btn-transparent nav" onclick="carousel_prev_slide(this)"><i class="md md-lg md-navigate-before"></i></button>
+                    <ol class="scroll-numbers js_scroll-numbers">
+                    </ol>
+                    <button class="btn btn-transparent nav" onclick="carousel_next_slide(this)"><i class="md md-lg md-navigate-next"></i></button>
+                </div>
+                <!-- Carousel Controls -->
             </div>
         </div>
+        <!-- Custom Carousel -->
 
         <!-- Feedback -->
         <div class="row">
-            <div class="timeline-card">
+            <div class="timeline-card h_reduce-top-margin">
                 <div class="panel panel-default-timeline">
                     <div class="panel-heading">
 
@@ -299,6 +395,16 @@
                             <small class="text-muted">
                                 <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
                             </small>
+
+                            <div class="">
+                                <small class="text-success">
+                                    <i class="fa fa-lg fa-check"></i> <span>Acknowledged</span>
+                                </small>
+
+                                <small class="text-warning">
+                                    <i class="fa fa-lg fa-question-circle"></i> <span>Pending</span>
+                                </small>
+                            </div>
 
                             <!-- Edit -->
                             <button type="button" class="btn btn-transparent btn-float btn-float-right" data-toggle="tooltip" data-placement="left" title="Edit Feedback">
@@ -348,7 +454,7 @@
                         <!-- Author's Post -->
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body h_remove-top-padding">
                         <!-- Comment -->
                         <div class="panel-comment js_init_hidden js_comment">
                             <div class="panel-avatar">
@@ -448,6 +554,9 @@
 
                         <!-- Open Comments and Write a reply -->
                         <div class="panel-comment-controls">
+                            <button type="button" class="btn btn-link" onclick="acknowledge_this(this)">
+                                <i class="md md-thumb-up"></i> Acknowledge This
+                            </button>
                             <button type="button" class="btn btn-link" onclick="view_comment_all(this)">
                                 <i class="md md-forum"></i> View <span>3</span> comments
                             </button>
@@ -512,8 +621,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="control-label">Selected Measures</label>
-                                        <div class="well well-sm selected-measure-container">
-                                            
+                                        <div class="selected-measures">
+                                            <strong class="text-center">No selected measure</strong>
+                                            <div class="selected-measure-item">
+                                                <span class="measure-name">Selected measure</span>
+                                                <button type="button" class="btn btn-xs btn-transparent">
+                                                    <i class="md md-lg md-close"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -672,7 +787,27 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="selected-measures">
-                                                                <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                                                <strong class="text-center">No selected measure</strong>
+                                                                <div class="selected-measure-item">
+                                                                    <span class="measure-name">Selected measure</span>
+                                                                    <button type="button" class="btn btn-xs btn-transparent">
+                                                                        <i class="md md-lg md-close"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="selected-measure-item">
+                                                                    <span class="measure-name">Selected measure that is soo soo long this will break</span>
+                                                                    <button class="btn btn-xs btn-transparent">
+                                                                        <i class="md md-lg md-close"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="selected-measure-item">
+                                                                    <span class="measure-name">Selectedmeasurenobreaaaaaaaaaaaaaaaaaaaaks</span>
+                                                                    <button class="btn btn-xs btn-transparent">
+                                                                        <i class="md md-lg md-close"></i>
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -705,6 +840,73 @@
             </div>
         </div>
     </div>
+    <!-- Browse BLAST! -->
+
+    <!-- View Featured BLAST! -->
+    <div class="modal fade js_modal" id="viewFeaturedBLAST" tabindex="-1" role="dialog" aria-labelledby="viewFeaturedBLAST" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Press <kbd>ESC</kbd> to dismiss</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <!-- Library -->
+                            <div class="col-md-12">
+                                <!-- Library Card Item -->
+                                <div class="library-card">
+                                    <div class="panel panel-default-timeline">
+                                        <div class="panel-heading">
+                                            <!-- Post Metadata -->
+                                            <div class="panel-heading-content">
+                                                <span class="subject-heading">Innovation</span>
+                                                <span class="subject-sub-heading">Form and Function</span>
+
+                                                <small class="text-muted">
+                                                    <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                                </small>
+
+                                            </div>
+                                            <!-- Post Metadata -->
+
+                                            <!-- Author's Post -->
+                                            <div class="panel-author-post">
+                                                <div class="pane-post-ratings well well-sm">
+                                                    <div class="feedback-rating-item no-border-left">
+                                                        <span class="rate-one">Supervisor: 
+                                                            <b class="rating">3</b>
+                                                            <i class="md md-star"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="feedback-rating-item">
+                                                        <span class="rate-four">Employee:
+                                                            <b class="rating">4</b>
+                                                            <i class="md md-star"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <p class="panel-post-content">
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                </p>
+                                            </div>
+                                            <!-- Author's Post -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Library Card Item -->
+                            </div>
+                            <!-- Library -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- View Featured BLAST! -->
 
     <!-- Change Profile Image -->
     <div class="modal fade" id="changeProfilePhoto" tabindex="-1" role="dialog" aria-labelledby="changeProfilePhoto" aria-hidden="true">

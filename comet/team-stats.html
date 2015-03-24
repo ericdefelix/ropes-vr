@@ -63,6 +63,9 @@
                             <li>
                                 <a href="#"><i class="md md-lg md-insert-chart"></i><span>My Team's Stats</span></a>
                             </li>
+                            <li>
+                                <a href="#"><i class="md md-lg md-trending-up"></i><span>Trends and Forecast</span></a>
+                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="#"><i class="md md-lg md-settings-applications"></i><span>Admin Forecast</span></a>
@@ -185,329 +188,233 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-
-        <!-- Employee Profile Info and controls -->
-        <div class="profile-info">
-            <div class="profile-img">
-                <!-- <img class="img-circle img-responsive center-block" src="" alt="Eric de Felix"> -->
-                <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);"></div>
-            </div>
-            <div class="profile-text">
-                <span class="profile-name">Eric de Felix</span>
-                <span class="profile-position hidden-xs">UI/UX Engineer</span>
-                <span class="profile-metadata hidden-xs">0917-58-4867</span>
-            </div>
-        </div>
-        <!-- Employee Profile Info and controls -->        
-
-        <!-- Navbar responds to different screents -->
-        <nav class="navbar-controls navbar-cyan navbar-dynamic" role="navigation">
-
-            <section class="navbar-control-btns">
-                <div class="btn-group btn-group-justified" role="group" aria-label="Performance Measure, Give Feedback, BLAST!">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-transparent">
-                            <i class="md md-insert-chart md-lg"></i>
-                            <span class="center-block">Performance</span>
-                        </button>
-                    </div>
-                    <div class="btn-group active" role="group">
-                        <button type="button" class="btn btn-transparent">
-                            <i class="md md-forum md-lg"></i>
-                            <span class="center-block">Feedback</span>
-                        </button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-transparent">
-                            <i class="md md-my-library-books md-lg"></i>
-                            <span class="center-block">BLAST!</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </nav>
+    <div class="container-fluid">    
 
         <!-- Nav -->
-        <div class="row">
-            <div class="navbar-float">
+<!--         <div class="row">
+            <div class="navbar-float push-down">
                 <div class="well">
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default active" for="feedback_panel"><input type="radio" name="feedback_panel">
                             <i class="md md-lg md-list visible-xs-inline"></i>
-                            <span class="hidden-xs">Pending Acknowledgements</span>
+                            <span class="hidden-xs">Draft</span>
                             <span class="badge">24</span>
                         </label>
                         <label class="btn btn-default" for="feedback_panel"><input type="radio" name="feedback_panel">
                             <i class="md md-lg md-history visible-xs-inline"></i>
-                            <span class="hidden-xs">Feedback History</span>
+                            <span class="hidden-xs">Published</span>
                             <span class="badge">2</span>
                         </label>
                     </div>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#filterList" data-backdrop="static">
-                        <i class="md md-lg md-filter-list"></i>
-                        <span class="hidden-xs">Filter List</span>
-                    </button>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newFeedback" data-keyboard="false" data-backdrop="static">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newForecast" data-keyboard="false" data-backdrop="static">
                             <i class="md md-my-library-add"></i> 
-                            <span class="hidden-xs">New Feedback</span>
+                            <span class="hidden-xs">New Report</span>
                         </button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Nav -->
 
-        <!-- Feedback -->
-        <div class="row">
+        <!-- Report -->
+        <div class="row push-down">
             <div class="timeline-card">
-                <div class="panel panel-default-timeline">
+                <div class="panel panel-default score-card">
+
+                    <!-- Panel Heading -->
                     <div class="panel-heading">
-
-                        <!-- Author's avatar -->
-                        <div class="panel-avatar">
-                            <div class="img-circle img-responsive avatar" style="background-image: url(assets/img/avatar1.jpg);"></div>
-                        </div>
-                        <!-- Author's avatar -->
-
-                        <!-- Post Metadata -->
-                        <div class="panel-heading-content">
-                            <span class="subject-heading">Innovation</span>
-                            <span class="subject-sub-heading">Form and Function</span>
-
-                            <small class="text-muted">
-                                <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
-                            </small>
-
-                            <!-- Edit -->
-                            <button type="button" class="btn btn-transparent btn-float btn-float-right" data-toggle="tooltip" data-placement="left" title="Edit Feedback">
-                                <i class="md md-edit"></i>
-                            </button>
-                            <!-- Edit -->
-
-                        </div>
-                        <!-- Post Metadata -->
-
-                        <!-- Author's Post -->
-                        <div class="panel-author-post">
-                            <div class="pane-post-ratings well well-sm">
-                                <!-- Rating -->
-                                <div class="btn-group btn-group-sm" data-toggle="tooltip" data-placement="left" title="Give your rating">
-                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <i class="md md-stars"></i> Rate This
-                                    </button>
-                                    <div class="dropdown dropdown-menu dropdown-menu-custom pull-right" role="menu">
-                                        <div class="btn-group-vertical btn-group-sm" data-toggle="buttons" style="width: 100%;">
-                                            <label class="btn btn-primary" for="feedback_rating"><input type="radio" name="feedback_rating"> Perfect!</label>
-                                            <label class="btn btn-cyan" for="feedback_rating"><input type="radio" name="feedback_rating"> Awesome</label>
-                                            <label class="btn btn-success" for="feedback_rating"><input type="radio" name="feedback_rating"> Good</label>
-                                            <label class="btn btn-warning" for="feedback_rating"><input type="radio" name="feedback_rating"> Uh Huh</label>
-                                            <label class="btn btn-red" for="feedback_rating"><input type="radio" name="feedback_rating"> I Disagree</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Rating -->
-                                <div class="feedback-rating-item">
-                                    <span class="rate-one">Supervisor: 
-                                        <b class="rating">3</b>
-                                        <i class="md md-star"></i>
-                                    </span>
-                                </div>
-                                <div class="feedback-rating-item">
-                                    <span class="rate-four">Employee:
-                                        <b class="rating">4</b>
-                                        <i class="md md-star"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <p class="panel-post-content">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                        </div>
-                        <!-- Author's Post -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#teamStats" aria-controls="teamStats" role="tab" data-toggle="tab">
+                                    <i class="md md-lg md-trending-up visible-xs "></i>
+                                    <span class="hidden-xs">Team Statistics</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#generateReports" aria-controls="generateReports" role="tab" data-toggle="tab">
+                                    <i class="md md-lg md-file-download visible-xs "></i>
+                                    <span class="hidden-xs">Generate Reports</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+                    <!-- Panel Heading -->
 
-                    <div class="panel-body h_remove-top-padding">
-                        <!-- Comment -->
-                        <div class="panel-comment js_init_hidden js_comment">
-                            <div class="panel-avatar">
-                                <div class="img-circle img-responsive avatar pull-right" style="background-image: url(assets/img/avatar1.jpg);"></div>
-                            </div>
-                            <div class="panel-post-reply">
-
-                                <!-- Thought balloon -->
-                                <div class="thought-balloon">
-                                    <small class="text-muted center-block date">09/2/2015</small>
-                                    <h4 class="h4">
-                                        <span>Eric de Felix</span>
-                                    </h4>
-                                    <p>
-                                        Lorem Ipsum is simply dummy text of the,
-                                    </p>
-                                    
-                                    <!-- Edit Or Delete -->
-                                    <div class="btn-float btn-float-right">
-                                        <div class="btn-group btn-group-xs">
-                                            <button type="button" class="btn btn-transparent dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="md md-keyboard-arrow-down md-lg"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
-                                                <li>
-                                                    <a href="#"><i class="md md-lg md-edit"></i><span>Edit Comment</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="md md-lg md-delete"></i><span>Delete Comment</span></a>
-                                                </li>
-                                            </ul>
+                    <!-- Panel body -->
+                    <div class="panel-body">
+                        <div role="tabpanel">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="teamStats">
+                                    <div class="rating-team-group">
+                                        <div class="rating-team">
+                                            <span class="rating-team-value">83</span>
+                                            <h4 class="h4 rating-title">My Effectiveness</h4>
+                                        </div>
+                                        <div class="rating-team">
+                                            <span class="rating-team-value">83</span>
+                                            <h4 class="h4 rating-title">My Team's Rate of Improvement</h4>
                                         </div>
                                     </div>
-                                    <!-- Edit Or Delete -->
-
+                                    <hr>
+                                    <button class="btn btn-default">Calendar</button>
                                 </div>
-                                <!-- Thought balloon -->
-                            </div>
-                        </div>
-                        <!-- Comment -->
 
-                        <!-- Comment -->
-                        <div class="panel-comment js_init_hidden js_comment">
-                            <div class="panel-avatar">
-                                <div class="img-circle img-responsive avatar pull-right" style="background-image: url(assets/img/avatar1.jpg);"></div>
-                            </div>
-                            <div class="panel-post-reply">
+                                <div role="tabpanel" class="tab-pane" id="generateReports">
+                                    <div class="row">
+                                        <!-- Filter -->
+                                        <div class="col-md-4">
+                                            <div class="well" style="margin-bottom: 0;">
+                                                <div class="form-group">
+                                                    <h4 class="h4"><i class="md md-event"></i> Modify date if needed</h4>
+                                                    <div class="h_justified">
+                                                        <div class="h_justified-group">                                        
+                                                            <label class="control-label">Start Date</label>
+                                                            <select name="" id="" class="form-control"></select>
+                                                        </div>
 
-                                <!-- Thought balloon -->
-                                <div class="thought-balloon">
-                                    <small class="text-muted center-block date">09/2/2015</small>
-                                    <h4 class="h4">
-                                        <span>Eric de Felix</span>
-                                    </h4>
-                                    <p class="display-comment js_comment-controls">
-                                        Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
-                                    </p>
-                                    <textarea name="" id="" cols="150" rows="2" class="form-control js_comment-edit-mode mousetrap">
-                                        Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
-                                    </textarea>
-                                    
-                                    <!-- Edit Or Delete -->
-                                    <div class="btn-float btn-float-right js_comment-controls">
-                                        <div class="btn-group btn-group-xs">
-                                            <button type="button" class="btn btn-transparent dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="md md-keyboard-arrow-down md-lg"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
-                                                <li>
-                                                    <a onclick="edit_comment(this)"><i class="md md-lg md-edit"></i><span>Edit Comment</span></a>
-                                                </li>
-                                                <li>
-                                                    <a onclick="delete_comment(this)"><i class="md md-lg md-delete"></i><span>Delete Comment</span></a>
-                                                </li>
-                                            </ul>
+                                                        <div class="h_justified-group">
+                                                            <label class="control-label">Ending Date</label>
+                                                            <select name="" id="" class="form-control"></select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <h4 class="h4"><i class="md md-settings"></i> Set the report's scope</h4>
+                                                <div class="form-group">
+                                                    <label for="" class="control-label">Program</label>
+                                                    <select name="" id="" class="form-control"></select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="" class="control-label">Department</label>
+                                                    <select name="" id="" class="form-control"></select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="" class="control-label">Manager/Supervisor</label>
+                                                    <select name="" id="" class="form-control"></select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- Edit Or Delete -->
+                                        <!-- Filter -->
 
-                                    <!-- Press ESC or Saved -->
-                                    <div class="btn-float btn-float-right js_comment-edit-mode hidden-xs">
-                                        <small>Press 
-                                            <kbd>ESC</kbd> to 
-                                            <a class="btn-link js_escape" onclick="discard_comment(this)">Cancel</a> or hit 
-                                            <kbd>Ctrl</kbd> + <kbd>Enter</kbd> 
-                                            to 
-                                            <a class="btn-link js_confirm" onclick="confirm_comment(this)">Confirm</a>.
-                                        </small>
-                                    </div>
-                                    <!-- Press ESC or Saved -->
+                                        <!-- Download Report -->
+                                        <div class="col-md-8">
+                                            <div class="alert alert-dismissible alert-info">
+                                                <button type="button" class="btn btn-sm btn-transparent" data-dismiss="alert">
+                                                    <i class="md md-lg md-close"></i>
+                                                </button>
+                                                <i class="md md-lg md-warning"></i> <span>You haven't configured the report scope yet.</span>
+                                            </div>
 
+                                            <div class="alert alert-dismissible alert-success">
+                                                <button type="button" class="btn btn-sm btn-transparent" data-dismiss="alert">
+                                                    <i class="md md-lg md-close"></i>
+                                                </button>
+                                                <i class="md md-lg md-check"></i> <span>You may now download reports.</span>
+                                            </div>
+
+                                            <!-- Feedback Report -->
+                                            <span>
+                                                <i class="md md-2x md-info fa-fw text-info hoverable help" 
+                                                    data-toggle="popover"
+                                                    title="Feedback Report contains:"
+                                                    data-content="Feedback given, feedback date, employee acknowledgement, employee and supervisor comment, form used, feedback category and feedback rating"
+                                                    >
+                                                </i>
+                                            </span>
+                                            <button type="button" class="btn btn-default">
+                                                <i class="md md-lg md-file-download text-success"></i> Download Feedback Report
+                                            </button>
+                                            <!-- Feedback Report -->
+                                            <hr>
+                                            <!-- Perf Report -->
+                                            <span>
+                                                <i class="md md-2x md-info fa-fw text-info hoverable help" 
+                                                    data-toggle="popover"
+                                                    title="Performance Measure Report contains:"
+                                                    data-content="GRRID measures, Previous month's scores, current month's scores, effectiveness, rate of improvement and employee acknowledgement"
+                                                    >
+                                                </i>
+                                            </span>
+                                            <button type="button" class="btn btn-default">
+                                                <i class="md md-lg md-file-download text-success"></i> Download Performance Measure Report
+                                            </button>
+                                            <!-- Perf Report -->
+                                            <hr>
+                                            <!-- BLAST! Report -->
+                                            <span>
+                                                <i class="md md-2x md-info fa-fw text-info hoverable help" 
+                                                    data-toggle="popover"
+                                                    title="BLAST! Report contains:"
+                                                    data-content="Name of action plan, objectives and methodology, employee and supervisor rating, previous month's score, current month's score, effectiveness and rate of improvement"
+                                                    >
+                                                </i>
+                                            </span>
+                                            <button type="button" class="btn btn-default">
+                                                <i class="md md-lg md-file-download text-success"></i> Download BLAST! Report
+                                            </button>
+                                            <!-- BLAST! Report -->
+                                        </div>
+                                        <!-- Download Report -->
+                                    </div>
                                 </div>
-                                <!-- Thought balloon -->
+
                             </div>
                         </div>
-                        <!-- Comment -->
-
-                        <!-- Open Comments and Write a reply -->
-                        <div class="panel-comment-controls">
-                            <button type="button" class="btn btn-link" onclick="acknowledge_this(this)">
-                                <i class="md md-thumb-up"></i> Acknowledge This
-                            </button>
-                            <button type="button" class="btn btn-link" onclick="view_comment_all(this)">
-                                <i class="md md-forum"></i> View <span>3</span> comments
-                            </button>
-                            <button type="button" class="btn btn-link" onclick="write_comment(this)">
-                                <i class="md md-edit"></i> Write a reply
-                            </button>
-                        </div>
-                        <!-- Open Comments and Write a reply -->
-
-                        <!-- Comment Box -->
-                        <div class="panel-comment js_init_hidden js_reply">
-
-                            <!-- Your avatar -->
-                            <div class="panel-avatar align-top hidden-xs">
-                                <div class="img-circle img-responsive avatar pull-right" style="background-image: url(assets/img/avatar1.jpg);"></div>
-                            </div>
-                            <!-- Your avatar -->
-
-                            <!-- Your textbox -->
-                            <div class="panel-comment-input">
-                                <form action="">
-                                    <textarea name="" id="" cols="150" rows="3" autofocus class="form-control comment-input js_comment-input mousetrap" maxlength="300" placeholder="Your reply..."></textarea>
-
-                                    <button type="submit" class="btn btn-lg btn-primary" data-toggle="tooltip" data-placement="left" title="Post Messsage [&nbsp;Ctrl+Enter&nbsp;]"><i class="fa fa-send fa-lg fa-fw"></i></button>
-                                    <span class="js_char-left">50</span>&nbsp;<span>characters remaining</span>
-                                </form>
-                            </div>
-                            <!-- Your textbox -->
-                        </div>
-                        <!-- Comment Box -->
-
                     </div>
+                    <!-- Panel body -->
+
                 </div>
             </div>
         </div>
-        <!-- Feedback -->
+        <!-- Report -->
 
     </div>
 
     <!-- All the modals in the world -->
 
-    <!-- New Feedback -->
-    <div class="modal fade" id="newFeedback" tabindex="-1" role="dialog" aria-labelledby="newFeedback" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <!-- New Forecast -->
+    <div class="modal fade" id="newForecast" tabindex="-1" role="dialog" aria-labelledby="newForecast" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <form action="">
                     <div class="modal-header">
-                        <h4 class="modal-title text-center">New Feedback</h4>
+                        <h4 class="modal-title text-center">New Forecast</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-4">
-                                <h4 class="h4"><i class="md md-settings"></i> Set Scope of Feedback</h4>
-                                <div class="well">
-                                    <div class="form-group">
-                                        <label for="" class="control-label">Choose Form</label>
-                                        <select name="" id="" class="form-control"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="control-label">Choose Category</label>
-                                        <select name="" id="" class="form-control"></select>
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Department</label>
+                                    <select name="" id="" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="control-label">Program</label>
+                                    <select name="" id="" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="control-label">Subprogram</label>
+                                    <select name="" id="" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="control-label">Metric</label>
+                                    <select name="" id="" class="form-control"></select>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <h4 class="h4">Fields Associated to the Scope</h4>
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="control-label">Strengths</label>
-                                    <textarea name="" id="" cols="30" rows="2" class="form-control"></textarea>
+                                    <label for="" class="control-label">Slope (B1)</label>
+                                    <input type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="control-label">Weaknesses</label>
-                                    <textarea name="" id="" cols="30" rows="2" class="form-control"></textarea>
+                                    <label for="" class="control-label">Intercept (B0)</label>
+                                    <input type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="control-label">Areas for Improvements</label>
-                                    <textarea name="" id="" cols="30" rows="2" class="form-control"></textarea>
+                                    <label for="" class="control-label">Pearson R</label>
+                                    <input type="text" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -517,7 +424,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <button type="button" class="btn btn-transparent" data-dismiss="modal">Discard Changes</button>
-                                <button type="button" class="btn btn-primary">Save Feedback</button>  
+                                <button type="button" class="btn btn-primary">Save Forecast</button>  
                             </div>
                         </div>
                     </div>
@@ -567,7 +474,6 @@
             </div>
         </div>
     </div>
-    <!-- Filter List -->
 
     <!-- Change Profile Image -->
     <div class="modal fade" id="changeProfilePhoto" tabindex="-1" role="dialog" aria-labelledby="changeProfilePhoto" aria-hidden="true">

@@ -175,12 +175,12 @@
 
   > img {
     @media (max-width: $screen-xs-max) {
-      height: $navbar-height - ($navbar-padding-vertical + $navbar-padding-horizontal);
+      height: $navbar-height - $grid-gutter-width;
       width: auto;
       margin-top: 2px;
     }
     @media (min-width: $screen-sm-min) {
-      height: $navbar-height - ($navbar-padding-vertical + $navbar-padding-horizontal);
+      height: $navbar-height - $grid-gutter-width;
       margin-top: 2px;
       width: auto;
     }

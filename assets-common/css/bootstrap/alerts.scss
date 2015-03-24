@@ -11,6 +11,7 @@
   margin-bottom: $line-height-computed;
   border: 1px solid transparent;
   border-radius: $alert-border-radius;
+  position: relative;
 
   // Headings for larger alerts
   h4 {
@@ -57,17 +58,17 @@
 // Generate contextual modifier classes for colorizing the alert.
 
 .alert-success {
-  @include alert-variant($alert-success-bg, $alert-success-border, $alert-default-color);
+  @include alert-variant($alert-success-bg, transparent, $alert-default-color);
 }
 
 .alert-info {
-  @include alert-variant($alert-info-bg, $alert-info-border, $alert-default-color);
+  @include alert-variant($alert-info-bg, transparent, $alert-default-color);
 }
 
 .alert-warning {
-  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-default-color);
+  @include alert-variant($alert-warning-bg, transparent, $alert-default-color);
 }
 
 .alert-danger {
-  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-default-color);
+  @include alert-variant($alert-danger-bg, transparent, $alert-default-color);
 }

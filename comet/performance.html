@@ -63,9 +63,6 @@
                             <li>
                                 <a href="#"><i class="md md-lg md-insert-chart"></i><span>My Team's Stats</span></a>
                             </li>
-                            <li>
-                                <a href="#"><i class="md md-lg md-trending-up"></i><span>Trends and Forecast</span></a>
-                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="#"><i class="md md-lg md-settings-applications"></i><span>Admin Forecast</span></a>
@@ -149,7 +146,7 @@
                                             <div class="img-circle img-responsive avatar" style="background-image: url(assets/img/avatar2.jpg);"></div>
                                         </div>
                                         <div class="item-profile-metadata">
-                                            <span><i class="md md-group"></i> Eric de Felix</span>
+                                            <span><i class="md md-group"></i> John Doe has a very very long long long long name</span>
                                             <span><i class="md md-work"></i> UI Developer</span>
                                             <div class="mask">
                                                 <button type="button" class="btn btn-xs btn-transparent js_expand_directs" onclick="expand_directs(this)">
@@ -253,11 +250,29 @@
                             </li>
                             <li class="score-card-controls pull-right">
                                 <button class="btn btn-default">
-                                    <i class="md md-lg md-open-in-new text-primary"></i>
-                                    <span class="hidden-xs">View Report</span>
+                                    <i class="md md-lg md-tab"></i>
+                                    <span class="">Calendar</span>
                                 </button>
+
+                                <!-- View Report and Trends and Forecast -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="md md-lg md-pageview"></i>
+                                        <span>View employee's ... <i class="md md-lg md-keyboard-arrow-down caret-chevron"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                                        <li>
+                                            <a href="#"><i class="md md-lg md-open-in-browser"></i><span>Summary Report</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="md md-lg md-trending-up"></i><span>Trends and Forecast</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- View Report and Trends and Forecast -->
                             </li>
                         </ul>
+                        <!-- Nav tabs -->
                     </div>
                     <div class="panel-body">
                         <div class="score-legend">
@@ -365,17 +380,23 @@
                                                         </button>
                                                         <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
                                                             <li>
-                                                                <a href="#" class="bg-positive"><i class="md md-lg md-thumb-up"></i>
+                                                                <a href="#"><i class="md md-lg md-thumb-up text-success"></i>
                                                                     <strong>
-                                                                        <span>Acknowledge this Measure</span>
+                                                                        <span class="text-success">Acknowledge this Measure</span>
                                                                     </strong>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#"><span>View My Feedback Thread</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#giveFeedback" data-backdrop="static">
+                                                                    <i class="md md-lg md-comment"></i>
+                                                                    <span>Give Feedback</span>
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#"><span>View BLAST! Entries</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#viewBlast" data-backdrop="static">
+                                                                    <i class="md md-lg md-my-library-books"></i>
+                                                                    <span>View BLAST! Entries</span>
+                                                                </a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -454,8 +475,11 @@
                                         <!-- Body -->
                                     </div>
                                     <!-- Score Card Responsive Table -->
+
+                                    <!-- Divider -->
                                     <hr class="score-divider">
 
+                                    <!-- Score Card Responsive Table -->
                                     <div class="score-card-table">
 
                                         <!-- Header -->
@@ -637,8 +661,200 @@
                                             <!-- TO BE REMOVED: For testing only -->
                                         </div>
                                         <!-- Body -->
-
                                     </div>
+                                    <!-- Score Card Responsive Table -->
+
+                                    <!-- Divider -->
+                                    <hr class="score-divider">
+
+                                    <!-- Score Card Responsive Table -->
+                                    <div class="score-card-table">
+
+                                        <!-- Header -->
+                                        <div class="score-card-head">
+                                            <div class="score-card-heading-row">
+                                                <div class="score-item-category">
+                                                    <span>Quality</span>
+                                                </div>
+
+                                                <div class="score-item-group hidden-xs hidden-sm">
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Month to Date Score">
+                                                        <span>MTD Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Previous Month's Score">
+                                                        <span>Dec</span>&nbsp;<span>Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Agreed Target Score">
+                                                        <span>Commitment</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Current Score">
+                                                        <span>Jan</span>&nbsp;<span>Score</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="Improvement">
+                                                        <span>% Improv</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="I dunno what to put here">
+                                                        <span>Indicators</span>
+                                                    </div>
+                                                    <div class="score-item-xs" data-toggle="tooltip" data-placement="top" title="BRIDGE">
+                                                        <span>BRIDGE Status</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button hidden-xs hidden-sm"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Header -->
+
+                                        <!-- Body -->
+                                        <div class="score-card-body">
+                                            <div class="score-card-body-row">
+                                                <div class="score-item-category">
+                                                    <span class="score-measure hoverable help" data-toggle="popover" title="Customer&nbsp;Service" data-content="Put measures here">Customer Service Assurance this is very long it will break</span>
+                                                    <span class="score-status text-success"><i class="fa fa-check-circle"></i> Acknowledged</span>
+                                                </div>
+
+                                                <div class="score-item-group">
+                                                    <div class="score-item-xs">
+                                                        <small>MTD Score</small>
+                                                        <span>34.3</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Dec</span> Score</small>
+                                                        <span>80</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Commitment</small>
+                                                        <span class="hoverable commit-edit locked" id="editCommit" onclick="edit_commit()">
+                                                            <input type="text" value="90" class="form-control commit-edit-input input-sm" name="commit" id="commitedValue" onkeypress="return isNumber(event)">
+                                                            <span class="commit-edit-display">90</span>
+                                                        </span>
+                                                        <div class="btn-group btn-group-sm commit-controls">
+                                                            <button class="btn btn-green" onclick="save_commit()"><i class="md md-check"></i></button>
+                                                            <button class="btn btn-burgundy" onclick="cancel_commit()"><i class="md md-close"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Jan</span> Score</small>
+                                                        <span>85</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>% Improvement</small>
+                                                        <span class="unit-percent">5</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Indicators</small>
+                                                        <i class="md md-2x md-close text-danger"></i>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Bridge Status</small>
+                                                        <span class="score-badge ongoing">On-going</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button">
+
+                                                    <!-- Show more actions -->
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="md md-more-horiz md-lg"></i>
+                                                            <span class="visible-xs-inline visible-sm-inline">More Actions </span>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                                                            <li>
+                                                                <a href="#" class="bg-positive"><i class="md md-lg md-thumb-up"></i>
+                                                                    <strong>
+                                                                        <span>Acknowledge this Measure</span>
+                                                                    </strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View My Feedback Thread</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View BLAST! Entries</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- Show more actions -->
+                                                </div>
+                                            </div>
+
+                                            <!-- TO BE REMOVED: For testing only -->
+                                            <div class="score-card-body-row">
+                                                <div class="score-item-category">
+                                                    <span class="score-measure">Customer Service Assurance this is very long it will break</span>
+                                                    <span class="score-status text-warning"><i class="fa fa-question-circle"></i> Pending</span>
+                                                </div>
+
+                                                <div class="score-item-group">
+                                                    <div class="score-item-xs">
+                                                        <small>MTD Score</small>
+                                                        <span>34.3</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Dec</span> Score</small>
+                                                        <span>80</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Commitment</small>
+                                                        <span>90</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small><span>Jan</span> Score</small>
+                                                        <span>85</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>% Improvement</small>
+                                                        <span class="unit-percent">5</span>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Indicators</small>
+                                                        <i class="md md-2x md-check text-success"></i>
+                                                    </div>
+                                                    <div class="score-item-xs">
+                                                        <small>Bridge Status</small>
+                                                        <span class="score-badge ongoing">On-going</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="score-item-button">
+
+                                                    <!-- Show more actions -->
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="md md-more-horiz md-lg"></i>
+                                                            <span class="visible-xs-inline visible-sm-inline"> More Actions</span>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-custom pull-right" role="menu">
+                                                            <li>
+                                                                <a href="#" class="bg-positive"><i class="md md-lg md-thumb-up"></i>
+                                                                    <strong>
+                                                                        <span>Acknowledge this Measure</span>
+                                                                    </strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View My Feedback Thread</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#"><span>View BLAST! Entries</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- Show more actions -->
+                                                </div>
+                                            </div>
+
+                                            <!-- TO BE REMOVED: For testing only -->
+                                        </div>
+                                        <!-- Body -->
+                                    </div>
+                                    <!-- Score Card Responsive Table -->
+
+                                    <!-- Divider -->
+                                    <hr class="score-divider">
+
 
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="deletedMeasures">
@@ -699,6 +915,212 @@
         </div>
     </div>
     <!-- Change Profile Image -->
+
+    <!-- Add Feedback to this Measure! -->
+    <div class="modal fade js_modal" id="giveFeedback" tabindex="-1" role="dialog" aria-labelledby="giveFeedback" aria-hidden="true">
+        <div class="modal-dialog modal-xlg">
+            <div class="modal-content">
+                <form action="">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Give Feedback to <span>Employee's Name Here</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <!-- Filter -->
+                            <div class="col-md-4">
+                                <div class="well" style="margin-bottom: 0;">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Forms</label>
+                                        <select name="" id="" class="form-control"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Category</label>
+                                        <select name="" id="" class="form-control"></select>
+                                    </div>
+
+                                    <div class="modal-scroll-container-xs js_modal-container-xs">
+                                        <div class="form-group">
+                                            <label for="" class="control-label">Dynamic Field</label>
+                                            <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="" class="control-label">Dynamic Field</label>
+                                            <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="" class="control-label">Dynamic Field</label>
+                                            <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <i class="scroll-shadow scroll-shadow-bottom"></i>
+
+                                </div>
+                            </div>
+                            <!-- Filter -->
+
+                            <!-- Library -->
+                            <div class="col-md-8">
+                                <div class="modal-scroll-container js_modal-container">
+                                    <div class="library-card">
+                                        <div class="panel panel-default-timeline">
+                                            <div class="panel-heading h_remove-bottom-padding">
+
+                                                <!-- Post Metadata -->
+                                                <div class="panel-heading-content">
+                                                    <span class="subject-heading">Innovation</span>
+                                                    <span class="subject-sub-heading">Form and Function</span>
+
+                                                    <small class="text-muted">
+                                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                                    </small>
+                                                </div>
+                                                <!-- Post Metadata -->
+
+                                                <!-- Author's Post -->
+                                                <div class="panel-author-post">
+                                                    <p class="panel-post-content">
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    </p>
+                                                </div>
+                                                <!-- Author's Post -->
+                                            </div>
+
+                                            <div class="panel-body">
+                                                <button type="button" class="btn btn-link" onclick="view_comment_all(this)">
+                                                    <i class="md md-forum"></i> View <span>3</span> comments
+                                                </button>
+
+                                                <!-- Comment -->
+                                                <div class="panel-comment js_init_hidden js_comment">
+                                                    <div class="panel-post-reply">
+
+                                                        <!-- Thought balloon -->
+                                                        <div class="well well-sm">
+                                                            <small class="text-muted center-block date">09/2/2015</small>
+                                                            <h4 class="h4">
+                                                                <span>Eric de Felix</span>
+                                                            </h4>
+                                                            <p>
+                                                                Lorem Ipsum is simply dummy text of the,
+                                                            </p>
+
+                                                        </div>
+                                                        <!-- Thought balloon -->
+                                                    </div>
+                                                </div>
+                                                <!-- Comment -->
+
+                                                <!-- Comment -->
+                                                <div class="panel-comment js_init_hidden js_comment">
+                                                    <div class="panel-post-reply">
+
+                                                        <!-- Thought balloon -->
+                                                        <div class="well well-sm">
+                                                            <small class="text-muted center-block date">09/2/2015</small>
+                                                            <h4 class="h4">
+                                                                <span>Eric de Felix</span>
+                                                            </h4>
+                                                            <p class="display-comment js_comment-controls">
+                                                                Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
+                                                            </p>
+                                                        </div>
+                                                        <!-- Thought balloon -->
+                                                    </div>
+                                                </div>
+                                                <!-- Comment -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Library -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Discard</button>
+                        <button type="button" class="btn btn-primary">Save Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Add Feedback to this Measure! -->
+
+    <!-- Browse BLAST! -->
+    <div class="modal fade js_modal" id="viewBlast" tabindex="-1" role="dialog" aria-labelledby="viewBlast" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form action="">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Browsing <span class="h3">3</span> BLAST! entries for <span>Employee's Name Here</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <!-- Library -->
+                            <div class="col-md-12">
+                                <div class="modal-scroll-container js_modal-container">
+
+                                    <!-- Library Card Item -->
+                                    <div class="library-card">
+                                        <div class="panel panel-default-timeline">
+                                            <div class="panel-heading">
+                                                <!-- Post Metadata -->
+                                                <div class="panel-heading-content">
+                                                    <span class="subject-heading">Innovation</span>
+                                                    <span class="subject-sub-heading">Form and Function</span>
+
+                                                    <small class="text-muted">
+                                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                                    </small>
+
+                                                </div>
+                                                <!-- Post Metadata -->
+
+                                                <!-- Author's Post -->
+                                                <div class="panel-author-post">
+                                                    <div class="pane-post-ratings well well-sm">
+                                                        <div class="feedback-rating-item no-border-left">
+                                                            <span class="rate-one">Supervisor: 
+                                                                <b class="rating">3</b>
+                                                                <i class="md md-star"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="feedback-rating-item">
+                                                            <span class="rate-four">Employee:
+                                                                <b class="rating">4</b>
+                                                                <i class="md md-star"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="panel-post-content">
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    </p>
+                                                </div>
+                                                <!-- Author's Post -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Library Card Item -->
+                                </div>
+                            </div>
+                            <!-- Library -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Close BLAST!</button>
+                        <button type="button" class="btn btn-primary">Go to BLAST!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Browse BLAST! -->
+
     
     <!-- Modals -->
 
