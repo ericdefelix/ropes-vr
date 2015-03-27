@@ -24,13 +24,13 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <!-- for the dreaded IE -->
-    <script src="../assets-common/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="../assets-common/css/iefix.css">
+        <script src="../assets-common/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -186,6 +186,7 @@
         </div>
     </nav>
 
+    
     <div class="container-fluid">
 
         <!-- Employee Profile Info and controls -->
@@ -195,7 +196,7 @@
                 <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);"></div>
             </div>
             <div class="profile-text">
-                <span class="profile-name">Eric de Felix</span>
+                <span class="profile-name">Eric de Felix</span> 
                 <span class="profile-position hidden-xs">UI/UX Engineer</span>
                 <span class="profile-metadata hidden-xs">0917-58-4867</span>
             </div>

@@ -39,28 +39,30 @@ body {
 
 	> .profile-img {
 
-		@media (max-width: $screen-xs-max) {
-			display: none;
-		}
+		// @media (max-width: $screen-xs-max) {
+		// 	display: none;
+		// }
 
-		@media (min-width: $screen-sm-min) {
-			@include make-sm-column(2);
-		}
+		// @media (min-width: $screen-sm-min) {
+		// 	@include make-sm-column(2);
+		// }
 
-		@media (min-width: $screen-md-min) {
+		// @media (min-width: $screen-md-min) {
 			@include make-md-column(4);
 			@include make-md-column-offset(4);
-		}
+		// }
 
 		> .avatar {
-			@media (min-width: $screen-md-min){
-				width: $avatar-lg;
-				height: $avatar-lg;
-			}
-			@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max){
-				width: $avatar-xs + ($grid-gutter-width / 2);
-				height: $avatar-xs + ($grid-gutter-width / 2);
-			}
+			// @media (min-width: $screen-md-min){
+			// 	width: $avatar-lg;
+			// 	height: $avatar-lg;
+			// }
+			// @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max){
+				// width: $avatar-md + ($grid-gutter-width / 2);
+				// height: $avatar-md + ($grid-gutter-width / 2);
+				width: $avatar-md;
+				height: $avatar-md;
+			// }
 		}
 	}
 
@@ -69,14 +71,14 @@ body {
 		font-size: 1.2em;
 		text-align: center;
 
-		@media (max-width: $screen-xs-max) {
-			@include make-xs-column(12);
-			vertical-align: middle;
-		}
+		// @media (max-width: $screen-xs-max) {
+		// 	@include make-xs-column(12);
+		// 	vertical-align: middle;
+		// }
 
-		@media (min-width: $screen-sm-min) {
-			@include make-sm-column(10);
-			text-align: left;
+		// @media (min-width: $screen-sm-min) {
+			// @include make-sm-column(10);
+			// text-align: left;
 
 			> .profile-name {
 				font-size: 1.5em;
@@ -85,17 +87,17 @@ body {
 			> .profile-metadata {
 				font-size: 0.8em;
 			}
-		}
+		// }
 
-		@media (min-width: $screen-md-min) {
+		// @media (min-width: $screen-md-min) {
 			text-align: center;
 			@include make-md-column(4);
 			@include make-md-column-offset(4);
 
-			> .profile-name {
-				font-size: 2em;
-			}
-		}
+		// 	> .profile-name {
+		// 		font-size: 2em;
+		// 	}
+		// }
 
 		span {
 			display: block;
