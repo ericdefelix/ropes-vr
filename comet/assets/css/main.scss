@@ -21,6 +21,9 @@ body {
 
 // Set basic styling
 .profile-info {
+	@include make-row($grid-gutter-width);
+}
+.profile-info {
 	background-color: $brand-cyan;
 	margin-top: $navbar-height + 2;
 
@@ -34,15 +37,13 @@ body {
 		padding-bottom: $navbar-height / 2;
 	}
 
-	@include make-row($grid-gutter-width);
-
 	> .profile-img {
 
 		@media (max-width: $screen-xs-max) {
 			display: none;
 		}
 
-		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		@media (min-width: $screen-sm-min) {
 			@include make-sm-column(2);
 		}
 
@@ -73,7 +74,7 @@ body {
 			vertical-align: middle;
 		}
 
-		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		@media (min-width: $screen-sm-min) {
 			@include make-sm-column(10);
 			text-align: left;
 
@@ -94,15 +95,11 @@ body {
 			> .profile-name {
 				font-size: 2em;
 			}
-
-			// > .profile-metadata {
-			// 	font-size: 0.8em;
-			// }
 		}
 
 		span {
+			display: block;
 			font-family: $font-family-alt;
-			@include clearfix;
 		}
 	}
 }
@@ -111,83 +108,12 @@ body {
 // Profile Controls
 // --------------------------------------------------
 // 
-
 .navbar-controls {
-	@include make-row;
-	> .navbar-control-btns {
-		.btn-group.active {
-			&:after, &:before {
-				border: solid transparent;
-				content: " ";
-				height: 0;
-				width: 0;
-				position: absolute;
-				left: 50%;
-				pointer-events: none;
-			}
-
-			&:after {
-				border-color: rgba(136, 183, 213, 0);
-				border-width: 10px;
-			}
-
-			&:before {
-				border-color: rgba(231, 231, 231, 0);
-				border-width: 11px;
-			}
-		}
-
-		@media (max-width: $screen-xs-max) {
-			@include make-xs-column(12);
-		}
-
-		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-			@include make-sm-column(8);
-			@include make-sm-column-offset(2);
-		}
-
-		@media (min-width: $screen-md-min) {
-			@include make-md-column(6);
-			@include make-md-column-offset(3);
-
-			.btn-group.active {
-				&:after, &:before {
-					top: 100%;
-				}
-
-				&:after {
-					border-top-color: $brand-cyan;
-					margin-left: -10px;
-				}
-
-				&:before {
-					border-top-color: darken($brand-cyan, 7%);
-					margin-left: -11px;
-				}
-			}
-		}
-
-		@media (max-width: $screen-sm-max) {
-			.btn-group.active {
-				&:after, &:before {
-					bottom: 100%;
-				}
-
-				&:after {
-					border-bottom-color: $brand-cyan;
-					margin-left: -10px;
-				}
-
-				&:before {
-					border-bottom-color: darken($brand-cyan, 7%);
-					margin-left: -11px;
-				}
-			}	
-		}
-	}
-
+	
 	// Mimic mobile app navigation
 	position: fixed;
+	right: 0;
+	left: 0;
 	bottom: 0;
 	z-index: $zindex-navbar-fixed;
 	border-top: 1px solid darken($brand-cyan, 5%);
@@ -196,17 +122,33 @@ body {
 	@media ( min-width: $screen-md-min ) {
 		border-top: none;
 		border-bottom: 1px solid darken($brand-cyan, 5%);
-		position: initial;
+		position: static;
+		z-index: $zindex-navbar-fixed;
+	}
+
+	@include make-row;
+}
+
+.navbar-controls {
+	> .navbar-control-btns {
+		position: relative;
+		@include make-xs-column(12);
+
+		@media (min-width: $screen-sm-min) {
+			@include make-sm-column(8);
+			@include make-sm-column-offset(2);
+		}
+
+		@media (min-width: $screen-md-min) {
+			@include make-md-column(6);
+			@include make-md-column-offset(3);
+		}
 	}
 }
 
 .navbar-control-btns {
 	> .btn-group {
 		.btn-group {
-			&:before {
-
-			}
-
 			.btn {
 				@media (max-width: $screen-xs-max) {
 					padding-top: 2%;
@@ -237,6 +179,51 @@ body {
 					}
 				}
 	
+			}
+		}
+	}
+
+	.btn-group.active {
+		&:after, &:before {
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			left: 50%;
+			bottom: 100%;
+			pointer-events: none;
+
+			@media (min-width: $screen-md-min) {
+				top: 100%;
+			}
+		}
+
+		&:after {
+			border-color: rgba(136, 183, 213, 0);
+			border-width: 10px;
+
+			border-bottom-color: $brand-cyan;
+			margin-left: -10px;
+
+			@media (min-width: $screen-md-min) {
+				border-top-color: $brand-cyan;
+				border-bottom-color: transparent;
+				margin-left: -10px;
+			}
+		}
+
+		&:before {
+			border-color: rgba(231, 231, 231, 0);
+			border-width: 11px;
+
+			border-bottom-color: darken($brand-cyan, 7%);
+			margin-left: -11px;
+
+			@media (min-width: $screen-md-min) {
+				border-top-color: darken($brand-cyan, 7%);
+				border-bottom-color: transparent;
+				margin-left: -11px;
 			}
 		}
 	}
@@ -563,11 +550,13 @@ body {
 	@include box-shadow(0,1px,2px,rgba(116, 116, 116, 0.3));
 
 	&:hover {
-		@include transition (background-color 0.3s cubic-bezier(.26,.51,.34,.98));
+		@include transition (all 0.3s cubic-bezier(.26,.51,.34,.98));
 		cursor: pointer;
 		&:before {
-			@include transition (background-color 0.3s cubic-bezier(.26,.51,.34,.98));
+			@include transition (all 0.3s cubic-bezier(.26,.51,.34,.98));
 			background-color: $brand-orange;
+			content: '\f03f';
+			font-family: 'Material-Design-Iconic-Font';
 		}
 	}
 
@@ -927,6 +916,18 @@ body {
 .score-card-body-row {
 	border-bottom: 1px solid darken($gray-lighter, 12%);
 
+	// If Void
+	&.row-muted {
+		background-color: darken($gray-lighter, 12%);
+		color: #696969;
+		.score-item-xs span, .score-measure {
+			text-decoration: line-through;
+		}
+		.score-badge, .score-status {
+			text-decoration: initial !important;
+		}
+	}
+
 	&:last-child { border-bottom: none; }
 
 	// Force text to center on smaller screens
@@ -1230,6 +1231,7 @@ body {
 	}
 
 	@media (min-width: $screen-sm-min) {
+		left: auto;
 		right: 0;
 		bottom: 0;
 		width: 362px;
@@ -1338,6 +1340,7 @@ body {
 
 			> .item-profile-img > .avatar {
 				border-color: $brand-orange;
+				@include transition (border-color 0.3s cubic-bezier(.26,.51,.34,.98));
 			}
 		}
 
@@ -1350,6 +1353,7 @@ body {
 
 			> .avatar {
 				border: 2px solid #fff;
+				@include transition (border-color 0.3s cubic-bezier(.26,.51,.34,.98));
 				width: $item-baseheight;
 				height: $item-baseheight;
 			}
@@ -1410,8 +1414,8 @@ body {
 		padding: 5px 0;
 		right: 0;
 		z-index: $zindex-dropdown - 2;
-		background-color: $brand-cyan;
 		@include background-horizontal(rgba(255,255,255, 0), $brand-cyan);
+		background-color: $brand-cyan;
 		
 		> i {
 			font-size: 1.2em;
@@ -1708,6 +1712,8 @@ body {
 }
 
 // Misc Helpers and Utilities
+.btn-group { border-radius: $border-radius-base; }
+
 .alert {
 	.btn {
 	  position: absolute;
