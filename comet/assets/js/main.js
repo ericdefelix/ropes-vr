@@ -105,17 +105,17 @@ function confirm_comment(elem) {
 function toggle_team() {
     var $search = $('#searchParent');
 
+    resize_container_search();
+ 
     if ( $search.hasClass('in') ) {
         $('#searchParent').removeClass('in');
-        $('#searchParent').velocity("fadeOut", { duration: 150, easing: [ .99,.01,.33,1] })
+        $('#searchParent').velocity("fadeOut", { duration: 100, easing: [ .99,.01,.33,1] })
     }
     else {
-        $('#searchParent').addClass('in');
-        $('#searchParent').velocity("fadeIn", { duration: 150, easing: [ .99,.01,.33,1 ] })
+        // $('#searchParent').addClass('in');
+        $('#searchParent').velocity("fadeIn", { delay: 200, duration: 100, easing: [ .99,.01,.33,1 ] })
         $('.js_search-input').focus();
     }
-
-    resize_container_search();
 }
 
 function expand_directs(elem) {

@@ -25,7 +25,7 @@ body {
 }
 .profile-info {
 	background-color: $brand-cyan;
-	margin-top: $navbar-height + 2;
+	margin-top: $navbar-height + 1;
 
 	@media (max-width: $screen-xs-max) {
 		padding-top: 2%;
@@ -265,8 +265,8 @@ body {
 	// Negate padding-top and padding-bottom
 	> .btn-group {
 		> .btn.btn-sm {
-			margin-top: -5px;
-			margin-bottom: -6px;
+			margin-top: -7px;
+			margin-bottom: -9px;
 			padding: 5px 16px;
 		}
 	}
@@ -319,10 +319,11 @@ body {
 
 .badge-notif {
 	padding: 4px;
+	display: block;
 	width: auto;
 	min-width: 18px;
 	height: 18px;
-	border-radius: 18px; 
+	border-radius: 18px;
 	position: absolute;
 	top: -1px;
 	margin-left: 10px;
@@ -561,7 +562,6 @@ body {
 			font-family: 'Material-Design-Iconic-Font';
 		}
 	}
-
 	&:before {
 		content: counter(step-counter);
 		position: absolute;
@@ -585,7 +585,6 @@ body {
 		right: 2px;
 		bottom: 0;
 		height: 1.5em;
-		content: '';
 		background-color: darken($brand-cyan,10%);
 		margin-top: -0.7em;
 		z-index: $zindex;
@@ -596,6 +595,7 @@ body {
 		display: block;
 		word-wrap: break-word;
 		overflow: hidden;
+		max-height: 45px;
 	}
 
 	> small {
@@ -636,14 +636,12 @@ body {
 		padding-left: 0;
 		display: inline-block;
 		li {
-			&.active:before {
-				@include transition (background-color 0.3s cubic-bezier(.26,.51,.34,.98));
-				background-color: $brand-cyan;
-			}
-
 			counter-increment: page-counter;
 			text-align: center;
 			display: inline-block;
+			font-family: $font-family-bold;
+			width: 20px;
+			height: 20px;
 			margin: 1px 5px;
 			&:hover {
 				cursor: pointer;
@@ -658,12 +656,18 @@ body {
 				content: counter(page-counter);
 				position: relative;
 				display: inline-block;
-				width: 1.3em;
-				height: 1.3em;
+				width: 20px;
+				height: 20px;
 				border-radius: 1.3em;
 				font-size: 1em;
+				text-align: center;
 				background-color: $brand-orange;
 				color: #fff;
+			}
+			&.active:before {
+				@include transition (background-color 0.3s cubic-bezier(.26,.51,.34,.98));
+				background-color: $brand-cyan;
+				text-align: center;
 			}
 		}
 	}
@@ -755,6 +759,8 @@ body {
 	padding: $grid-gutter-width / 2;
 	position: relative;
 
+	.h4 { margin-right: 40px; }
+
 	.date {
 		margin-top: -35px;
 		margin-bottom: 25px;
@@ -808,33 +814,40 @@ body {
 
 	> .panel-footer {
 		margin-top: 20px;
-		.score-card-finalscore {
-			margin-top: -($basepx - 15);
-			@include make-row();
+	}
+}
 
-			> .score {
-				text-align: center;
-				color: #fff;
-				font-size: 2em;
-				font-family: $font-family-bold;
-				width: $basepx;
-				margin-top: 10px;
-				margin-bottom: 10px;
-				padding: $panel-body-padding 0;
-				@include center-block();
-				@include border-radius(100px);
+// Score Card Final Score
+.score-card-finalscore {
+	$basepx: 100px !default;
+	margin-top: -($basepx - 15);
+	text-align: center;
+	@include make-row();
 
-			}
+	> .score {
+		text-align: center;
+		color: #fff;
+		font-size: 2em;
+		font-family: $font-family-bold;
+		width: $basepx;
+		display: inline-block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: $panel-body-padding 0;
+		@include border-radius(100px);
 
-			&:after {
-				width: 100%;
-				display: table;
-				text-align: center;
-				font-size: 1.2em;
-				font-family: $font-family-bold;
-				content: "Overall Month to Date Rating";
-			}
-		}
+	}
+
+	&:after {
+		text-align: center;
+		font-size: 1.2em;
+		font-family: $font-family-bold;
+		position: relative;
+		@include center-block();
+		color: $gray;
+		content: "Overall Month to Date Rating";
 	}
 }
 
@@ -916,7 +929,7 @@ body {
 
 // Style the table body
 .score-card-body-row {
-	border-bottom: 1px solid darken($gray-lighter, 12%);
+	border-top: 1px solid darken($gray-lighter, 12%);
 
 	// If Void
 	&.row-muted {
@@ -930,7 +943,7 @@ body {
 		}
 	}
 
-	&:last-child { border-bottom: none; }
+	&:first-child { border-top: none; }
 
 	// Force text to center on smaller screens
 	> .score-item-category {
@@ -993,6 +1006,10 @@ body {
 
 			&.ongoing {
 				background-color: $brand-cyan;
+			}
+
+			&.pending {
+				background-color: $brand-burgundy;
 			}
 
 			&.void {
@@ -1106,7 +1123,7 @@ body {
 	}
 }
 
-.score-divider:last-child {
+.score-divider:first-child {
 	display: none !important;
 }
 
@@ -1416,8 +1433,9 @@ body {
 		padding: 5px 0;
 		right: 0;
 		z-index: $zindex-dropdown - 2;
-		@include background-horizontal(rgba(255,255,255, 0), $brand-cyan);
-		background-color: $brand-cyan;
+		background-image: url(../img/mask.png);
+		background-repeat: repeat-y;
+		background-color: transparent;
 		
 		> i {
 			font-size: 1.2em;

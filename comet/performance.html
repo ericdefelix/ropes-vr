@@ -25,9 +25,10 @@
 
     <!-- for the dreaded IE -->
     <!--[if lt IE 9]>
-        <link rel="stylesheet" href="../assets-common/css/iefix.css">
         <script src="../assets-common/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="assets/iefix/iefix.css">
     <![endif]-->
+
 </head>
 
 <body>
@@ -51,8 +52,7 @@
                                 <span>Eric Longfirstname</span>
                             </div> 
                             <div class="current-user-img">
-                                <!-- <img src="" class="img-responsive img-rounded" alt="User's Full Name"> -->
-                                <div class="img-rounded img-responsive avatar" style="background-image: url(assets/img/avatar1.jpg);"></div> 
+                                <div class="img-rounded avatar" style="background-image: url(assets/img/avatar1.jpg);"></div> 
                             </div>
                             <i class="md md-keyboard-arrow-down md-lg"></i>
                         </button>
@@ -192,14 +192,18 @@
         <!-- Employee Profile Info and controls -->
         <div class="profile-info">
             <div class="profile-img">
-                <!-- <img class="img-circle img-responsive center-block" src="" alt="Eric de Felix"> -->
-                <div class="img-circle img-responsive center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);"></div>
+                <div class="center-block avatar bordered" style="background-image: url(assets/img/avatar2.jpg);"></div>
             </div>
             <div class="profile-text">
                 <span class="profile-name">Eric de Felix</span> 
                 <span class="profile-position hidden-xs">UI/UX Engineer</span>
                 <span class="profile-metadata hidden-xs">0917-58-4867</span>
             </div>
+        <div class="button">
+            <button class="btn btn-default">
+                Test
+            </button>
+        </div>  
         </div>
         <!-- Employee Profile Info and controls -->        
 
@@ -285,6 +289,9 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="activeMeasures">
+
+                                    <!-- Divider -->
+                                    <hr class="score-divider">
                                     
                                     <!-- Score Card Responsive Table -->
                                     <div class="score-card-table">
@@ -853,10 +860,6 @@
                                     </div>
                                     <!-- Score Card Responsive Table -->
 
-                                    <!-- Divider -->
-                                    <hr class="score-divider">
-
-
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="deletedMeasures">
                                     test2
@@ -1124,13 +1127,13 @@
 
     
     <!-- Modals -->
-
     <script src="../assets-common/js/jquery-1.11.2.min.js"></script>
     <script src="../assets-common/js/bootstrap.min.js"></script>
     <script src="../assets-common/js/velocity.min.js"></script>
     <script src="../assets-common/js/mousetrap.min.js"></script>
     <script src="../assets-common/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
