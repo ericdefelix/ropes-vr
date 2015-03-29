@@ -330,9 +330,7 @@ body {
 	font-size: 1em;
 	text-align: center;
 	line-height: 12px;
-
-	$red: rgba($brand-red, .9);
-	background-color: darken($red, 5%);
+	background-color: darken($brand-red, 5%);
 	color: #fff;
 	@include box-shadow(0,2px,0,rgba(0,0,0,0.2));
 
@@ -1240,7 +1238,7 @@ body {
 .team-panel {
 	position: fixed;
 	z-index: $zindex-dropdown - 1;
-	top: $navbar-height + 2;
+	top: $navbar-height + 1;
 
 	@media (max-width: $screen-xs-max) {
 		left: auto;
@@ -1253,7 +1251,11 @@ body {
 		left: auto;
 		right: 0;
 		bottom: 0;
-		width: 362px;
+		width: 362px + 49;
+		padding-left: 50px;
+		background-image: url(../img/team-search-shadow-iefix.png);
+		background-position: left top;
+		background-repeat: repeat-y;
 	}
 
 	// Closed State
@@ -1290,9 +1292,9 @@ body {
 }
 
 .team-search {
-	background-color: $brand-cyan;
+	// background-color: $brand-cyan;
 	bottom: 0;
-	@include box-shadow(-5px, 7px, 40px, rgba(0,0,0,0.2));
+	// @include box-shadow(-5px, 7px, 40px, rgba(0,0,0,0.2));
 
 	> .team-input-group {
 		padding: ($grid-gutter-width / 2) - 3;
@@ -1324,7 +1326,7 @@ body {
 			display: block;
 			position: absolute;
 			top: 20px;
-			left: 15px;
+			left: 70px;
 		}
 	}
 
@@ -1337,11 +1339,12 @@ body {
 	@media (max-width: $screen-xs-max) {
 		width: 100%;
 		border: none;
+		background-color: $brand-cyan;
 	}
 
 	@media (min-width: $screen-sm-min) {
 		width: 362px;
-		border-left: 1px solid darken($brand-cyan, 10%);
+		// border-left: 1px solid darken($brand-cyan, 10%);
 	}
 }
 
@@ -1712,14 +1715,15 @@ body {
 
 	> .rating-title {
 		text-align: center;
+		font-size: 1.2em;
 	}
 
 	> .rating-team-value {
 		font-size: 2em;
-		width: 4em;
-		height: 4em;
-		padding: 37px;
-		border-radius: 4em;
+		width: auto;
+		height: auto;
+		padding: 1em;
+		border-radius: 6px;
 		color: #fff;
 		background-color: $brand-cyan;
 		display: inline-block;

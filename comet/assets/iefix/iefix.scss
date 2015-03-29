@@ -20,25 +20,62 @@ $shadow-color: #8C8C8C;
 	background: transparent url(../img/btn-transparent-hover-iefix.png);
 }
 
-.btn-group {
-	display: block;
+.navbar-float .btn-group .btn-default {
+	max-width: none;
 }
 
 // Avatar
 div.avatar {
-	border-radius: 160px;
 	z-index: 0;
+	zoom: 1;
 	position: relative;
 	background-size: cover;
 	background-position: center center;
-	behavior: url(assets/iefix/backgroundsize.min.htc);
-	-ms-behavior: url(assets/iefix/backgroundsize.min.htc);
+	// behavior: url(assets/iefix/backgroundsize.min.htc);
+	// -ms-behavior: url(assets/iefix/backgroundsize.min.htc);
+
+	&:before {
+		z-index: 1;
+		position: absolute;
+		display: block;
+		width: 120px;
+		height: 120px;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background-repeat: no-repeat;
+	}
 }
 
-.current-user-img .avatar {
-	border-radius: 3px;
-	behavior: url(assets/iefix/backgroundsize.min.htc);
-	-ms-behavior: url(assets/iefix/backgroundsize.min.htc);
+.profile-img > .avatar {
+	border: none !important;
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-160-iefix.png);
+	}
+}
+
+.panel-heading > .panel-avatar > .avatar {
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-120-iefix.png);
+	}
+}
+
+.panel-body .panel-avatar > .avatar {
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-60-iefix.png);
+	}
+}
+
+.team-list-item > .item-profile-img > .avatar {
+	border: none !important;
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-50-iefix.png);
+	}
 }
 
 // Score Card
@@ -60,6 +97,7 @@ div.avatar {
 	behavior: url(assets/iefix/PIE.htc);
 	-ms-behavior: url(assets/iefix/PIE.htc);
 }
+
 
 // Carousel
 
