@@ -29,6 +29,26 @@ $(function () {
 
 })
 
+// Navigation Controls Sticky
+$(document).scroll(function() {
+    var scrollTop = $(document).scrollTop();
+    var docWidth = $(document).width();
+    var offsettrigger = $('.profile-info').outerHeight();
+    var offset = $('.navbar-fixed-top').height();
+
+    if ( docWidth > 991 && scrollTop > offsettrigger ) {
+        $('.navbar-controls').addClass('navbar-sticky').css('top', offset + 1);
+    }
+    else if (docWidth > 991 && scrollTop < offsettrigger) {
+        $('.navbar-controls').removeClass('navbar-sticky').css('top', 'initial');
+    }
+    else {
+        return false;
+    }
+});
+
+
+
 // Strict Numbers Only on Input Field
 function isNumber(evt) {
     evt = (evt) ? evt : window.event;

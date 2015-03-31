@@ -203,9 +203,9 @@
         <!-- Employee Profile Info and controls -->        
 
         <!-- Navbar responds to different screents -->
-        <nav class="navbar-controls navbar-cyan navbar-dynamic" role="navigation">
+        <nav class="navbar-controls navbar-cyan navbar-dynamic js_navbar-controls" role="navigation" data-spy="affix" data-offset-top="60">
 
-            <section class="navbar-control-btns">
+            <section class="navbar-control-btns js_navbar-control-btns">
                 <div class="btn-group btn-group-justified" role="group" aria-label="Performance Measure, Give Feedback, BLAST!">
                     <div class="btn-group active" role="group">
                         <button type="button" class="btn btn-transparent">
@@ -230,7 +230,7 @@
         </nav>
 
         <!-- Scorecard -->
-        <div class="row">
+        <div class="row push-down">
             <div class="timeline-card">
                 <div class="panel panel-default score-card">
                     <div class="panel-heading">
@@ -278,7 +278,7 @@
                         <div class="score-legend">
                             <span><i class="score-negative"></i> BRIDGE</span>
                             <span><i class="score-positive"></i> ISP</span>
-                            <span class="text-muted" style="margin-right: 15px;"><i class="md md-lg md-live-help"></i>
+                            <span class="text-muted" style="margin-right: 15px;"><i class="md md-lg md-live-help"></i></span>
                         </div>
                         <div role="tabpanel">
                             <!-- Tab panes -->
@@ -891,7 +891,7 @@
 
                                 <!-- Profile Photo Picker -->
                                 <div class="avatar-picker center-block">
-                                    <input type="file" class="picker" id="picker">
+                                    <button class="picker" onclick="trigger_avatar">Avatar picker</button>
                                     <span class="icon">
                                         <i class="md md-5x md-photo-camera"></i>
                                     </span>
