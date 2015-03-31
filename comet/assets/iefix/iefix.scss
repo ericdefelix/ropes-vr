@@ -118,3 +118,13 @@ div.avatar {
 .scroll-numbers li.active:before {
 	background: url(../img/carousel-page-iefix.png) center bottom no-repeat;
 }
+
+// Modal Override
+.modal {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.modal-backdrop {
+	background-color: $gray !important;
+}

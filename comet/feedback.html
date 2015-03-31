@@ -389,7 +389,7 @@
                                     <p class="display-comment js_comment-controls">
                                         Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
                                     </p>
-                                    <textarea name="" id="" cols="150" rows="2" class="form-control js_comment-edit-mode mousetrap">
+                                    <textarea name="" id=""  rows="2" class="form-control js_comment-edit-mode mousetrap">
                                         Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
                                     </textarea>
                                     
@@ -455,7 +455,7 @@
                             <!-- Your textbox -->
                             <div class="panel-comment-input">
                                 <form action="">
-                                    <textarea name="" id="" cols="150" rows="3" autofocus class="form-control comment-input js_comment-input mousetrap" maxlength="300" placeholder="Your reply..."></textarea>
+                                    <textarea name="" id="" rows="3" autofocus class="form-control comment-input js_comment-input mousetrap" maxlength="300" placeholder="Your reply..."></textarea>
 
                                     <button type="submit" class="btn btn-lg btn-primary" data-toggle="tooltip" data-placement="left" title="Post Messsage [&nbsp;Ctrl+Enter&nbsp;]"><i class="fa fa-send fa-lg fa-fw"></i></button>
                                     <span class="js_char-left">50</span>&nbsp;<span>characters remaining</span>
@@ -620,6 +620,11 @@
     <script src="../assets-common/js/mousetrap.min.js"></script>
     <script src="../assets-common/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- for the dreaded IE -->
+    <!--[if lt IE 9]>
+        <script src="assets/iefix/iefix.js"></script>
+    <![endif]-->
 </body>
 
 </html>
