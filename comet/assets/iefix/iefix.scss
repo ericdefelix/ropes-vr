@@ -98,6 +98,34 @@ div.avatar {
 	-ms-behavior: url(assets/iefix/PIE.htc);
 }
 
+// Count Badges
+.badge-notif, .badge {
+	padding-left: 0;
+	padding-right: 0;
+	display: inline-block;
+	position: relative;
+
+	&:before {
+		width: 9px;
+		height: 19px;
+		background-image: url(assets/img/badge-leftbg-iefix.png);
+		background-repeat: no-repeat;
+		background-position: top left;
+		position: relative;
+		display: inline-block;
+	}
+
+	&:after {
+		width: 9px;
+		height: 19px;
+		background-image: url(assets/img/badge-rightbg-iefix.png);
+		background-repeat: no-repeat;
+		background-position: top left;
+		position: relative;
+		display: inline-block;
+	}
+}
+
 
 // Carousel
 
