@@ -30,7 +30,7 @@ $(function () {
 })
 
 // Navigation Controls Sticky
-$(document).scroll(function() {
+$(window).scroll(function() {
     var scrollTop = $(document).scrollTop();
     var docWidth = $(document).width();
     var offsettrigger = $('.profile-info').outerHeight();
@@ -40,7 +40,7 @@ $(document).scroll(function() {
         $('.navbar-controls').addClass('navbar-sticky').css('top', offset + 1);
     }
     else if (docWidth > 991 && scrollTop < offsettrigger) {
-        $('.navbar-controls').removeClass('navbar-sticky').css('top', 'initial');
+        $('.navbar-controls').removeClass('navbar-sticky').css('top', 'auto');
     }
     else {
         return false;
@@ -97,13 +97,15 @@ function write_comment(elem) {
 }
 
 function edit_comment(elem) {
-    $(elem).closest($post).find('.js_comment-controls').hide();
+    $(elem).closest($post).find('.js_comment-controls.display-comment').addClass('ishidden');
+    $(elem).closest($post).find('.js_comment-controls.btn-float').hide();
     $(elem).closest($post).find('.js_comment-edit-mode').show();
     $(elem).closest($post).find('.js_comment-edit-mode').focus();
 }
 
 function discard_comment(elem) {
-    $(elem).closest($post).find('.js_comment-controls').show();
+    $(elem).closest($post).find('.js_comment-controls.display-comment').removeClass('ishidden');
+    $(elem).closest($post).find('.js_comment-controls.btn-float').show();
     $(elem).closest($post).find('.js_comment-edit-mode').hide();
     $(elem).closest($post).find('.js_comment-edit-mode').val('');
 }
@@ -124,8 +126,6 @@ function confirm_comment(elem) {
 // Toggle View of Panel
 function toggle_team() {
     var $search = $('#searchParent');
-
-    resize_container_search();
  
     if ( $search.hasClass('in') ) {
         $('#searchParent').removeClass('in');
@@ -136,6 +136,8 @@ function toggle_team() {
         $('#searchParent').velocity("fadeIn", { delay: 200, duration: 100, easing: [ .99,.01,.33,1 ] })
         $('.js_search-input').focus();
     }
+
+   resize_container_search();
 }
 
 function expand_directs(elem) {
@@ -216,50 +218,57 @@ resize_container_search();
 //
 
 // Initialize Variables
-var carousel_id = "#" + $('.carousel').get(0).id;
+var carousel_id = "#" + $('.carousel').attr('id');
 var li = carousel_id + ' .js_scroll-numbers li';
+var li_active = carousel_id + ' .js_scroll-numbers li.active';
 
 var $carousel_scroll = $(carousel_id).find('.js_carousel-scroll');
-var $carousel_list = $(carousel_id).find('.js_carousel-list');;
+var $carousel_list = $(carousel_id).find('.js_carousel-list');
+var $carousel_numbers = $(carousel_id).find('.js_scroll-numbers');
 
 var step = $carousel_scroll.outerHeight() - 2;
 var steplimit = $(carousel_id).find('.js_carousel-list').outerHeight() - step - 2; // 2 accommodates the 2px margin-bottom
 var init_step = 0;
 var tick = init_step; // Watch variable for offset updates
 
-function carousel_prev_slide(elem) {
-    if (tick <= 0 ) {
-        return false;
-    }
-    else {
-        tick = tick - step; // Update ticker
-        $(elem).siblings('.js_scroll-numbers').children('li.active').prev('li').addClass('active');
-        $(elem).siblings('.js_scroll-numbers').children('li.active').last('li.active').removeClass('active');
-    }
+// Carousel Autoplay
+var autoplay = true;
+var carouseltimer;
 
-    $carousel_list.velocity(
-        "scroll",
-        {
-            translateZ: 0, // Force Hardware Acceleration
-            container: $carousel_scroll,
-            duration: 450,
-            easing: [ .99,.01,.33,1],
-            offset: tick
-        });
+function start_autoplay() {
+    clearInterval(carouseltimer);
+    carouseltimer = window.setInterval(function() {
+       carousel_next_slide();
+       console.log(tick);
+    }, 6000);
 }
 
-function carousel_next_slide(elem) {
-    if (tick >= steplimit ) {
-        return false;
+// Prev Slide
+function carousel_prev_slide(elem) {
+    if (tick < step ) {
+        // Go to last
+        $(li).last().addClass('active');
+        $(li).first().removeClass('active');
+
+        tick = steplimit;
+        $carousel_list.velocity( "scroll",
+        {
+            translateZ: 0, // Force Hardware Acceleration
+            container: $carousel_scroll,
+            duration: 450,
+            easing: [ .99,.01,.33,1],
+            offset: steplimit
+        });
+
+        start_autoplay();;
     }
     else {
-        tick = tick + step; // Update ticker
-        $(elem).siblings('.js_scroll-numbers').children('li.active').next('li').addClass('active');
-        $(elem).siblings('.js_scroll-numbers').children('li.active').first('li.active').removeClass('active');
-    }
+        // Move previous
+        $(li_active).prev().addClass('active');
+        $(li_active).last().removeClass('active');
 
-    $carousel_list.velocity(
-        "scroll",
+        tick = tick - step; // Update ticker
+        $carousel_list.velocity( "scroll",  
         {
             translateZ: 0, // Force Hardware Acceleration
             container: $carousel_scroll,
@@ -267,6 +276,47 @@ function carousel_next_slide(elem) {
             easing: [ .99,.01,.33,1],
             offset: tick
         });
+
+        start_autoplay();
+    }
+}
+
+// Next Slide
+function carousel_next_slide(elem) {
+    if (tick >= steplimit ) {
+
+        // Go to first
+        $(li).first().addClass('active');
+        $(li).last().removeClass('active');
+
+        tick = init_step;
+        $carousel_list.velocity( "scroll",
+        {
+            translateZ: 0, // Force Hardware Acceleration
+            container: $carousel_scroll,
+            duration: 450,
+            easing: [ .99,.01,.33,1],
+            offset: init_step
+        });
+
+        start_autoplay();
+    }
+    else {
+        // Move next
+        $(li_active).next().addClass('active');
+        $(li_active).first().removeClass('active');
+
+        tick = tick + step; // Update ticker
+        $carousel_list.velocity( "scroll",
+        {
+            translateZ: 0, // Force Hardware Acceleration
+            container: $carousel_scroll,
+            duration: 450,
+            easing: [ .99,.01,.33,1],
+            offset: tick
+        });
+    }
+    start_autoplay();
 }
 
 // Count how many slides are to be rendered
@@ -274,20 +324,17 @@ function render_slidenum() {
     var list_len = Math.ceil( $carousel_list.children().length / 5 );
 
     for (var i = list_len - 1; i >= 0; i--) {
-        $(carousel_id).find('.js_scroll-numbers').append('<li></li>');
+        $carousel_numbers.append('<li></li>');
     }
+    
+    $carousel_numbers.children().first().addClass('active');
 
-    $(carousel_id).find('.js_scroll-numbers li').first().addClass('active');
-}
-render_slidenum();
+    // Go to respective slide when slide number is clicked
+    $(document).on('click', li, function() {
+        var index = $(li).index(this) + 1;
+        tick = (step * index) - step; // Update ticker
 
-// Go to respective slide when slide number is clicked
-$(document).on('click', li , function(event) {
-    var index = $(li).index(this) + 1;
-    tick = (step * index) - step; // Update ticker
-
-    $carousel_list.velocity(
-        "scroll",
+        $carousel_list.velocity("scroll",
         {
             translateZ: 0, // Force Hardware Acceleration
             container: $carousel_scroll,
@@ -296,9 +343,34 @@ $(document).on('click', li , function(event) {
             offset: tick
         });
 
-    // Tag who's active
-    $(this).siblings('li').removeClass("active");
-    $(this).addClass('active');
+        // Tag who's active
+        $(this).addClass('active');
+        $(this).siblings('li').removeClass('active');
+        start_autoplay();
+    });
+}
+
+// Construct Carousel
+function build_carousel() {
+    render_slidenum();
+}
+
+// Check if BLAST Button is clicked and Carousel is present
+var partialtimer;
+var carouselbuilt = false;
+$('#btnBlast').click(function() {
+    window.clearTimeout(partialtimer);         
+    partialtimer = window.setTimeout(function(){    
+        if ($('.carousel').length > 0 && carouselbuilt == false ) {
+            carouselbuilt = true; // Tell app carousel is already built
+            build_carousel();
+            start_autoplay(); // Start autoplaying
+        }
+        else {
+            return false;
+        }
+    }
+    ,400);
 });
 
 // Keyboard Shortcuts

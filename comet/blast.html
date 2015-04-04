@@ -223,7 +223,7 @@
                         </button>
                     </div>
                     <div class="btn-group active" role="group">
-                        <button type="button" class="btn btn-transparent">
+                        <button type="button" class="btn btn-transparent" id="btnBlast">
                             <i class="md md-my-library-books md-lg"></i>
                             <span class="center-block">BLAST!</span>
                         </button>
@@ -281,6 +281,12 @@
                         <li class="carousel-item">
                             <div class="carousel-thumbnail" data-toggle="modal" data-target="#viewFeaturedBLAST" data-backdrop="true">
                                 <span class="carousel-title">Thumbnail Title</span>
+                                <div class="feedback-rating-item">
+                                    <span class="rate-one">
+                                        <b class="rating">4</b>
+                                        <i class="md md-star"></i>
+                                    </span>
+                                </div>
                                 <small>Author's Name</small>
                             </div>
                         </li>
@@ -368,7 +374,9 @@
 
                 <!-- Carousel Controls -->
                 <div class="carousel-scroll-controls">
-                    <button class="btn btn-transparent nav" onclick="carousel_prev_slide(this)"><i class="md md-lg md-navigate-before"></i></button>
+                    <button class="btn btn-transparent nav" onclick="carousel_prev_slide(this)">
+                        <i class="md md-lg md-navigate-before"></i>
+                    </button>
                     <ol class="scroll-numbers js_scroll-numbers">
                     </ol>
                     <button class="btn btn-transparent nav" onclick="carousel_next_slide(this)"><i class="md md-lg md-navigate-next"></i></button>
@@ -420,7 +428,7 @@
 
                         <!-- Author's Post -->
                         <div class="panel-author-post">
-                            <div class="pane-post-ratings well well-sm">
+                            <div class="panel-post-ratings well well-sm">
                                 <!-- Rating -->
                                 <div class="btn-group btn-group-sm" data-toggle="tooltip" data-placement="left" title="Give your rating">
                                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -515,9 +523,11 @@
                                     <p class="display-comment js_comment-controls">
                                         Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
                                     </p>
-                                    <textarea name="" id="" cols="150" rows="2" class="form-control js_comment-edit-mode mousetrap">
-                                        Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
-                                    </textarea>
+                                    <div class="textarea">
+                                        <textarea name="" id="" rows="2" class="form-control js_comment-edit-mode mousetrap">
+                                            Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the, Lorem Ipsum is simply dummy text of the,
+                                        </textarea>
+                                    </div>
                                     
                                     <!-- Edit Or Delete -->
                                     <div class="btn-float btn-float-right js_comment-controls">

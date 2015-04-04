@@ -54,8 +54,8 @@ $link-hover-decoration: underline !default;
 //== Defaul Avatar
 //
 $avatar-base-size:		40px !default;
-$avatar-xxs:			$avatar-base-size !default; // 40px
-$avatar-xs:				$avatar-base-size + 20 !default; // 80px
+$avatar-xxs:			$avatar-base-size + 20 !default; // 60px
+$avatar-xs:				$avatar-base-size * 2 !default; // 80px
 $avatar-sm:				$avatar-base-size * 3 !default; // 120px
 $avatar-md:				$avatar-base-size * 4 !default; // 160px
 $avatar-lg:				$avatar-base-size * 5 !default; // 200px
