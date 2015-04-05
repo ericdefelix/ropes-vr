@@ -33,7 +33,7 @@ $(function () {
 $(window).scroll(function() {
     var scrollTop = $(document).scrollTop();
     var docWidth = $(document).width();
-    var offsettrigger = $('.profile-info').outerHeight();
+    var offsettrigger = $('.profile-info').outerHeight() + 29;
     var offset = $('.navbar-fixed-top').height();
 
     if ( docWidth > 991 && scrollTop > offsettrigger ) {
@@ -47,6 +47,28 @@ $(window).scroll(function() {
     }
 });
 
+// Scroll to Top Button
+$(window).scroll(function() {
+    var scrollTop = $(window).scrollTop();
+    var offset = 500;
+
+    if ( scrollTop > offset ) {
+        $('#scrollToTop').addClass('in');
+    }
+    else {
+        $('#scrollToTop').removeClass('in');
+    }
+});
+
+$('#scrollToTop').on('click', '#btnScrollToTop', function() {
+    $('html').velocity( "scroll",
+    {
+        translateZ: 0, // Force Hardware Acceleration
+        duration: 450,
+        easing: [.74,.01,.46,.99],
+        offset: 0
+    });
+});
 
 
 // Strict Numbers Only on Input Field

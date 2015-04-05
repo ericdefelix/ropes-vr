@@ -1922,22 +1922,51 @@ body {
 	position: fixed !important;
 	bottom: auto !important;
 	z-index: $zindex-navbar !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
 	i.md {
-		display: none !important;
+		display: none;
 	}
 }
 
-// TELERIK CONTROLS overrides
-.k-picker-wrap.k-state-default .k-input {
-	box-shadow: 0 -1px 0 #acacac inset;
-	padding: 8px 12px;
+// Display Scroll to Top
+.scroll-to-top {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	z-index: $zindex-modal + 2;
+
+	&.fade { @include opacity(0); }
+	&.in { @include opacity(1); }
+
+	&.fade .btn-scroll-to-top{
+		@include translate(80px, 0);
+		@include transition-transform(0.3s cubic-bezier(.77,.59,.26,.9));
+	}
+
+	&.in .btn-scroll-to-top { 
+		@include translate(0, 0);
+		@include transition-transform(0.3s cubic-bezier(.77,.59,.26,.9));
+	}
 }
 
-.k-state-default>.k-select {
-  border-color: #D2D2D2;
-  border-bottom-color: #d7d7d7;
-  box-shadow: 0 -1px 0 #acacac inset;
+// Load More
+.load-more {
+	width: 100%;
+	position: fixed;
+	bottom: 15px;
+	text-align: center;
+	z-index: $zindex-modal + 1;
+
+	.bg {
+		width: 20%;
+		display: inline-block;
+		margin: auto auto;
+		padding: 15px;
+		border-radius: 3px;
+		color: #fff;
+		background-color: rgba(#000,0.80);
+	}
 }
 
 .implemented-cell { text-align:center; }
