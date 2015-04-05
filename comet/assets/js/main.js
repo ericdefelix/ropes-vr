@@ -189,7 +189,7 @@ function resize_container_search() {
 function resize_container_modal() {
     var child = $('.js_modal-container');
     var body = $(window).height();
-    var totalHeight = body - 280;
+    var totalHeight = body - 320;
 
     child.css({ height: totalHeight + 'px' });
     resize_container_modal_xs()
@@ -197,18 +197,19 @@ function resize_container_modal() {
 
 function resize_container_modal_xs() {
     var child = $('.js_modal-container-xs');
-    var totalHeight = $('.js_modal-container').height() - 178;
+    var totalHeight = $('.js_modal-container').height() - 182;
 
     child.css({ height: totalHeight + 'px' }); 
 }
 
-resize_container_modal()
+$(document).on('click', '[data-target="#giveFeedback"], [data-target="#viewBlast"]', function() {
+    resize_container_modal();
+});
 
 var resizeTimer;
 $(window).resize(function() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(resize_container_search, 150);
-    resizeTimer = setTimeout(resize_container_modal, 150);
 })
 
 resize_container_search();

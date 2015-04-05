@@ -665,18 +665,17 @@
 
     <!-- Browse BLAST! -->
     <div class="modal fade js_modal" id="browseBLAST" tabindex="-1" role="dialog" aria-labelledby="browseBLAST" aria-hidden="true">
-        <div class="modal-dialog modal-xlg">
-            <div class="modal-content">
-                <form action="">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-center">Browsing <span class="h3">3</span> entries in BLAST! Library</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-
-                            <!-- Filter -->
-                            <div class="col-md-4">
-                                <div class="well" style="margin-bottom: 0;">
+        <div class="row">
+            <!-- Settings -->
+            <div class="col-md-4">
+                <div class="modal-settings-fixed">
+                    <div class="modal-content-modified">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center">Browsing <span class="h3">3</span> entries in BLAST! Library</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="" class="control-label">Action Plan</label>
                                         <select name="" id="" class="form-control"></select>
@@ -743,114 +742,392 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Filter -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-lg btn-block btn-transparent" data-dismiss="modal">Close BLAST! Library</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Settings -->
 
-                            <!-- Library -->
-                            <div class="col-md-8">
-                                <div class="modal-scroll-container js_modal-container">
+            <!-- Cards -->
+            <div class="col-md-8">
+                <div class="modal-scroll modal-dialog-full">
+                    <!-- Library Card Item -->
+                    <div class="library-card">
+                        <div class="panel panel-default-timeline">
+                            <div class="panel-heading">
+                                <!-- Post Metadata -->
+                                <div class="panel-heading-content">
+                                    <span class="subject-heading">Innovation</span>
+                                    <span class="subject-sub-heading">Form and Function</span>
 
-                                    <!-- Library Card Item -->
-                                    <div class="library-card">
-                                        <div class="panel panel-default-timeline">
-                                            <div class="panel-heading">
-                                                <!-- Post Metadata -->
-                                                <div class="panel-heading-content">
-                                                    <span class="subject-heading">Innovation</span>
-                                                    <span class="subject-sub-heading">Form and Function</span>
+                                    <small class="text-muted">
+                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                    </small>
 
-                                                    <small class="text-muted">
-                                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
-                                                    </small>
+                                </div>
+                                <!-- Post Metadata -->
 
-                                                </div>
-                                                <!-- Post Metadata -->
+                                <!-- Author's Post -->
+                                <div class="panel-author-post">
+                                    <div class="pane-post-ratings well well-sm">
+                                        <div class="feedback-rating-item no-border-left">
+                                            <span class="rate-one">Supervisor: 
+                                                <b class="rating">3</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                        <div class="feedback-rating-item">
+                                            <span class="rate-four">Employee:
+                                                <b class="rating">4</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="panel-post-content">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    </p>
 
-                                                <!-- Author's Post -->
-                                                <div class="panel-author-post">
-                                                    <div class="pane-post-ratings well well-sm">
-                                                        <div class="feedback-rating-item no-border-left">
-                                                            <span class="rate-one">Supervisor: 
-                                                                <b class="rating">3</b>
-                                                                <i class="md md-star"></i>
-                                                            </span>
-                                                        </div>
-                                                        <div class="feedback-rating-item">
-                                                            <span class="rate-four">Employee:
-                                                                <b class="rating">4</b>
-                                                                <i class="md md-star"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <p class="panel-post-content">
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                                    </p>
+                                    <!-- Use as Template -->
+                                    <button type="button" class="btn btn-block btn-transparent" onclick="open_library_controls(this)">
+                                        <i class="md md-lg md-note-add text-success"></i>
+                                        Create New BLAST! from this entry
+                                    </button>
+                                    <!-- Use as Template -->
 
-                                                    <!-- Use as Template -->
-                                                    <button type="button" class="btn btn-block btn-transparent" onclick="open_library_controls(this)">
-                                                        <i class="md md-lg md-note-add text-success"></i>
-                                                        Create New BLAST! from this entry
+                                    <!-- Library Controls -->
+                                    <div class="library-controls js_init_hidden js_library-controls">
+                                        <div class="form-group">
+                                            <label for="" class="control-label">Select one or more target(s) applicable to this plan</label>
+                                            <select name="" id="" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="selected-measures">
+                                                <strong class="text-center">No selected measure</strong>
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure</span>
+                                                    <button type="button" class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
                                                     </button>
-                                                    <!-- Use as Template -->
-
-                                                    <!-- Library Controls -->
-                                                    <div class="library-controls js_init_hidden js_library-controls">
-                                                        <div class="form-group">
-                                                            <label for="" class="control-label">Select one or more target(s) applicable to this plan</label>
-                                                            <select name="" id="" class="form-control"></select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="selected-measures">
-                                                                <strong class="text-center">No selected measure</strong>
-                                                                <div class="selected-measure-item">
-                                                                    <span class="measure-name">Selected measure</span>
-                                                                    <button type="button" class="btn btn-xs btn-transparent">
-                                                                        <i class="md md-lg md-close"></i>
-                                                                    </button>
-                                                                </div>
-
-                                                                <div class="selected-measure-item">
-                                                                    <span class="measure-name">Selected measure that is soo soo long this will break</span>
-                                                                    <button class="btn btn-xs btn-transparent">
-                                                                        <i class="md md-lg md-close"></i>
-                                                                    </button>
-                                                                </div>
-
-                                                                <div class="selected-measure-item">
-                                                                    <span class="measure-name">Selectedmeasurenobreaaaaaaaaaaaaaaaaaaaaks</span>
-                                                                    <button class="btn btn-xs btn-transparent">
-                                                                        <i class="md md-lg md-close"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="pull-right">
-                                                                <button type="button" class="btn btn-transparent" onclick="close_library_controls(this)">
-                                                                    <i class="md md-lg md-close"></i> Back to View
-                                                                </button>
-                                                                <button type="button" class="btn btn-success" onclick="apply_library()">
-                                                                    <i class="md md-lg md-check"></i> Apply and Close Library
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Library Controls -->
                                                 </div>
-                                                <!-- Author's Post -->
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure that is soo soo long this will break</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selectedmeasurenobreaaaaaaaaaaaaaaaaaaaaks</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="pull-right">
+                                                <button type="button" class="btn btn-transparent" onclick="close_library_controls(this)">
+                                                    <i class="md md-lg md-close"></i> Back to View
+                                                </button>
+                                                <button type="button" class="btn btn-success" onclick="apply_library()">
+                                                    <i class="md md-lg md-check"></i> Apply and Close Library
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Library Card Item -->
+                                    <!-- Library Controls -->
                                 </div>
+                                <!-- Author's Post -->
                             </div>
-                            <!-- Library -->
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-transparent" data-dismiss="modal">Close BLAST! Library</button>
+                    <!-- Library Card Item -->
+
+                    <!-- Library Card Item -->
+                    <div class="library-card">
+                        <div class="panel panel-default-timeline">
+                            <div class="panel-heading">
+                                <!-- Post Metadata -->
+                                <div class="panel-heading-content">
+                                    <span class="subject-heading">Innovation</span>
+                                    <span class="subject-sub-heading">Form and Function</span>
+
+                                    <small class="text-muted">
+                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                    </small>
+
+                                </div>
+                                <!-- Post Metadata -->
+
+                                <!-- Author's Post -->
+                                <div class="panel-author-post">
+                                    <div class="pane-post-ratings well well-sm">
+                                        <div class="feedback-rating-item no-border-left">
+                                            <span class="rate-one">Supervisor: 
+                                                <b class="rating">3</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                        <div class="feedback-rating-item">
+                                            <span class="rate-four">Employee:
+                                                <b class="rating">4</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="panel-post-content">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    </p>
+
+                                    <!-- Use as Template -->
+                                    <button type="button" class="btn btn-block btn-transparent" onclick="open_library_controls(this)">
+                                        <i class="md md-lg md-note-add text-success"></i>
+                                        Create New BLAST! from this entry
+                                    </button>
+                                    <!-- Use as Template -->
+
+                                    <!-- Library Controls -->
+                                    <div class="library-controls js_init_hidden js_library-controls">
+                                        <div class="form-group">
+                                            <label for="" class="control-label">Select one or more target(s) applicable to this plan</label>
+                                            <select name="" id="" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="selected-measures">
+                                                <strong class="text-center">No selected measure</strong>
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure</span>
+                                                    <button type="button" class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure that is soo soo long this will break</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selectedmeasurenobreaaaaaaaaaaaaaaaaaaaaks</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="pull-right">
+                                                <button type="button" class="btn btn-transparent" onclick="close_library_controls(this)">
+                                                    <i class="md md-lg md-close"></i> Back to View
+                                                </button>
+                                                <button type="button" class="btn btn-success" onclick="apply_library()">
+                                                    <i class="md md-lg md-check"></i> Apply and Close Library
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Library Controls -->
+                                </div>
+                                <!-- Author's Post -->
+                            </div>
+                        </div>
                     </div>
-                </form>
+                    <!-- Library Card Item -->
+
+                    <!-- Library Card Item -->
+                    <div class="library-card">
+                        <div class="panel panel-default-timeline">
+                            <div class="panel-heading">
+                                <!-- Post Metadata -->
+                                <div class="panel-heading-content">
+                                    <span class="subject-heading">Innovation</span>
+                                    <span class="subject-sub-heading">Form and Function</span>
+
+                                    <small class="text-muted">
+                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                    </small>
+
+                                </div>
+                                <!-- Post Metadata -->
+
+                                <!-- Author's Post -->
+                                <div class="panel-author-post">
+                                    <div class="pane-post-ratings well well-sm">
+                                        <div class="feedback-rating-item no-border-left">
+                                            <span class="rate-one">Supervisor: 
+                                                <b class="rating">3</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                        <div class="feedback-rating-item">
+                                            <span class="rate-four">Employee:
+                                                <b class="rating">4</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="panel-post-content">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    </p>
+
+                                    <!-- Use as Template -->
+                                    <button type="button" class="btn btn-block btn-transparent" onclick="open_library_controls(this)">
+                                        <i class="md md-lg md-note-add text-success"></i>
+                                        Create New BLAST! from this entry
+                                    </button>
+                                    <!-- Use as Template -->
+
+                                    <!-- Library Controls -->
+                                    <div class="library-controls js_init_hidden js_library-controls">
+                                        <div class="form-group">
+                                            <label for="" class="control-label">Select one or more target(s) applicable to this plan</label>
+                                            <select name="" id="" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="selected-measures">
+                                                <strong class="text-center">No selected measure</strong>
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure</span>
+                                                    <button type="button" class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure that is soo soo long this will break</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selectedmeasurenobreaaaaaaaaaaaaaaaaaaaaks</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="pull-right">
+                                                <button type="button" class="btn btn-transparent" onclick="close_library_controls(this)">
+                                                    <i class="md md-lg md-close"></i> Back to View
+                                                </button>
+                                                <button type="button" class="btn btn-success" onclick="apply_library()">
+                                                    <i class="md md-lg md-check"></i> Apply and Close Library
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Library Controls -->
+                                </div>
+                                <!-- Author's Post -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Library Card Item -->
+
+                    <!-- Library Card Item -->
+                    <div class="library-card">
+                        <div class="panel panel-default-timeline">
+                            <div class="panel-heading">
+                                <!-- Post Metadata -->
+                                <div class="panel-heading-content">
+                                    <span class="subject-heading">Innovation</span>
+                                    <span class="subject-sub-heading">Form and Function</span>
+
+                                    <small class="text-muted">
+                                        <em><span>posted by</span>&nbsp;<span>Eric de Felix</span>&nbsp;<span>two days ago</span></em>
+                                    </small>
+
+                                </div>
+                                <!-- Post Metadata -->
+
+                                <!-- Author's Post -->
+                                <div class="panel-author-post">
+                                    <div class="pane-post-ratings well well-sm">
+                                        <div class="feedback-rating-item no-border-left">
+                                            <span class="rate-one">Supervisor: 
+                                                <b class="rating">3</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                        <div class="feedback-rating-item">
+                                            <span class="rate-four">Employee:
+                                                <b class="rating">4</b>
+                                                <i class="md md-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="panel-post-content">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    </p>
+
+                                    <!-- Use as Template -->
+                                    <button type="button" class="btn btn-block btn-transparent" onclick="open_library_controls(this)">
+                                        <i class="md md-lg md-note-add text-success"></i>
+                                        Create New BLAST! from this entry
+                                    </button>
+                                    <!-- Use as Template -->
+
+                                    <!-- Library Controls -->
+                                    <div class="library-controls js_init_hidden js_library-controls">
+                                        <div class="form-group">
+                                            <label for="" class="control-label">Select one or more target(s) applicable to this plan</label>
+                                            <select name="" id="" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="selected-measures">
+                                                <strong class="text-center">No selected measure</strong>
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure</span>
+                                                    <button type="button" class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selected measure that is soo soo long this will break</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="selected-measure-item">
+                                                    <span class="measure-name">Selectedmeasurenobreaaaaaaaaaaaaaaaaaaaaks</span>
+                                                    <button class="btn btn-xs btn-transparent">
+                                                        <i class="md md-lg md-close"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="pull-right">
+                                                <button type="button" class="btn btn-transparent" onclick="close_library_controls(this)">
+                                                    <i class="md md-lg md-close"></i> Back to View
+                                                </button>
+                                                <button type="button" class="btn btn-success" onclick="apply_library()">
+                                                    <i class="md md-lg md-check"></i> Apply and Close Library
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Library Controls -->
+                                </div>
+                                <!-- Author's Post -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Library Card Item -->
+                </div>
             </div>
+            <!-- Cards -->
         </div>
     </div>
     <!-- Browse BLAST! -->
