@@ -9,6 +9,14 @@
     border-top-color: darken($border, 5%);
   }
   .alert-link {
-    color: darken($text-color, 10%);
+    color: $text-color;
+    border-bottom: 1px solid lighten($background,10%);
+    padding-bottom: 2px;
+    @include transition (all 0.3s $easing);
+
+    &:hover {
+    	border-bottom: 2px solid $text-color;
+    	@include transition (all 0.3s $easing);
+    }
   }
 }

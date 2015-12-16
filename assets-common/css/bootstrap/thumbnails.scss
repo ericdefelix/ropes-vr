@@ -11,14 +11,17 @@
   line-height: $line-height-base;
   background-color: $thumbnail-bg;
   border: 1px solid $thumbnail-border;
+  border-top-color: lighten($thumbnail-border,2%);
+  border-bottom-color: darken($thumbnail-border,5%);
   border-radius: $thumbnail-border-radius;
-  @include transition(border .2s ease-in-out);
+  @include transition (all 0.3s $easing);
 
   > img,
   a > img {
     @include img-responsive;
     margin-left: auto;
     margin-right: auto;
+    padding: $thumbnail-caption-padding;
   }
 
   // [converter] extracted a&:hover, a&:focus, a&.active to a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active

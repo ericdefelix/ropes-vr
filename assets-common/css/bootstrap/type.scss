@@ -59,6 +59,11 @@ p {
   margin: 0 0 ($line-height-computed / 2);
 }
 
+strong {
+  font-family: $font-family-bold;
+  font-weight: normal; // Resets font weight
+}
+
 .lead {
   margin-bottom: $line-height-computed;
   font-size: floor(($font-size-base * 1.15));
@@ -84,6 +89,8 @@ mark,
 .mark {
   background-color: $state-warning-bg;
   padding: .2em;
+  border-radius: 2px;
+  color: white;
 }
 
 // Alignment
@@ -103,7 +110,7 @@ mark,
   color: $text-muted;
 }
 
-@include text-emphasis-variant('.text-primary', $brand-primary);
+@include text-emphasis-variant('.text-primary', $state-primary-text);
 
 @include text-emphasis-variant('.text-success', $state-success-text);
 
@@ -113,15 +120,18 @@ mark,
 
 @include text-emphasis-variant('.text-danger', $state-danger-text);
 
+@include text-emphasis-variant('.text-inverted', white);
+
+@include text-emphasis-variant('.text-turquoise', $brand-turquoise);
+@include text-emphasis-variant('.text-burgundy', $brand-burgundy);
+@include text-emphasis-variant('.text-purple', $brand-purple);
+@include text-emphasis-variant('.text-lime', $brand-lime);
+
 // Contextual backgrounds
 // For now we'll leave these alongside the text classes until v4 when we can
 // safely shift things around (per SemVer rules).
-.bg-primary {
-  // Given the contrast here, this is the only class to have its color inverted
-  // automatically.
-  color: #fff;
-}
-@include bg-variant('.bg-primary', $brand-primary);
+
+@include bg-variant('.bg-primary', $state-primary-bg);
 
 @include bg-variant('.bg-success', $state-success-bg);
 

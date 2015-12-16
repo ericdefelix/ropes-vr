@@ -12,17 +12,19 @@
   @include transition(opacity .2s cubic-bezier(.44,.01,.65,.98));
   &.in {
     opacity: 1;
+    @include transition(opacity .2s cubic-bezier(.44,.01,.65,.98));
   }
 }
 
 .collapse {
   display: none;
-  visibility: hidden;
 
-  &.in      { display: block; visibility: visible; }
+  &.in { display: block; }
   // [converter] extracted tr&.in to tr.collapse.in
   // [converter] extracted tbody&.in to tbody.collapse.in
 }
+
+
 
 tr.collapse.in    { display: table-row; }
 
@@ -35,4 +37,47 @@ tbody.collapse.in { display: table-row-group; }
   @include transition-property(height, visibility);
   @include transition-duration(.35s);
   @include transition-timing-function(ease);
+}
+
+
+// Bouncing Badges
+// .fa {
+//  width: 60px;
+//  display: block;
+//  text-align: center;
+//  color:#990000;
+//  font:normal 45px 'FontAwesome';
+//  line-height:60px;
+//  text-rendering: auto;
+//  -webkit-font-smoothing: antialiased;
+// }
+ 
+.bouncing {
+ animation: bouncing 2s infinite;
+ -webkit-animation: bouncing 2s infinite;
+ -moz-animation: bouncing 2s infinite;
+ -o-animation: bouncing 2s infinite;
+}
+ 
+@-webkit-keyframes bouncing {
+ 0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+ 40% {-webkit-transform: translateY(-8px);}
+ 60% {-webkit-transform: translateY(-4px);}
+}
+ 
+@-moz-keyframes bouncing {
+ 0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+ 40% {-moz-transform: translateY(-8px);}
+ 60% {-moz-transform: translateY(-4px);}
+}
+ 
+@-o-keyframes bouncing {
+ 0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+ 40% {-o-transform: translateY(-8px);}
+ 60% {-o-transform: translateY(-4px);}
+}
+@keyframes bouncing {
+ 0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+ 40% {transform: translateY(-8px);}
+ 60% {transform: translateY(-4px);}
 }

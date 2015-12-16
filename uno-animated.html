@@ -1,0 +1,311 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>[24]7 - Virtual Receptionist</title>
+    <meta name="description" content="Virtual Receptionist">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="assets-common/img/favicon.png">
+
+    <!-- Dependencies -->
+    <link rel="stylesheet" href="assets-common/fonts/fontface.min.css">
+    <link rel="stylesheet" href="assets-common/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets-common/css/animate.min.css">
+
+    <!-- Virtual Receptionist styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+
+</head>
+
+<body class="pristine">
+
+    <!-- Global Footer -->
+    <footer class="navbar navbar-footer navbar-fixed-bottom" role="banner" id="footer">
+        <div class="avatar">
+            <img src="assets/img/uno-dimension-setter.png" class="img-responsive img-setter" alt="Uno">
+            <u class="img-responsive uno shadow-moving" id="unoImage" data-uno-image="welcome">
+                <i class="ropes-placard"></i>
+                <div class="upper-torso body-moving">
+                    <span class="face" id="face">
+                        <i class="eye eye-left blinking">
+                            <p class="pupil"></p>
+                        </i>
+                        <i class="eye eye-right blinking">
+                            <p class="pupil"></p>
+                        </i>
+                        <i class="mouth"></i>
+                    </span>
+
+                    <span class="arm arm-left">
+                        <i class="hand hand-left"></i>
+                    </span>
+
+                    <span class="arm arm-right">
+                        <i class="hand hand-right"></i>
+                    </span>
+
+                    <span class="shoulder shoulder-left"></span>
+                    <span class="shoulder shoulder-right"></span>
+
+                </div>
+                <div class="lower-torso">
+                    <i class="leg leg-left leg-left-tap"></i>
+                    <i class="leg leg-right leg-right-tap"></i>
+                </div>
+            </u>
+        </div>
+    </footer>
+    <!-- Global Footer -->
+
+
+    <!-- Scripts -->
+    <script src="assets-common/js/jquery-1.11.2.min.js"></script>
+    <script src="assets-common/js/bootstrap.min.js"></script>
+    <script src="assets-common/js/velocity.min.js"></script>
+    <script src="assets-common/js/velocity.ui.min.js"></script>
+    <!-- // <script src="assets/js/keyboard.js"></script> -->
+    <!-- // <script src="assets/js/main.js"></script> -->
+
+<script>
+var UNO =  {
+    unoBody: $('#unoImage'),
+    eyes: $('.eye'),
+    pupil: $('.pupil'),
+    leftLeg: $('.leg-left'),
+    rightLeg: $('.leg-right'),
+    rightArm: $('.arm-right'),
+    rightShoulder: $('.shoulder-right'),
+    leftArm: $('.arm-left'),
+    placard: $('.ropes-placard'),
+    u: null, 
+    n: null, 
+    o: null,
+    randomize: function() { UNO.u = Math.floor((Math.random() * 50) + 1); return UNO.u; },
+    is_odd: function(n) { return n % 2; },
+    blinking: function() {
+        var tmr;
+
+        tmr = setInterval(function() {
+            this.o = UNO.is_odd(UNO.randomize());
+            UNO.eyes.removeClass('blinking');
+            if ( this.o === 0) UNO.eyes.addClass('blinking');
+        }, 3000);
+    },
+    tapping: function() {
+        var tmr;
+
+        tmr = setInterval(function() {
+            var x;
+            x = UNO.is_odd(UNO.randomize());;
+
+            if ( x == 1) {
+                UNO.rightLeg.velocity({ rotateZ: '-0.5deg', translateY: '-3.5%' },{ duration: 200, easing: [.26,.69,.54,.96] }).velocity('reverse');
+                UNO.leftLeg.velocity({ rotateZ: '-0.5deg', translateY: '-1.5%' },{ duration: 200, easing: [.26,.69,.54,.96], delay: 400 }).velocity('reverse');
+            }
+            else if (x == 0) {
+                UNO.rightLeg.velocity({ rotateZ: '-0.5deg', translateY: '-3.5%' },{ duration: 200, easing: [.26,.69,.54,.96] }).velocity('reverse', 
+                { 
+                    complete: function(){
+                        UNO.rightLeg.velocity({ rotateZ: '-0.5deg', translateY: '-2%' },{ duration: 200, easing: [.26,.69,.54,.96], delay: 100 }).velocity('reverse');
+                    }
+                });
+            }
+        }, 12000);
+    },
+    welcome: function() {
+        this.unoBody.attr('data-uno-image', 'welcome');
+        this.reset_eyes();
+        this.reset_shoulders();
+        this.reset_placard();
+
+        UNO.rightArm
+        .velocity('stop',true)
+        .velocity({translateX: '0%', translateY: '0%',rotateZ: '169deg'},{ duration: 300, easing: 'linear'})
+        .velocity({translateX: '0%', translateY: '0%',rotateZ: '149deg'},{ duration: 200, easing: [1,.06,.26,.93],loop: 6});
+
+        UNO.leftArm
+        .velocity('stop',true)
+        .velocity({translateY: '0%',rotateZ: '27deg'},{ duration: 200, easing: 'linear' })
+        .velocity({translateY: '-1.2%',rotateZ: '33deg'},{ duration: 2100, easing: 'linear',loop: true });
+    },
+    reset_eyes: function() { this.pupil.velocity({translateY: '0%', translateX: '0%'}, { duration: 400, easing: [1,.06,.26,.93] }); },
+    reset_shoulders: function() { 
+        this.rightShoulder.velocity({ rotateZ: '-41deg' },{ duration: 200, easing: 'linear' });
+    },
+    reset_left: function() {
+        UNO.leftArm
+        .velocity('stop',true)
+        .velocity({translateY: '0%',rotateZ: '27deg'},{ duration: 200, easing: 'linear' })
+        .velocity({translateY: '-1.2%',rotateZ: '33deg'},{ duration: 2100, easing: 'linear',loop: true });
+    },
+    reset_placard: function() {
+        UNO.placard
+        .velocity('stop',true)
+        .velocity({ opacity: 0 },{ display: 'none', duration: 200, complete: function() { UNO.placard.attr('style', ''); } })
+    },
+    ropes_placard: function() {
+        this.unoBody.attr('data-uno-image', 'ropes-placard');
+        this.reset_eyes();
+        this.reset_left();
+        this.reset_placard();
+
+        this.rightArm
+        .velocity('stop',true)
+        .velocity({
+            translateY: '2%', translateX: '-27%', rotateZ: '-167deg'
+        },{
+            duration: 400, easing: [1,.06,.26,.93], complete: function() {
+                UNO.placard.velocity(
+                    { 
+                        rotateZ: ['-17deg','-17deg'], 
+                        scaleX: [1,0], 
+                        scaleY: [1,0],
+                        opacity: [1,0]
+                    },
+                    { 
+                        easing: [.99,.01,.33,1],
+                        duration: 600,
+                        display: 'block',
+                        complete: function() {
+                            UNO.placard.velocity({ scaleX: 1.02, scaleY: 1.02, opacity: 0.8}, { easing: 'linear', loop: true, duration: 1500 });
+                        }
+                    }
+                );
+            }
+        });
+        this.rightShoulder.velocity({ translateY: '0%', rotateZ: '-51deg' },{ duration: 400, easing: [1,.06,.26,.93] });
+        this.pupil.velocity({translateY: '-23%', translateX: '0%'}, { duration: 400, easing: [1,.06,.26,.93] });
+
+    },
+    disappointed: function() {
+        this.unoBody.attr('data-uno-image', 'looking-disappointed');
+        this.reset_eyes();
+        this.reset_shoulders();
+        this.reset_placard();
+
+        UNO.rightArm
+        .velocity('stop',true)
+        .velocity({translateX: '0%', translateY: '0%',rotateZ: '-27deg'},{ duration: 200, easing: 'linear' })
+        .velocity({translateX: '0', translateY: '-1.2%',rotateZ: '-33deg'},{ duration: 2100, easing: 'linear',loop: true });
+
+        UNO.leftArm
+        .velocity('stop',true)
+        .velocity({translateY: '0%',rotateZ: '27deg'},{ duration: 200, easing: 'linear' })
+        .velocity({translateY: '-1.2%',rotateZ: '33deg'},{ duration: 2100, easing: 'linear',loop: true });
+    },
+    looking_up: function() {
+        this.unoBody.attr('data-uno-image', 'looking-up');
+        this.reset_left();
+        this.reset_placard();
+
+        this.rightArm
+        .velocity('stop',true)
+        .velocity({
+            translateY: '73%', translateX: '-29%', rotateZ: '-167deg'
+        },{
+            duration: 300, easing: [1,.06,.26,.93]
+        });
+        this.rightShoulder.velocity({ translateY: '0%', rotateZ: '-111deg' },{ duration: 300, easing: [1,.06,.26,.93] });
+        this.pupil.velocity({translateY: '-23%', translateX: '7%'}, { duration: 400, easing: [1,.06,.26,.93] });
+    },
+    holding_mobile: function() {
+        this.unoBody.attr('data-uno-image', 'holding-mobile');
+        this.reset_eyes();
+        this.reset_shoulders();
+        this.reset_left();
+        this.reset_placard();
+
+        this.rightArm.velocity('stop',true);
+    },
+    making_statement: function() {
+        this.unoBody.attr('data-uno-image', 'making-statement');
+        this.reset_eyes();
+        this.reset_shoulders();
+        this.reset_placard();
+
+        this.rightArm
+        .velocity('stop',true)
+        .velocity(
+            { translateX: '0%', translateY: '0%', rotateZ: '2deg', },
+            { duration: 200, easing: 'linear', complete: function() {
+                UNO.rightArm.velocity({ translateY: '-10%'},{ duration: 1500, easing: [1400,20], queue: false });
+            } }
+        );
+
+        this.leftArm
+        .velocity('stop',true)
+        .velocity(
+            { translateX: '0%', translateY: '0%', rotateZ: '-2deg', },
+            { duration: 200, easing: 'linear', complete: function() {
+                UNO.leftArm.velocity({ translateY: '-10%'},{ duration: 1500, easing: [1400,20], queue: false });
+            } }
+        );
+    },
+    thumbsup: function() {
+        this.unoBody.attr('data-uno-image', 'thumbs-up');
+        this.reset_eyes();
+        this.reset_shoulders();
+        this.reset_left();
+        this.reset_placard();
+
+        this.rightArm
+        .velocity('stop',true)
+        .velocity(
+            { translateX: '0%', translateY: '0%', rotateZ: '2deg', },
+            { duration: 200, easing: 'linear', complete: function() {
+                UNO.rightArm.velocity({ translateY: '-10%'},{ duration: 1500, easing: [1400,20], queue: false });
+            } }
+        );
+    },
+    relaxed: function() {
+        this.unoBody.attr('data-uno-image', 'relaxed');
+        this.reset_eyes();
+        this.reset_shoulders();
+        this.reset_placard();
+
+        UNO.rightArm
+        .velocity('stop',true)
+        .velocity({translateX: '0%', translateY: '0%',rotateZ: '-27deg'},{ duration: 200, easing: 'linear' })
+        .velocity({translateX: '0', translateY: '-1.2%',rotateZ: '-33deg'},{ duration: 2100, easing: 'linear',loop: true });
+
+        UNO.leftArm
+        .velocity('stop',true)
+        .velocity({translateY: '0%',rotateZ: '27deg'},{ duration: 200, easing: 'linear' })
+        .velocity({translateY: '-1.2%',rotateZ: '33deg'},{ duration: 2100, easing: 'linear',loop: true });
+    },
+    puzzled: function() {
+        this.unoBody.attr('data-uno-image', 'looking-puzzled');
+        this.reset_eyes();
+        this.reset_shoulders();
+        this.reset_left();
+        this.reset_placard();
+
+        this.rightShoulder.velocity({ translateY: '0%', rotateZ: '-60deg' },{ duration: 500, easing: [1,.06,.26,.93] });
+        this.rightArm
+        .velocity('stop',true)
+        .velocity({ rotateZ: '-199deg', translateX: '-15%' },{ duration: 500, easing: [1,.06,.26,.93], delay: 100 });
+        this.pupil.velocity({translateY: '-23%', translateX: '7%'}, { duration: 400, easing: [1,.06,.26,.93] });
+    },
+    uno: function() {
+        this.blinking();
+        this.tapping();
+
+        var tmr;
+        tmr = setTimeout(function(){
+            UNO.relaxed();
+            clearTimeout(tmr);
+        }, 200)
+    }
+}
+
+    $(document).ready(function() {
+        // UNO.uno();
+    });
+</script>
+</body>
+
+</html>

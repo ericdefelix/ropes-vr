@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>[24]7 - Virtual Receptionist</title>
+    <meta name="description" content="Virtual Receptionist">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="assets-common/img/favicon.png">
+
+    <!-- Dependencies -->
+    <link rel="stylesheet" href="assets-common/fonts/fontface.min.css">
+    <link rel="stylesheet" href="assets-common/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets-common/css/animate.min.css">    
+
+    <!-- Virtual Receptionist styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+
+</head>
+
+<!-- <body> -->
+<body oncontextmenu="return false;">
+
+<input type="text" class="form-control" data-keyboard data-keyboard-type="alphanumeric" autocomplete="off" maxlength="10">
+
+    <div class="modal fade" id="keyboard">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                               
+                <ul class="keyboard-set keyboard-alphanumeric">
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="@" type="button" class="btn btn-key"><strong>@</strong></button></li>
+                            <li><button data-key=".com" type="button" class="btn btn-key"><strong>.com</strong></button></li>
+                            <li><button data-key="." type="button" class="btn btn-key"><strong>.</strong></button></li>
+                            <li><button data-key="-" type="button" class="btn btn-key">-</button></li>
+                            <li><button data-key="_" type="button" class="btn btn-key">_</button></li>
+                        </ul>
+                    </li>
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="q" type="button" class="btn btn-key">q</button></li>
+                            <li><button data-key="w" type="button" class="btn btn-key">w</button></li>
+                            <li><button data-key="e" type="button" class="btn btn-key">e</button></li>
+                            <li><button data-key="r" type="button" class="btn btn-key">r</button></li>
+                            <li><button data-key="t" type="button" class="btn btn-key">t</button></li>
+                            <li><button data-key="y" type="button" class="btn btn-key">y</button></li>
+                            <li><button data-key="u" type="button" class="btn btn-key">u</button></li>
+                            <li><button data-key="i" type="button" class="btn btn-key">i</button></li>
+                            <li><button data-key="o" type="button" class="btn btn-key">o</button></li>
+                            <li><button data-key="p" type="button" class="btn btn-key">p</button></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="a" type="button" class="btn btn-key">a</button></li>
+                            <li><button data-key="s" type="button" class="btn btn-key">s</button></li>
+                            <li><button data-key="d" type="button" class="btn btn-key">d</button></li>
+                            <li><button data-key="f" type="button" class="btn btn-key">f</button></li>
+                            <li><button data-key="g" type="button" class="btn btn-key">g</button></li>
+                            <li><button data-key="h" type="button" class="btn btn-key">h</button></li>
+                            <li><button data-key="j" type="button" class="btn btn-key">j</button></li>
+                            <li><button data-key="k" type="button" class="btn btn-key">k</button></li>
+                            <li><button data-key="l" type="button" class="btn btn-key">l</button></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="shift" type="button" class="btn btn-key"><i class="md md-forward"></i></button></li>
+                            <li><button data-key="z" type="button" class="btn btn-key">z</button></li>
+                            <li><button data-key="x" type="button" class="btn btn-key">x</button></li>
+                            <li><button data-key="c" type="button" class="btn btn-key">c</button></li>
+                            <li><button data-key="v" type="button" class="btn btn-key">v</button></li>
+                            <li><button data-key="b" type="button" class="btn btn-key">b</button></li>
+                            <li><button data-key="n" type="button" class="btn btn-key">n</button></li>
+                            <li><button data-key="ñ" type="button" class="btn btn-key">ñ</button></li>
+                            <li><button data-key="m" type="button" class="btn btn-key">m</button></li>
+                            <li><button data-key="backspace" type="button" class="btn btn-key"><i class="md md-lg md-fw md-tag-backspace"></i></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys keyboard-keys-misc">
+                            <li><button data-key="numbers" type="button" class="btn btn-key"><strong>123</strong></button></li>
+                            <li class="spacebar"><button data-key="spacebar" type="button" class="btn btn-key">spacebar</button></li>
+                            <li><button data-key="kbd-hide" type="button" class="btn btn-key"><i class="md md-lg md-fw md-keyboard-hide"></i></button></li>
+                            <li><button data-key="clear" type="button" class="btn btn-key btn-clear">
+                                <i class="md md-lg md-format-clear-all"></i>
+                                </button>
+                            </li>
+                            <li><button data-key="submit" type="button" class="btn btn-key btn-primary btn-okay"><strong class="md-fw">OK</strong></button></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="keyboard-set keyboard-numeric">
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="1" type="button" class="btn btn-key">1</button></li>
+                            <li><button data-key="2" type="button" class="btn btn-key">2</button></li>
+                            <li><button data-key="3" type="button" class="btn btn-key">3</button></li>
+                            <li><button data-key="4" type="button" class="btn btn-key">4</button></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="5" type="button" class="btn btn-key">5</button></li>
+                            <li><button data-key="6" type="button" class="btn btn-key">6</button></li>
+                            <li><button data-key="7" type="button" class="btn btn-key">7</button></li>
+
+                        </ul>
+                    </li>
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="8" type="button" class="btn btn-key">8</button></li>
+                            <li><button data-key="9" type="button" class="btn btn-key">9</button></li>
+                            <li><button data-key="0" type="button" class="btn btn-key">0</button></li>
+                            <li><button data-key="backspace" type="button" class="btn btn-key"><i class="md md-lg md-fw md-tag-backspace"></i></li>
+                        </ul>
+                    </li>
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="alpha" type="button" class="btn btn-key"><strong>abc</strong></button></li>
+                            <li><button data-key="kbd-hide" type="button" class="btn btn-key"><i class="md md-lg md-fw md-keyboard-hide"></i></button></li>
+                            <li><button data-key="clear" type="button" class="btn btn-key btn-clear"><i class="md md-lg md-format-clear-all"></i></button></li>
+                            <li><button data-key="submit" type="button" class="btn btn-key btn-primary btn-okay"><strong class="md-fw">OK</strong></button></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets-common/js/jquery-1.11.2.min.js"></script>
+    <script src="assets-common/js/bootstrap.min.js"></script>
+    <script src="assets/js/keyboard.js"></script>
+</body>
+
+</html>

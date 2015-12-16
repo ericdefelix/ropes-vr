@@ -29,6 +29,14 @@
 
     width: 100%;
     margin-bottom: 0;
+
+    // Match the color of text addons to form:focus
+    &:focus ~ .input-group-addon{
+      background-color: $brand-cyan;
+      border-color: $brand-cyan;
+      color: white;
+      @include transition (all 0.3s cubic-bezier(.26,.51,.34,.98));
+    }
   }
 }
 
@@ -78,8 +86,11 @@
   color: $input-color;
   text-align: center;
   background-color: $input-group-addon-bg;
-  border: 1px solid $input-group-addon-border-color;
+  border: 1px solid $input-border; //originally $input-group-addon-bg
   border-radius: $border-radius-base;
+
+  // Add transition from gray to blue
+  @include transition (all 0.3s cubic-bezier(.26,.51,.34,.98));
 
   // Sizing
   &.input-sm {
@@ -154,13 +165,13 @@
   &:first-child {
     > .btn,
     > .btn-group {
-      margin-right: -1px;
+      margin-right: -2px;
     }
   }
   &:last-child {
     > .btn,
     > .btn-group {
-      margin-left: -1px;
+      margin-left: -2px;
     }
   }
 }

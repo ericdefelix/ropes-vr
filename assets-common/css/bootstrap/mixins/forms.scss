@@ -24,11 +24,11 @@
     border-color: $border-color;
     border-top-color: rgba($border-color, 0.58);
     border-bottom-color: rgba($border-color, 0.6);
-    @include box-shadow(inset 0 -1px 0 rgba($border-color, 1)); // Redeclare so transitions work
+    // @include box-shadow(inset 0 -1px 0 rgba($border-color, 1)); // Redeclare so transitions work
     &:focus {
       border-color: darken($border-color, 10%);
-      $shadow: inset 0 -1px 0x lighten($border-color, 10%), inset 0 -1px 0 lighten($border-color, 10%);
-      @include box-shadow($shadow);
+      // $shadow: inset 0 -1px 0x lighten($border-color, 10%), inset 0 -1px 0 lighten($border-color, 10%);
+      // @include box-shadow($shadow);
     }
   }
   // Set validation states also for addons
@@ -60,9 +60,9 @@
   $color-rgba: rgba(red($color), green($color), blue($color), .6);
   &:focus {
     border-color: $color;
-    border-width: 2px;
     outline: 0;
-    // @include box-shadow(inset 0 -1px 0 rgba(0,0,0,.075), inset 0 -1px 1px $color-rgba);
+    border-bottom-color: transparent;
+    // @include box-shadow(inset 0 -0.1vh 0 $color);
   }
 }
 
@@ -75,7 +75,7 @@
 @mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
   #{$parent} {
     height: $input-height;
-    padding: $padding-vertical $padding-horizontal;
+    // padding: ($padding-vertical - 1) ($padding-horizontal - 1);
     font-size: $font-size;
     line-height: $line-height;
     border-radius: $border-radius;

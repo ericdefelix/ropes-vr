@@ -19,6 +19,7 @@
 .dropup,
 .dropdown {
   position: relative;
+  display: inline-block;
 }
 
 // Prevent the focus on the dropdown toggle when closing dropdowns
@@ -32,7 +33,7 @@
   top: 100%;
   left: 0;
   z-index: $zindex-dropdown;
-  display: none; // none by default, but block on "open" of the menu
+  // display: none; // none by default, but block on "open" of the menu
   float: left;
   min-width: 160px;
   padding: 0;
@@ -42,11 +43,10 @@
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   background-color: $dropdown-bg;
   border: 1px solid #FFFFFF;
-  border-top: 1px solid #D0D0D0;
-  border-bottom: 1px solid #B3B3B3;
   border-radius: $border-radius-base;
-  @include box-shadow(0 5px 15px 0 rgba(0,0,0,.3));
   background-clip: padding-box;
+  @include box-shadow(0 2px 25px 0 rgba(0,0,0,.3));
+
 
   // Aligns the dropdown menu to right
   //
@@ -72,6 +72,7 @@
     cursor: pointer;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
   }
+
 }
 
 // Hover/Focus state
@@ -120,11 +121,26 @@
   }
 }
 
+// Initial state for the dropdown
+.dropdown-menu {
+// FadeIn SlideUp Effect
+  visibility: hidden;
+  @include opacity(0);
+  @include transform(translate3d(0,-6px,0));
+  @include transition (all 0.3s $easing);
+}
+
 // Open state for the dropdown
 .open {
   // Show the menu
   > .dropdown-menu {
     display: block;
+
+    // FadeIn SlideUp Effect
+    visibility: visible;
+    @include opacity(1);
+    @include transform(translate3d(0,0,0));
+    @include transition (all 0.3s $easing);
   }
 
   // Remove the outline when :focus is triggered
@@ -206,7 +222,7 @@
 
 @media (min-width: $grid-float-breakpoint) {
   .navbar-right {
-    .dropdown-menu {
+    .dropdown-menu, .dropdown-menu-arrow {
       right: 0; left: auto;
     }
     // Necessary for overrides of the default right aligned menu.
@@ -220,56 +236,126 @@
 // Custom Dropdown for 24/7 Apps
 //
 // Menu is aligned on the main header's base and consumes the entire screen on mobile phones
-.dropdown-menu-custom {
-  margin-top: 11px;
 
-  > li {
-    .md {
-      margin-right: 10px;
-    }
-  }
+// Common attributes
+.dropdown, .dropup {
+  .dropdown-menu-arrow {
+    float: right !important;
+    right: 0;
+    left: auto;
 
-
-  .notif-empty {
-    background-color: $gray-lighter;
-
-    a {
-      .md-insert-emoticon {
-        margin-right: 0;
-      }
-
-      > span {
-        font-size: 0.8em;
-      }
-      span:last-child {
-        font-size: 1.5em;
+    > li {
+      .md {
+        margin-right: 10px;
       }
     }
-  }
 
-  // Arrow
-  &:after, &:before {
-    bottom: 100%;
+    // Arrow
+    &:after, &:before {
+      right: 15px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(136, 183, 213, 0);
+      border-width: 10px;
+      margin-left: -10px;
+    }
+
+    &:before {
+      border-color: rgba(231, 231, 231, 0);
+      border-width: 10px;
+      margin-left: -11px;
+    }
+  }
+}
+
+// For dropdowns
+.dropdown {
+  .dropdown-menu-arrow {
+    margin-top: 11px;
+
+    // Arrow
+    &:after, &:before {
+      bottom: 100%;
+    }
+
+    &:after {
+      border-bottom-color: #fff;
+    }
+
+    &:before {
+      border-bottom-color: darken(#D0D0D0, 10%);
+    }
+  }
+}
+
+// For dropups
+.dropup {
+  .dropdown-menu-arrow {
+    margin-bottom: 11px;
+
+    // Arrow
+    &:after, &:before {
+      top: 100%;
+    }
+
+    &:after {
+      border-top-color: #fff;
+    }
+
+    &:before {
+      border-top-color: darken(#D0D0D0, 10%);
+    }
+  }
+}
+
+// Reposition Caret variant for different btn-group/btn sizes
+.btn-group .btn + .dropdown-menu-arrow {
+  &:before, &:after {
     right: 15px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
   }
+}
 
-  &:after {
-    border-color: rgba(136, 183, 213, 0);
-    border-bottom-color: #fff;
-    border-width: 10px;
-    margin-left: -10px;
+.btn-group-xs .dropdown-menu-arrow,
+.btn-group .btn-xs + .dropdown-menu-arrow {
+  &:before, &:after {
+    right: 6px !important;
   }
+}
 
-  &:before {
-    border-color: rgba(231, 231, 231, 0);
-    border-bottom-color: darken(#D0D0D0, 10%);
-    border-width: 11px;
-    margin-left: -11px;
+.btn-group-sm .dropdown-menu-arrow,
+.btn-group .btn-sm + .dropdown-menu-arrow {
+  &:before, &:after {
+    right: 6px !important;
+  }
+}
+
+.btn-group-lg .dropdown-menu-arrow,
+.btn-group .btn-lg + .dropdown-menu-arrow {
+  &:before, &:after {
+    right: 15px;
+  }
+}
+
+.notif-empty {
+  background-color: $gray-lighter;
+
+  a {
+    .md-insert-emoticon {
+      margin-right: 0;
+    }
+
+    > span {
+      font-size: 0.8em;
+    }
+    span:last-child {
+      font-size: 1.5em;
+    }
   }
 }

@@ -1,0 +1,113 @@
+// Overlay
+.loader-mask {
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255,255,255,0.95);
+  z-index: $zindex-modal + 1;
+  overflow: hidden;
+
+  .loader-message {
+    color: $brand-turquoise;
+  }
+
+  // Display the overlay
+  &.in {
+    cursor: progress;
+    display: block !important;
+  }
+
+  &.loader-section { position: absolute; }
+  &.loader-page { position: fixed; }
+}
+
+// Vertically center the element
+.loader-container {
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+  display: block;
+
+  .loader-cell {
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    right: 0;
+    @include transform(translateY(-50%));
+  }
+}
+
+//config
+$shadow-color: $brand-turquoise;
+$shadow-1: 0 -0.83em 0 -0.4em $shadow-color, 0 -0.83em 0 -0.42em $shadow-color, 0 -0.83em 0 -0.44em $shadow-color, 0 -0.83em 0 -0.46em $shadow-color, 0 -0.83em 0 -0.477em $shadow-color;
+$shadow-2: 0 -0.83em 0 -0.4em $shadow-color, -0.087em -0.825em 0 -0.42em $shadow-color, -0.173em -0.812em 0 -0.44em $shadow-color, -0.256em -0.789em 0 -0.46em $shadow-color, -0.297em -0.775em 0 -0.477em $shadow-color;
+$shadow-3: 0 -0.83em 0 -0.4em $shadow-color, -0.338em -0.758em 0 -0.42em $shadow-color, -0.555em -0.617em 0 -0.44em $shadow-color, -0.671em -0.488em 0 -0.46em $shadow-color, -0.749em -0.34em 0 -0.477em $shadow-color;
+$shadow-4: 0 -0.83em 0 -0.4em $shadow-color, -0.377em -0.74em 0 -0.42em $shadow-color, -0.645em -0.522em 0 -0.44em $shadow-color, -0.775em -0.297em 0 -0.46em $shadow-color, -0.82em -0.09em 0 -0.477em $shadow-color;
+$shadow-5: 0 -0.83em 0 -0.4em $shadow-color, 0 -0.83em 0 -0.42em $shadow-color, 0 -0.83em 0 -0.44em $shadow-color, 0 -0.83em 0 -0.46em $shadow-color, 0 -0.83em 0 -0.477em $shadow-color;
+
+.spinner {
+  font-size: 40px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  margin: 40px auto;
+  position: relative;
+  @include border-radius(50%);
+  @include transform(translateZ(0));
+  animation: spinning 1.7s infinite ease;
+}
+
+@-webkit-keyframes spinning {
+  0% {
+    @include transform(rotate(0deg));
+    @include box-shadow($shadow-1);
+  }
+  5%,
+  95% {
+    @include box-shadow($shadow-1);
+  }
+  10%,
+  59% {
+    @include box-shadow($shadow-2);
+  }
+  20% {
+    @include box-shadow($shadow-3);
+  }
+  38% {
+    @include box-shadow($shadow-4);
+  }
+  100% {
+    @include transform(rotate(360deg));
+    @include box-shadow($shadow-5);
+  }
+}
+
+@keyframes spinning {
+  0% {
+    @include transform(rotate(0deg));
+    @include box-shadow($shadow-1);
+  }
+  5%,
+  95% {
+    @include box-shadow($shadow-1);
+  }
+  10%,
+  59% {
+    @include box-shadow($shadow-2);
+  }
+  20% {
+    @include box-shadow($shadow-3);
+  }
+  38% {
+    @include box-shadow($shadow-4);
+  }
+  100% {
+    @include transform(rotate(360deg));
+    @include box-shadow($shadow-5);
+  }
+}

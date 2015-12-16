@@ -1,0 +1,292 @@
+//
+// Sub-navbars
+// --------------------------------------------------
+.sub-navbar {
+  height: $subnavbar-height;
+  color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: $zindex-navbar-fixed - 1;
+  @include box-shadow(0 1px 3px rgba(0,0,0,0.15));
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
+  // Prevent floats from breaking the navbar
+  @include clearfix;
+
+  // Subnavbar links
+  .sub-navbar-links {
+    margin: auto auto;
+    padding-left: 0;
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+
+    li {
+      height: $subnavbar-height;
+        @media (max-width: $screen-xs-max) {
+          display: table-cell;
+          position: relative;
+          width: 1%;
+        }
+
+        @media (min-width: $screen-sm-min) {
+          display: table-cell;
+          position: relative;
+        }
+
+        // Icons only on small screens
+        @media (max-width: $screen-xs-max) {
+          .sub-navbar-text {
+            display: block;
+            clear: both;
+            font-size: 0.7em;
+            margin-top: -3px;
+          }
+          .sub-navbar-icon {
+            font-size: 1.2em;
+            margin-top: -2px;
+          }
+        }
+
+        @media (min-width: $screen-sm-min) {
+          .sub-navbar-text {
+            display: inline-block;
+          }
+          .sub-navbar-icon {
+            display: none;
+          }
+        }
+
+        &.active {
+          &:after, &:before {
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 50%;
+            pointer-events: none;
+            border-width: 10px;
+            
+            @media (max-width: $screen-xs-max) {
+              bottom: 100%;
+            }
+
+            @media (min-width: $screen-sm-min) {
+              top: 100%;
+            }
+          }
+
+          &:after {
+            margin-left: -10px;
+            @media (max-width: $screen-xs-max) {
+              border-bottom-color: transparent;
+            }
+
+            @media (min-width: $screen-sm-min) {
+              border-top-color: transparent;
+            }
+          }
+
+          &:before {
+            margin-left: -11px;
+            @media (max-width: $screen-xs-max) {
+              border-bottom-color: transparent;
+            }
+
+            @media (min-width: $screen-sm-min) {
+              border-top-color: transparent;
+            }
+          }
+        }
+
+        a {
+          color: white;
+          font-size: 1em;
+          margin-bottom: -5px;
+          display: block;
+
+          @media (max-width: $screen-xs-max) {
+            padding: $navbar-height/10;
+          }
+
+          @media (min-width: $screen-sm-min) {
+            padding: (($subnavbar-height - $line-height-computed)/2) (($subnavbar-height/2)-2);
+            padding-top: (($subnavbar-height - $line-height-computed)/2) + 1;
+          }
+
+          &:hover {
+            background-color: rgba(0,0,0,0.2);
+          }
+        }
+    }
+  }
+}
+
+// Subnavbar Color Variations
+.sub-navbar.sub-navbar-turquoise {
+  background-color: $brand-turquoise;
+
+  // Matching button colors
+  .btn {
+    background-color: $brand-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($brand-primary, 2%);
+    }
+  }
+
+  // Caret Color
+  .sub-navbar-links li.active:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: $brand-turquoise; }
+    @media (min-width: $screen-sm-min) { border-top-color: $brand-turquoise; }
+  }
+  .sub-navbar-links li.active:hover:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: darken($brand-turquoise,6%); }
+    @media (min-width: $screen-sm-min) { border-top-color: darken($brand-turquoise,6%); }
+  }
+}
+
+.sub-navbar.sub-navbar-orange {
+  background-color: $brand-primary;
+  // Caret Color
+  .sub-navbar-links li.active:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: $brand-primary; }
+    @media (min-width: $screen-sm-min) { border-top-color: $brand-primary; }
+  }
+  .sub-navbar-links li.active:hover:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: darken($brand-primary,10%); }
+    @media (min-width: $screen-sm-min) { border-top-color: darken($brand-primary,10%); }
+  }
+}
+
+.sub-navbar.sub-navbar-cyan {
+  background-color: $brand-cyan;
+  .sub-navbar-links li.active:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: $brand-cyan; }
+    @media (min-width: $screen-sm-min) { border-top-color: $brand-cyan; }
+  }
+  .sub-navbar-links li.active:hover:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: darken($brand-cyan,10%); }
+    @media (min-width: $screen-sm-min) { border-top-color: darken($brand-cyan,10%); }
+  }
+}
+
+.sub-navbar.sub-navbar-burgundy {
+  background-color: $brand-burgundy;
+  .sub-navbar-links li.active:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: $brand-burgundy; }
+    @media (min-width: $screen-sm-min) { border-top-color: $brand-burgundy; }
+  }
+  .sub-navbar-links li.active:hover:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: darken($brand-burgundy,10%); }
+    @media (min-width: $screen-sm-min) { border-top-color: darken($brand-burgundy,10%); }
+  }
+}
+
+.sub-navbar.sub-navbar-purple {
+  background-color: $brand-purple;
+  .sub-navbar-links li.active:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: $brand-purple; }
+    @media (min-width: $screen-sm-min) { border-top-color: $brand-purple; }
+  }
+  .sub-navbar-links li.active:hover:after {
+    @media (max-width: $screen-xs-max) { border-bottom-color: darken($brand-purple,6%); }
+    @media (min-width: $screen-sm-min) { border-top-color: darken($brand-purple,6%); }
+  }
+}
+
+// Subnavbar Position Variations 
+//
+// Subnavbar positions at the bottom if on small screens
+.sub-navbar-dynamic {
+  @media (max-width: $screen-xs-max) {
+    bottom: 0;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    top: $navbar-height;
+  }
+  
+  // Push containers down
+  & + *[class^='container'],
+  & + *[class*='container'] {
+    @media (max-width: $screen-xs-max) {
+      margin-top: $navbar-height + ($grid-gutter-width/2);
+    }
+    @media (min-width: $screen-sm-min) {
+      margin-top: $navbar-height + $subnavbar-height + ($grid-gutter-width/2);
+    }
+  }
+}
+
+// Subnavbar remains fixed on top.
+.sub-navbar-static {
+  top: $navbar-height;
+
+  & + *[class^='container'],
+  & + *[class*='container'] {
+    margin-top: $navbar-height + $subnavbar-height + ($grid-gutter-width/2);
+  }
+}
+
+// Push containers down if subnavbar is not present
+.navbar-fixed-top {
+  & + *[class^='container'],
+  & + *[class*='container'] {
+    margin-top: $navbar-height + ($grid-gutter-width/2);
+  }
+}
+
+// Fixed size on the subnavbar
+.sub-navbar-heading {
+  font-size: $font-size-h4;
+  margin-top: (($subnavbar-height - $font-size-h4) / 2) - 1;
+}
+
+.sub-navbar-left-col,
+.sub-navbar-center-col,
+.sub-navbar-right-col {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  @media (max-width: $screen-xs-max) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.sub-navbar-controls {
+  @include make-row;
+
+  .sub-navbar-left-col {
+    @include make-xs-column(3);
+    @media (max-width: $screen-sm-max) {
+      width: percentage((1 / 6));
+    }
+    @media (min-width: $screen-md-min) {
+      width: percentage((1 / 6));
+    }
+  }
+
+  .sub-navbar-center-col {
+    text-align: center;
+    @media (max-width: $screen-sm-max) {
+      width: percentage((4 / 6));
+    }
+    @media (min-width: $screen-md-min) {
+      width: percentage((4 / 6));
+    }
+  }
+
+  .sub-navbar-right-col {
+    @media (max-width: $screen-sm-max) {
+      width: percentage((1 / 6));
+    }
+    @media (min-width: $screen-md-min) {
+      width: percentage((1 / 6));
+    }
+  }
+}

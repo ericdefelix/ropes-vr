@@ -1,0 +1,25 @@
+// Upload Controls
+.btn-upload-file {
+  position: relative;
+  .upload-control-mask {
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    > input{
+      height: 100%;
+      font-size: 5em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

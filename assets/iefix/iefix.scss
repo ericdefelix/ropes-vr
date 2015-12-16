@@ -1,0 +1,163 @@
+// IE-8 fixes
+@import "../../assets-common/css/bootstrap/variables";
+$shadow-color: #8C8C8C;
+
+// Header
+.nav.navbar-nav.navbar-fixed-right {
+	margin-top: 10px;
+	padding-right: 0;
+}
+
+.navbar-default {
+	box-shadow: 0 0 5px $shadow-color;
+	border-bottom: 1px solid #fff;
+	behavior: url(assets/iefix/PIE.htc);
+	-ms-behavior: url(assets/iefix/PIE.htc);
+}
+
+.navbar-controls {
+	@media ( min-width: $screen-md-min ) {
+		position: relative;
+		z-index: $zindex-navbar-fixed - 1;
+	}
+}
+
+// Buttons
+.btn-transparent:hover {
+	background: transparent url(../img/btn-transparent-hover-iefix.png);
+}
+
+.navbar-float .btn-group .btn-default {
+	max-width: none;
+}
+
+// Avatar
+div.avatar {
+	z-index: 0;
+	zoom: 1;
+	position: relative;
+	background-position: center center;
+
+	&:before {
+		z-index: 1;
+		position: absolute;
+		display: block;
+		width: 120px;
+		height: 120px;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background-repeat: no-repeat;
+	}
+}
+
+.profile-img > .avatar {
+	border: none !important;
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-160-iefix.png);
+	}
+}
+
+.panel-heading > .panel-avatar > .avatar {
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-120-iefix.png);
+	}
+}
+
+.panel-body .panel-avatar > .avatar {
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-60-iefix.png);
+	}
+}
+
+.team-list-item > .item-profile-img > .avatar {
+	border: none !important;
+	&:before {
+		background-color: transparent;
+		content: url(../img/avatar-mask-white-50-iefix.png);
+	}
+}
+
+// Score Card
+.score-badge {
+    zoom: 1;
+    z-index: 0;
+    position: relative;
+    border-radius: 10px;
+	behavior: url(assets/iefix/PIE.htc);
+	-ms-behavior: url(assets/iefix/PIE.htc);	
+}
+
+.score {
+    zoom: 1;
+    z-index: 0;
+    position: relative;
+    border-radius: 100%;
+    position: relative;
+	behavior: url(assets/iefix/PIE.htc);
+	-ms-behavior: url(assets/iefix/PIE.htc);
+}
+
+// Badges
+.badge-notif {
+	padding-left: 6px;
+	padding-right: 0;
+	padding-top: 6px;
+	padding-bottom: 5px;
+	height: auto;
+	width: auto;
+	min-width: 9px;
+	background-image: url(../img/badge-leftbg-iefix.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-radius: 0;
+	background-color: transparent;
+	box-shadow: none;
+	text-align: center;
+	z-index: 2;
+
+
+	&:after {
+	  width: 9px;
+	  height: 19px;
+	  top: 2px;
+	  margin-left: -1px;
+	  padding-top: 9px;
+	  background-image: url(../img/badge-rightbg-iefix.png);
+	  background-repeat: no-repeat;
+	  background-position: left center;
+	  position: absolute;
+	  display: inline-block;
+	  content: '';
+	  z-index: 1;
+	}
+}
+
+// Carousel
+
+.carousel-thumbnail {
+	min-height: 78px;
+	max-height: 78px;
+}
+
+.scroll-numbers li.active,
+.scroll-numbers li {
+	background-color: transparent !important;
+}
+
+.scroll-numbers li {
+	background: url(../img/carousel-page-iefix.png) center top no-repeat;
+}
+
+.scroll-numbers li.active {
+	background: url(../img/carousel-page-iefix.png) center bottom no-repeat;
+}
+
+// Modal Override
+.modal-backdrop {
+	background-color: $gray !important;
+}

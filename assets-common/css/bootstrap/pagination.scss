@@ -18,8 +18,9 @@
       text-decoration: none;
       color: $pagination-color;
       background-color: $pagination-bg;
-      border: 1px solid $pagination-border;
-      margin-left: -1px;
+      // border-bottom: 1px solid $pagination-border;
+      @include transition (all 0.3s cubic-bezier(.26,.51,.34,.98));
+      // margin-left: -1px;
     }
     &:first-child {
       > a,
@@ -43,6 +44,7 @@
       color: $pagination-hover-color;
       background-color: $pagination-hover-bg;
       border-color: $pagination-hover-border;
+      @include transition (all 0.3s $easing);
     }
   }
 
@@ -55,6 +57,7 @@
       color: $pagination-active-color;
       background-color: $pagination-active-bg;
       border-color: $pagination-active-border;
+      border-radius: $border-radius-base;
       cursor: default;
     }
   }

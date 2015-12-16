@@ -55,12 +55,30 @@
   position: fixed;
 }
 
+// Required Fields
+.required:after {
+  font-size: 1.8em;
+  display: inline-block;
+  position: absolute;
+  content: '*';
+  color: $brand-danger;
+  margin-right: -9px;
+  margin-top: -9px;
+  top: 0;
+}
+
 // Attach Unit Values
 // -------------------------
 .unit-percent:after {
   color: inherit;
   font-size: inherit;
   content: "%";
+}
+
+.unit-peso:before {
+  content: 'Php';
+  font-size: inherit;
+  color: inherit;
 }
 
 // Hovers and Cursors
@@ -76,23 +94,10 @@
   }
 }
 
-// Avatars
-// -------------------------
-.avatar {
-  background-size: cover;
-  background-color: #fff;
-  background-image: url($avatar-default-bg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  min-height: 40px;
-  width: 100%;
-  height: 100%;
 
-  &.bordered {
-    border: 5px solid #fff;
-  }
+// Break Word
+.break-word {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
 }
-
-// Faded BG
-// -------------------------
- 

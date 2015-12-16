@@ -33,7 +33,8 @@ label {
   display: inline-block;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
   margin-bottom: 5px;
-  font-weight: bold;
+  // font-weight: bold;
+  font-family: $font-family-bold;
 }
 
 
@@ -115,22 +116,19 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
-  padding: $padding-base-vertical $padding-base-horizontal;
-  font-size: $font-size-base;
+  height: 7vh;
+  padding: 2vh 3vh;
+  font-size: 4.5vh;
   line-height: $line-height-base;
   color: $input-color;
-  background-color: $input-bg;
+  background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid $input-border;
-  border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
-  @include box-shadow(inset 0 -1px 0 rgba(0,0,0,.3));
+  border: none;
+  border-bottom: 0.2vh solid $brand-primary;
+  // text-align: center;
+  // border-radius: 0.5vh;
+  // @include box-shadow(0 0.3vh 0.8vh rgba(116, 116, 116, 0.3));
   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
-
-  // Thicken border width on `focus`.
-  &:focus {
-    padding: ($padding-base-vertical - 1) ($padding-base-horizontal - 1);
-  }
 
   // Customize the `:focus` state to imitate native WebKit styles.
   @include form-control-focus;
@@ -178,7 +176,7 @@ input[type="search"] {
 // In Mobile Safari, setting `display: block` on temporal inputs causes the
 // text within the input to become vertically misaligned. As a workaround, we
 // set a pixel line-height that matches the given height of the input, but only
-// for Safari. See https://bugs.webkit.org/show_bug.cgi?id=139848
+// for Safari. See https://bugs.webkit.org/show_bug.cgi?id=139848 
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="date"],
@@ -199,6 +197,44 @@ input[type="search"] {
   }
 }
 
+
+// Password masking
+//
+// Toggle password masking
+.form-password-mask {
+  position: relative;
+  display: block;
+
+  .btn-mask-password {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    text-transform: uppercase;
+    background-color: $gray-lighter;
+    &:hover {
+      background-color: $brand-primary;
+      color: white;
+    }
+  }
+
+  // Button Sizing and Offset
+  $btn-width: 40px;
+  .form-control { padding-right: $padding-base-horizontal*3 + $btn-width - 5 }
+  .form-control.input-sm { padding-right: $padding-small-horizontal*3 + $btn-width - 5 }
+  .form-control.input-lg { padding-right: $padding-large-horizontal*3 + $btn-width - 5 }
+
+  .form-control + .btn-mask-password {
+    padding: ($padding-base-vertical - 5) ($padding-base-horizontal - 5);
+  }
+
+  .input-sm + .btn-mask-password {
+    padding: ($padding-small-vertical - 5) ($padding-small-horizontal - 5);
+  }
+
+  .input-lg + .btn-mask-password {
+    padding: ($padding-large-vertical - 3) ($padding-large-horizontal - 5);
+  }
+}
 
 // Form groups
 //
@@ -405,6 +441,14 @@ input[type="checkbox"] {
   }
 }
 
+// Field-Error
+.field-validation-error {
+  color: $brand-red;
+}
+
+.field-validation-valid {
+  color: $brand-success;
+}
 
 // Help text
 //
@@ -539,11 +583,18 @@ input[type="checkbox"] {
 
   // Reset spacing and right align labels, but scope to media queries so that
   // labels on narrow viewports stack the same as a default form example.
-  @media (min-width: $screen-sm-min) {
+
+  @media (max-width: $screen-sm-max) {
+    .control-label {
+      text-align: left;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
     .control-label {
       text-align: right;
       margin-bottom: 0;
-      padding-top: ($padding-base-vertical + 1); // Default padding plus a border
+      // padding-top: ($padding-base-vertical + 1); // Default padding plus a border
     }
   }
 
@@ -578,6 +629,26 @@ input[type="checkbox"] {
 // Style label text inside form-group
 .form-group > .control-label {
   text-transform: uppercase;
-  color: $gray;
+  color: #313131;
   font-size: 0.9em;
+}
+
+.form-group-row {
+  width: 100%;
+  display: table;
+  clear: both;
+
+  div[class^='col-'],
+  div[class*='col-'] {
+    padding-left: 0 !important;
+  }
+
+  .control-label {
+    @media (min-width: $screen-md-min) {
+      text-align: right;
+    }
+    @media (max-width: $screen-sm-max) {
+      text-align: left;
+    }
+  }
 }

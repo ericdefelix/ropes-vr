@@ -30,32 +30,37 @@
 
   // When fading in the modal, animate it to slide down
   &.fade .modal-dialog {
-    @include translate(0, 5%);
-    @include transition-transform(0.3s cubic-bezier(.77,.59,.26,.9));
+    @include transform(translate3d(0,200%,0));
+    @include transition (transform 0.3s cubic-bezier(.17,.5,0,.97));
+    // @include transform-style(preserve-3d);
   }
-  &.in .modal-dialog { @include translate(0, 0) }
+  &.in .modal-dialog { 
+    // @include translate(0, 0);
+    @include transform(translate3d(0,0,0));
+    @include transition (transform 0.3s cubic-bezier(.17,.5,0,.97));
+    // @include transform-style(preserve-3d);
+  }
 }
 .modal-open .modal {
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 // Shell div to position the modal with bottom padding
 .modal-dialog {
   position: relative;
-  width: auto;
-  margin: 10px;
+  width: 100%;
 }
 
 // Actual modal
 .modal-content {
   position: relative;
-  background-color: $modal-content-bg;
-  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
-  border: 1px solid $modal-content-border-color;
-  border-bottom: 1px solid #BEBEBE;
-  border-radius: $border-radius-large;
-  @include box-shadow(0 20px 50px rgba(95, 95, 95, 0.6));
+  // background-color: $modal-content-bg;
+  // border: 1px solid $modal-content-border-color;
+  // border-bottom-left-radius: $border-radius-large;
+  // border-bottom-right-radius: $border-radius-large;
+  // border-top-left-radius: $border-radius-large + 3;
+  // border-top-right-radius: $border-radius-large + 3;
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
@@ -63,14 +68,31 @@
 
 // Modal background
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  background-color: $modal-backdrop-bg;
+  bottom: 55.2vh;
+  z-index: $zindex-modal - 1;
+  background-color: rgba(0,0,0,0.3);
+
   // Fade for backdrop
-  &.fade { @include opacity(0); }
-  &.in { @include opacity($modal-backdrop-opacity); }
+  &.fade { @include opacity(0); @include transition(opacity .5s $easing); }
+  &.in { @include opacity($modal-backdrop-opacity); @include transition(opacity .5s $easing); }
+
+  // Extend the backdrop
+
+  &:after {
+    display: block;
+    content: '';
+    position: fixed;
+    background-color: rgba(0,0,0,0.3);
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 43.5vh;
+  }
 }
 
 // Modal header
@@ -135,32 +157,19 @@
 }
 
 // Scale up the modal
-@media (min-width: $screen-sm-min) {
-  // Automatically set modal's width for larger viewports
-  .modal-dialog {
-    width: $modal-md;
-    margin: 30px auto;
-  }
-  .modal-content {
-    @include box-shadow(0 20px 50px rgba(95, 95, 95, 0.6));
-  }
 
-  // Modal sizes
-  .modal-sm { width: $modal-sm; }
+// Automatically set modal's width for larger viewports
+.modal-dialog {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modal-content {
+  // @include box-shadow(0 -2vh 5vh rgba(95, 95, 95, 0.6));
 }
 
-@media (min-width: $screen-md-min) {
-  .modal-lg { width: $modal-lg; }
-  .modal-xlg { width: $modal-lg; }
-}
-
-@media (min-width: $screen-lg-min) {
-  .modal-xlg { width: $modal-xlg - 100; }
-}
-
-@media (min-width: $screen-xlg-min) {
-  .modal-xlg { width: $modal-xlg; }
-}
 
 // Scroll
 .modal-scroll-container {
@@ -171,4 +180,46 @@
   border: 1px solid lighten($gray, 40%);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+
+// Confirmation Box
+.modal-confirm {
+  .modal-body {
+    text-align: center;
+    padding: $grid-gutter-width;
+    i.md { 
+      @media (max-width: $screen-xs-max) {
+        font-size: 5em;
+      }
+      @media (min-width: $screen-sm-min) {
+        font-size: 10em;
+      }
+
+      color: $brand-primary;
+      margin-bottom: -$grid-gutter-width;
+    }
+    .modal-confirm-message {
+      margin-bottom: $grid-gutter-width/2;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 16px;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        font-size: 22px;
+      }
+    }
+    .btn {
+      background-color: $gray-lighter;
+      @media (max-width: $screen-xs-max) {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        width: 25%;
+      }
+    }
+  }
 }

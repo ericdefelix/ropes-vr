@@ -19,7 +19,7 @@
     > a {
       position: relative;
       display: block;
-      padding: $nav-link-padding;
+      padding: 2vh;
       &:hover,
       &:focus {
         text-decoration: none;
@@ -76,6 +76,8 @@
 // Give the tabs something to sit on
 .nav-tabs {
   border-bottom: 1px solid $nav-tabs-border-color;
+
+  // Horizontal Navtabs
   > li {
     float: left;
     // Make the list-items overlay the bottom border
@@ -105,13 +107,15 @@
       }
     }
   }
+
   // pulling this in mainly for less shorthand
   &.nav-justified {
     @extend .nav-justified;
     @extend .nav-tabs-justified;
   }
-}
 
+
+}
 
 // Pills
 // -------------------------
@@ -122,6 +126,8 @@
     // Links rendered as pills
     > a {
       border-radius: $nav-pills-border-radius;
+      padding: 1vh;
+      font-size: 3.5vh;
     }
     + li {
       margin-left: 2px;
@@ -242,7 +248,7 @@
   margin-top: -1px;
 }
 
-.nav-tabs .dropdown-menu-custom {
+.nav-tabs .dropdown-menu-arrow {
   // make dropdown border overlap tab border
   margin-top: 11px;
 }

@@ -1,0 +1,180 @@
+.metrotile-grid {
+  @include make-row(10px);
+
+    @media (max-width: $screen-xs-max) {
+      width: percentage(( 4 / 4));
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      width: percentage(( 2 / 4)); 
+    }
+
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      width: percentage(( 1 / 4));
+    }
+
+    @media (min-width: $screen-lg-min) {
+      width: percentage(( 1 / 4));
+    }
+
+  .metrotile-cell{
+    position: relative;
+    min-height: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    float: left;
+
+    > .thumbnail {
+      height: $metro-tile-height;
+      overflow: hidden;
+      margin-bottom: 10px;
+      border: none;
+
+      > img {
+        height: 100%;
+      }
+
+      &:hover {
+        @include box-shadow(0 1px 3px rgba(116, 116, 116, 0.3));
+        border-left-color: darken($thumbnail-border,5%);
+        border-right-color: darken($thumbnail-border,5%);
+        border-top-color: darken($thumbnail-border,5%);
+        border-bottom-color: darken($thumbnail-border,10%);
+      }
+
+      i,span,p,a,small,h1,h2,h3,h4,h5,h6, .caption {
+        color: white;
+      }
+    }
+
+  }
+}
+
+// Tile sizing
+.metrotile-cell {
+  &.metrotile-short {
+    @media (max-width: $screen-xs-max) {
+      width: percentage(( 4 / 4));
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      width: percentage(( 2 / 4)); 
+    }
+
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      width: percentage(( 1 / 4));
+    }
+
+    @media (min-width: $screen-lg-min) {
+      width: percentage(( 1 / 4));
+    }
+  }
+
+  &.metrotile-long {
+    @media (max-width: $screen-xs-max) {
+      width: percentage(( 4 / 4));
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      width: percentage(( 2 / 4)); 
+    }
+
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      width: percentage(( 2 / 4));
+    }
+
+    @media (min-width: $screen-lg-min) {
+      width: percentage(( 2 / 4));
+    }
+  }
+
+  &.metrotile-xlg {
+
+    @media (max-width: $screen-sm-max) {
+      width: percentage(( 4 / 4));
+    }
+
+    @media (min-width: $screen-md-min){
+      width: percentage(( 3 / 4));
+    }
+  }
+
+}
+
+// Tile Group
+.metrotile-group {
+  margin-left: -5px;
+  margin-right: -5px;
+  .metrotile-group-cell {
+    position: relative;
+    min-height: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    float: left;
+    text-align: center;
+    width: percentage(( 1 / 2));
+
+    > .thumbnail {
+      height: ($metro-tile-height / 2) - 5;
+      margin-bottom: 10px;
+      overflow: hidden;
+      border: none;
+      @include transition (background-color 0.3s $easing);
+
+      &:hover {
+        @include transition (background-color 0.3s $easing);
+      }
+
+      i,span,p,a,small,h1,h2,h3,h4,h5,h6 {
+        color: white;
+        clear: both;
+        display: block;
+      }
+    }
+  }
+}
+
+// [24]7 colors
+.metrotile-cyan { 
+  background-color: $brand-cyan;
+  &:hover {
+    background-color: darken($brand-cyan,10%);
+  }
+}
+.metrotile-burgundy { 
+  background-color: $brand-burgundy;
+  &:hover {
+    background-color: darken($brand-burgundy,10%);
+  }
+}
+.metrotile-orange {
+  background-color: $brand-orange;
+  &:hover {
+    background-color: darken($brand-orange,10%);
+  }
+}
+.metrotile-turquoise {
+  background-color: $brand-turquoise;
+  &:hover {
+    background-color: darken($brand-turquoise,10%);
+  }
+}
+.metrotile-lime { 
+  background-color: $brand-lime;
+  &:hover {
+    background-color: darken($brand-lime,10%);
+  }
+}
+.metrotile-purple {
+  background-color: $brand-purple;
+  &:hover {
+    background-color: darken($brand-purple,10%);
+  }
+}
+.metrotile-blue { 
+  background-color: $brand-blue;
+  &:hover {
+    background-color: darken($brand-blue,10%);
+  }
+}
+

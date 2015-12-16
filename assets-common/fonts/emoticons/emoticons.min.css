@@ -1,0 +1,28 @@
+@font-face {
+	font-family: "Emoji";
+	src: url("emoticons.eot");
+	src: url("emoticons.eot#iefix") format("embedded-opentype"),
+	url("emoticons.woff") format("woff"),
+	url("emoticons.ttf") format("truetype"),
+	url("emoticons.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="emoji-"]:before, [class*=" emoji-"]:before,
+[class^="emoji-"]:after, [class*=" emoji-"]:after {   
+	font-family: Emoji;
+    font-size: 20px;
+	font-style: normal;
+}
+.emoji-angry:before { content: "\e000"; }
+.emoji-love:before { content: "\e001"; }
+.emoji-emotional:before { content: "\e002"; }
+.emoji-dissappointed:before { content: "\e003"; }
+.emoji-sad:before { content: "\e004"; }
+.emoji-sleepy:before { content: "\e005"; }
+.emoji-superstar:before { content: "\e006"; }
+.emoji-happy:before { content: "\e007"; }
+.emoji-contented:before { content: "\e008"; }
+.emoji-neutral:before { content: "\e009"; }
+.emoji-nervous:before { content: "\e00a"; }
+.emoji-furious:before { content: "\e00b"; }

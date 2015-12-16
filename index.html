@@ -1,0 +1,717 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>[24]7 - Virtual Receptionist</title>
+    <meta name="description" content="Virtual Receptionist">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="assets-common/img/favicon.png">
+
+    <!-- Dependencies -->
+    <link rel="stylesheet" href="assets-common/fonts/fontface.min.css">
+    <link rel="stylesheet" href="assets-common/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets-common/css/animate.min.css">
+
+    <!-- Virtual Receptionist styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+
+</head>
+
+<body class="pristine">
+<!-- <body class="pristine" oncontextmenu="return false;"> -->
+
+    <!-- If user is idle -->
+    <section class="idle" id="idleContainer">
+        <div class="idle-message v-center" id="idleMessage">
+            <i class="md md-help animated bounce"></i>
+            <small class="h6 message">
+                You've been idle for <strong id="idleDuration">X time units</strong>.
+                <br>Do you still want to continue?
+                <hr>
+                <sub class="text-center">Auto-restarting in <strong id="restartDuration">X time units</strong>...</sub>
+            </small>
+            <button type="button" class="btn btn-primary btn-block" id="remainActive">Yes, I'm still here</button>
+            <button type="button" class="btn btn-transparent btn-block" id="restartVR">No, I'm done</button>
+        </div>
+    </section>
+    <!-- If user is idle -->
+
+    <!-- Global Header -->
+    <header class="navbar navbar-header navbar-fixed-top navbar-default" role="banner" id="header">
+        <div class="container-fluid">        
+            <button type="button" class="btn btn-transparent btn-back" data-target-prev="_prev">
+                <i class="md md-2x md-fw md-arrow-back"></i>
+                <small class="center-block">Back</small>
+            </button>
+
+            <img class="logo-brand center-block" src="assets-common/img/logo.svg" alt="[24]7" tabIndex="-1"/>
+
+            <button type="button" class="btn btn-transparent btn-home js_go-home" data-target-prev="_prev">
+                <i class="md md-2x md-fw md-home"></i>
+                <small class="center-block">Home</small>
+            </button>
+
+            <!-- Restarts VR -->
+            <button type="button" class="hidden" data-target-screen="welcome_screen">Restart VR</button>
+
+            <button type="button" class="btn btn-transparent btn-map" data-target-screen="map">
+                <img src="assets/img/map.svg" alt="Map">
+            </button>
+
+        </div>
+
+    </header>
+    <!-- Global Header -->
+
+    <main class="m_zindex" id="sectionContainer">
+
+        <!-- Welcome -->
+        <section class="js_bg bg-1 full-height" data-section="welcome_screen" data-target-screen="initial_options">
+            <div>
+                <div class="col-xs-8 col-xs-offset-2">
+                    <div class="logo-splash" id="logoSplash">
+                        <img src="assets-common/img/logo.png" alt="[24]7">
+                        <span class="logo-title">Virtual Receptionist</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="directions-splash">
+                <img class="animated infinite pulse" src="assets/img/tap.svg" alt="Tap">
+                <div class="text">
+                    <span class="text-left">
+                        Start your journey here <br>
+                        <small>Tap anywhere to start</small>
+                    </span>
+                </div>
+                <div class="js_bg-elem js_bg bg-1 bg-blur"></div>
+            </div>
+        </section>
+        <!-- Welcome -->
+
+        <!-- Who are You -->
+        <section class="full-height section-main" data-section="initial_options">
+            <div class="col-xs-12 v-center">
+                <span class="h4 text-center heading animate">Welcome to [24]7!
+                    <br>
+                    <small class="text-muted text-uppercase small js_site">Megamall site</small>
+                    <br><h5>Let us know what you are here for</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="im_here_to_apply">I'm applying for a position</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_question">I have an ongoing application</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="might_apply">I'm thinking of applying</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="non_applicant">I'm here for other reasons</button>
+                </div>
+            </div>
+        </section>
+        <!-- Who are You -->
+
+        <!-- Im here to apply -->
+        <section class="full-height section-main" data-section="im_here_to_apply">
+            <div class="col-xs-8 col-xs-offset-2 v-center">
+                <i class="md md-icon md-mood animate"></i>
+                <span class="h4 text-center heading animate">We're so glad you decided to join us.<br></span>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_question">Let's get started!</button>
+                </div>
+            </div>
+        </section>
+        <!-- Im here to apply -->
+
+        <!-- Ask if registered to ROPES -->
+        <section class="full-height section-main" data-section="ropes_question">
+            <div class="col-xs-8 col-xs-offset-2 text-center v-center">
+                <img class="ropes-logo animate" src="assets/img/ropes-logo.svg" alt="ROPES">
+                <span class="h4 text-center heading animate">Have you registered through ROPES yet?</span>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_details">Yes</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="ropes_not_registered">No</button>
+                </div>
+            </div>
+        </section>
+        <!-- Ask if registered to ROPES -->
+
+        <!-- Ask ROPES Credentials -->
+        <section class="full-height section-main" data-section="ropes_details">
+
+            <div class="col-xs-10 col-xs-offset-1 text-center v-center">
+
+                <img class="ropes-logo animate" src="assets/img/ropes-logo.svg" alt="ROPES">
+                <span class="text-center heading animate h4">Great! Tap on the ROPES credential you want to enter.</span>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_id">ROPES ID</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_username">ROPES Username</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_email">ROPES Email</button>
+                </div>
+            </div>
+
+        </section>
+        <!-- Ask ROPES Credentials -->
+
+        <!-- ROPES ID -->
+        <section class="full-height section-main" data-section="ropes_id">
+
+            <!-- Details -->
+            <div class="form-input col-xs-8 col-xs-offset-2 text-center v-center">
+                <div class="form-group input-id animate">
+                    <small>Please enter your</small>
+                    <label class="control-label text-center center-block"><span>ROPES ID</span></label>
+
+                    <input type="text" class="form-control" id="ropesID" maxlength="10" placeholder="Tap here" data-keyboard data-keyboard-type="numeric">
+                </div>
+
+                <div class="button-group animate">
+                    <button type="button" class="btn btn-primary btn-block" style="margin-top: 5%;" data-validate-form>Confirm ID</button>
+
+                    <!-- Hidden triggers -->
+                    <button type="button" style="display: none;" hidden data-target-screen="ropes_lastname">Go to Last Name</button>
+                    <button type="button" style="display: none;" hidden data-target-screen="ropes_try_again">Go to Try Again</button>
+                </div>
+            </div>
+            <!-- Details -->
+
+            <div class="error text-center">
+                <i class="md md-alert-circle md-lg animated bounce center-block"></i>
+                <small class="h6 error-message">Hmm...We can't seem to find your information.</small>
+                <button type="button" class="btn btn-primary btn-block" data-back-to-form>Double-check your ROPES ID</button>
+                <div class="center-block text-center"><span class="or">or</span></div>
+                <button type="button" class="btn btn-primary btn-block" data-target-screen="ropes_details">Try a different credential</button>
+            </div>
+
+        </section>
+        <!-- ROPES ID -->
+
+        <!-- ROPES Username -->
+        <section class="full-height section-main" data-section="ropes_username">
+
+            <!-- Details -->
+            <div class="form-input col-xs-8 col-xs-offset-2 text-center v-center">
+                <div class="form-group input-username animate">
+                    <small>Please enter your</small>
+                    <label class="control-label text-center center-block"><span>ROPES Username</span></label>
+                    <input type="text" class="form-control" id="ropesUsername" placeholder="Tap here" data-keyboard data-keyboard-type="alphanumeric">
+                </div>
+                <div class="button-group animate">
+                    <button type="button" class="btn btn-primary btn-block" style="margin-top: 5%;" data-validate-form>Confirm Username</button>
+
+                    <!-- Hidden triggers -->
+                    <button type="button" style="display: none;" hidden data-target-screen="ropes_lastname">Go to Last Name</button>
+                    <button type="button" style="display: none;" hidden data-target-screen="ropes_try_again">Go to Try Again</button>
+                </div>
+            </div>
+            <!-- Details -->
+
+            <div class="error text-center">
+                <i class="md md-alert-circle md-lg animated bounce center-block"></i>
+                <small class="h6 error-message">Hmm...We can't seem to find your information.</small>
+                <button type="button" class="btn btn-primary btn-block" data-back-to-form>Double-check your username</button>
+                <div class="center-block text-center"><span class="or">or</span></div>
+                <button type="button" class="btn btn-primary btn-block" data-target-screen="ropes_details">Try a different credential</button>
+            </div>
+
+        </section>
+        <!-- ROPES Username -->
+
+        <!-- ROPES Email -->
+        <section class="full-height section-main" data-section="ropes_email">
+            <div class="form-input col-xs-8 col-xs-offset-2 text-center v-center">
+              <div class="form-group input-email animate">
+                    <small>Please enter your</small>
+                    <label class="control-label text-center center-block"><span>Registered Email</span></label>
+                    <input type="text" class="form-control" id="ropesEmail" placeholder="Tap here" data-keyboard data-keyboard-type="alphanumeric">
+                </div>
+                <div class="button-group animate">
+                    <button type="button" class="btn btn-primary btn-block" style="margin-top: 5%;" data-validate-form>Confirm Email</button>
+
+                    <!-- Hidden triggers -->
+                    <button type="button" style="display: none;" hidden data-target-screen="ropes_lastname">Go to Last Name</button>
+                    <button type="button" style="display: none;" hidden data-target-screen="ropes_try_again">Go to Try Again</button>
+                </div>
+            </div>
+            <!-- Details -->
+
+            <div class="error text-center">
+                <i class="md md-alert-circle md-lg animated bounce center-block"></i>
+                <small class="h6 error-message">Hmm...We can't seem to find your information.</small>
+                <button type="button" class="btn btn-primary btn-block" data-back-to-form>Double-check your email</button>
+                <div class="center-block text-center"><span class="or">or</span></div>
+                <button type="button" class="btn btn-primary btn-block" data-target-screen="ropes_details">Try a different credential</button>
+            </div>
+
+        </section>
+        <!-- ROPES Email -->
+
+        <!-- ROPES Last Name -->
+        <section class="full-height section-main" data-section="ropes_lastname">
+
+            <!-- Details -->
+            <div class="form-input col-xs-8 col-xs-offset-2 text-center v-center">
+                
+                <div class="form-group input-lastname animate">
+                    <small>Please enter your</small>
+                    <label class="control-label text-center center-block"><span>Surname</span></label>
+                    <input type="text" class="form-control" id="ropesLastName" placeholder="Tap here" data-keyboard data-keyboard-type="alphanumeric">
+                </div>
+                <div class="button-group animate">
+                    <button type="button" class="btn btn-primary btn-block" style="margin-top: 5%;" id="validateLastName">Validate Last Name</button>
+
+                    <!-- Hidden triggers -->
+                    <button type="button" style="display: none;" hidden data-target-screen="ropes_try_again">Go to Try Again</button>
+
+                    <button type="button" style="display: none;" hidden data-target-screen="generic_info" data-for="has_application">Go to Success</button>
+                    <button type="button" style="display: none;" hidden data-target-screen="generic_info" data-for="no_application">Go to Kiosk</button>
+                </div>
+            </div>
+            <!-- Details -->
+
+            <div class="error text-center">
+                <i class="md md-alert-circle md-lg animated bounce center-block"></i>
+                <small class="h6 error-message">Hmm... Your last name didn't match your current record</small>
+                <button type="button" class="btn btn-primary btn-block" data-back-to-form>Check again</button>
+                <div class="center-block text-center"><span class="or">or</span></div>
+                <button type="button" class="btn btn-primary btn-block" data-target-screen="ropes_details">Try a different credential</button>
+            </div>
+
+        </section>
+        <!-- ROPES Last Name -->
+
+        <!-- Would you like to try again -->
+        <section class="full-height section-main" data-section="ropes_try_again">
+            <div class="col-xs-10 col-xs-offset-1 text-center v-center">
+                <img class="ropes-logo animate" src="assets/img/ropes-logo.svg" alt="ROPES">
+                <div class="text-center animate">
+                    <h6>If you forgot your ROPES credential, don't worry. Just head on over to the registration kiosk to check it out.</h6>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-primary btn-block animate" data-target-screen="map">Check out kiosk</button>
+                    </div>
+                </div>
+                <br>
+
+                <div class="text-center animate">
+                    <h6>You may also call our recruitment hotline <strong class="hotline">(xxx-xxxx)</strong>.</h6><br>
+                    <h6>Or you can</h6>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_details">Try your credentials again</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Would you like to try again -->
+
+        <!-- For non-applicants, ask for what purpose -->
+        <section class="full-height section-main" data-section="non_applicant">
+            <div class="col-xs-10 col-xs-offset-1 text-center v-center">
+                <span class="h4 text-center heading animate">Can you tell us what reason would that be?</span>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="might_apply">Meeting or business purpose</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="more_information">Know more about [24]7</button>
+                </div>
+            </div>
+        </section>
+        <!-- For non-applicants, ask for what purpose -->
+
+        <!-- Generic Info -->
+        <section class="full-height section-main" data-section="generic_info">
+
+            <div class="col-xs-10 col-xs-offset-1 text-center v-center">
+
+                <div class="text-center heading animate">
+                    <div class="h5 message">Alright then. Head on over to our registration kiosk so you can start filling out the application form.</div>
+                    <div class="button-group">
+                        <br>
+                        <h5>Let me show you where to go.</h5>
+                        <button type="button" class="btn btn-primary btn-block animate" data-target-screen="map" >Display destination</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Generic Info -->
+
+        <!-- Map -->
+        <section class="full-height section-main" data-section="map">
+            <div class="map animate">
+                <div class="map-container" id="mapContainer" data-site="4" data-floor="not-applicable">
+
+                    <div class="img-preview">
+                        <img class="img-responsive" src="assets/img/preview/sample-preview.png" data-function-id="id1" alt="Image 1">
+                        <img class="img-responsive" src="assets/img/preview/sample-preview.png" data-function-id="id2" alt="Image 2">
+                        <img class="img-responsive" src="assets/img/preview/sample-preview.png" data-function-id="id3" alt="Image 3">
+                        <img class="img-responsive" src="assets/img/preview/sample-preview.png" data-function-id="id4" alt="Image 4">
+                        <img class="img-responsive" src="assets/img/preview/sample-preview.png" data-function-id="id5" alt="Image 5">
+                    </div>
+
+                    <p class="pin" data-parent-img="ground" data-target-img="id1" data-location="phone">
+                        <span class="pin-location"><i class="md md-camera"></i></span>
+                    </p>
+                    <p class="pin" data-parent-img="ground" data-target-img="id2" data-location="kiosk">
+                        <span class="pin-location"><i class="md md-camera"></i></span>
+                    </p>
+                    <p class="pin" data-parent-img="ground" data-target-img="id3" data-location="lounge">
+                        <span class="pin-location"><i class="md md-camera"></i></span>
+                    </p>
+                    <p class="pin" data-parent-img="ground" data-target-img="id4" data-location="vr">
+                        <span class="pin-location"><i class="md md-camera"></i></span>
+                    </p>
+                    <p class="pin" data-parent-img="sixth" data-target-img="id5" data-location="waiting_area">
+                        <span class="pin-location"><i class="md md-camera"></i></span>
+                    </p>
+                    <p class="pin" data-parent-img="sixth" data-target-img="id6" data-location="reception">
+                        <span class="pin-location"><i class="md md-camera"></i></span>
+                    </p>
+
+                    <p class="pin js_is-upper-floor" data-location="elevator">
+                        <span class="pin-location"><i class="fa fa-arrow-up animated bouncing"></i></span>
+                    </p>
+
+                    <!-- <p class="pin you megamall animated flash" id="you" data-location="you"></p> -->
+                    <div id="enlargeMapHotSpot">
+                        <img class="js_site-floor" src="assets/img/maps/247plaza.svg" alt="[24]7 Plaza" id="247plazaHub">
+                        <!-- <img class="js_site-floor" src="assets/img/maps/megamall-ground-floor.svg" alt="Ground Floor Megamall" id="megamallGroundFloor">
+                        <img class="js_site-floor" src="assets/img/maps/megamall-sixth-floor.svg" alt="Sixth Floor Megamall" id="megamall6thFloor"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 text-center animate" style="position: fixed; bottom: 28vh; z-index: 1001;">
+                
+                <div class="check-us-out">
+                    <div class="tap animated infinite pulse animate" id="tap"><img class="" src="assets/img/tap2.svg" alt="Tap"></div>
+                    <button type="button" class="btn btn-primary btn-block" data-target-screen="site_offerings">What you can do while waiting</button>
+
+                    <div class="button-group animate">
+                        <!-- <h6>Is there anything else I can help you with?</h6> -->
+                        <button type="button" class="btn btn-primary btn-block" data-target-screen="more_information">Know more about [24]7</button>
+                        <button type="button" class="btn btn-primary btn-block" data-target-screen="goodbye_user">End of Information</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Map -->
+
+        <!-- Site Offerings -->
+        <section class="full-height section-main" data-section="site_offerings">
+
+            <div class="site-offerings-row text-center">
+                <h5 class="heading text-muted">Tap to see instructions</h5>
+                <div class="site-offerings-col animate">
+                    <div class="site-offerings pull-right">
+                        <div class="free-wifi"><i class="ico-wifi"></i><span>Free<br>Wi-fi</span></div>
+                    </div>
+                </div>
+                <h6 class="text-center so-msg">While you're waiting, feel free to surf the web using our free wifi. Just ask the code from one of the receptionists.</h6>
+
+                <div class="site-offerings-col animate">
+                    <div class="site-offerings modified">
+                        <div class="free-refreshments"><i class="ico-refreshment1"></i><i class="ico-refreshment2"></i><span>Free<br>Refreshments</span></div>
+                    </div>
+                </div>
+                <h6 class="text-center so-msg">Some directions for refreshments.</h6>
+
+                <div class="site-offerings-col animate">
+                    <div class="site-offerings pull-left">
+                        <div class="free-assess"><i class="ico-assessment"></i><span>Practice<br>Assessments</span></div>
+                    </div>
+                </div>
+                <h6 class="text-center so-msg">Some directions for practice assessments.</h6>
+
+                <div class="check-us-out modified animate" style="position: fixed; bottom: 28vh; z-index: 1001; left: 0; right: 0;">
+                    <div class="button-group animate">
+                        <button type="button" class="btn btn-primary btn-block" id="backToMap" onclick="$('.btn-back').click()">Back to Map</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Site Offerings -->
+
+        <!-- More information -->
+        <section class="full-height section-main" data-section="more_information">
+
+            <div class="col-xs-12 text-center animate" style="margin-top: 2vh;">
+
+                <div class="check-us-out">
+                    <div class="text-center">
+                        <div class="message">
+                            <h5>Check us out on the web</h5>
+                            <sub class="text-uppercase">Company Information</sub>
+                            <h6 class="text-primary r_m-top">http://www.ropeswebsite.com</h6>
+                            <sub class="text-uppercase">Job openings</sub>
+                            <h6 class="text-primary r_m-top">http://www.ropeswebsite.com</h6>
+                            <div class="row" style="margin-bottom: 12vh;">
+                                <div class="col-xs-6">
+                                    <div class="media" style="color: #3B579D;">
+                                        <div class="media-left">
+                                            <div class="qr">
+                                                <!-- Insert Telerik QR here -->
+
+                                                <div class="k-qrcode" id="qrMoreInfoFB" data-role="qrcode">
+                                                    <div data-role="surface" style="position: relative; width: 155px; height: 155px;">
+                                                    <svg style="width: 100%; height: 100%; overflow: hidden; left: -0.671875px; top: -0.875px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><defs></defs><g><path d="M0 0 L 155 0 155 155 0 155Z" stroke="none" fill="none"></path><path d="M5 5 L 5 10 40 10 40 5Z M45 5 L 45 10 50 10 50 5Z M55 5 L 55 10 80 10 80 5Z M95 5 L 95 10 100 10 100 5Z M115 5 L 115 10 150 10 150 5Z M5 10 L 5 15 10 15 10 10Z M35 10 L 35 15 40 15 40 10Z M50 10 L 50 15 60 15 60 10Z M70 10 L 70 15 75 15 75 10Z M85 10 L 85 15 95 15 95 10Z M100 10 L 100 15 105 15 105 10Z M115 10 L 115 15 120 15 120 10Z M145 10 L 145 15 150 15 150 10Z M5 15 L 5 20 10 20 10 15Z M15 15 L 15 20 30 20 30 15Z M35 15 L 35 20 40 20 40 15Z M55 15 L 55 20 85 20 85 15Z M115 15 L 115 20 120 20 120 15Z M125 15 L 125 20 140 20 140 15Z M145 15 L 145 20 150 20 150 15Z M5 20 L 5 25 10 25 10 20Z M15 20 L 15 25 30 25 30 20Z M35 20 L 35 25 40 25 40 20Z M70 20 L 70 25 75 25 75 20Z M80 20 L 80 25 95 25 95 20Z M105 20 L 105 25 110 25 110 20Z M115 20 L 115 25 120 25 120 20Z M125 20 L 125 25 140 25 140 20Z M145 20 L 145 25 150 25 150 20Z M5 25 L 5 30 10 30 10 25Z M15 25 L 15 30 30 30 30 25Z M35 25 L 35 30 40 30 40 25Z M50 25 L 50 30 55 30 55 25Z M70 25 L 70 30 80 30 80 25Z M85 25 L 85 30 90 30 90 25Z M95 25 L 95 30 105 30 105 25Z M115 25 L 115 30 120 30 120 25Z M125 25 L 125 30 140 30 140 25Z M145 25 L 145 30 150 30 150 25Z M5 30 L 5 35 10 35 10 30Z M35 30 L 35 35 40 35 40 30Z M55 30 L 55 35 65 35 65 30Z M70 30 L 70 35 80 35 80 30Z M85 30 L 85 35 95 35 95 30Z M115 30 L 115 35 120 35 120 30Z M145 30 L 145 35 150 35 150 30Z M5 35 L 5 40 40 40 40 35Z M45 35 L 45 40 50 40 50 35Z M55 35 L 55 40 60 40 60 35Z M65 35 L 65 40 70 40 70 35Z M75 35 L 75 40 80 40 80 35Z M85 35 L 85 40 90 40 90 35Z M95 35 L 95 40 100 40 100 35Z M105 35 L 105 40 110 40 110 35Z M115 35 L 115 40 150 40 150 35Z M45 40 L 45 45 50 45 50 40Z M55 40 L 55 45 60 45 60 40Z M70 40 L 70 45 80 45 80 40Z M85 40 L 85 45 90 45 90 40Z M5 45 L 5 50 15 50 15 45Z M20 45 L 20 50 30 50 30 45Z M35 45 L 35 50 40 50 40 45Z M50 45 L 50 50 60 50 60 45Z M65 45 L 65 50 70 50 70 45Z M75 45 L 75 50 85 50 85 45Z M90 45 L 90 50 100 50 100 45Z M115 45 L 115 50 120 50 120 45Z M145 45 L 145 50 150 50 150 45Z M5 50 L 5 55 10 55 10 50Z M45 50 L 45 55 55 55 55 50Z M60 50 L 60 55 65 55 65 50Z M80 50 L 80 55 85 55 85 50Z M90 50 L 90 55 110 55 110 50Z M120 50 L 120 55 130 55 130 50Z M135 50 L 135 55 145 55 145 50Z M10 55 L 10 60 30 60 30 55Z M35 55 L 35 60 40 60 40 55Z M55 55 L 55 60 70 60 70 55Z M80 55 L 80 60 90 60 90 55Z M120 55 L 120 60 125 60 125 55Z M135 55 L 135 60 140 60 140 55Z M5 60 L 5 65 10 65 10 60Z M45 60 L 45 65 60 65 60 60Z M85 60 L 85 65 95 65 95 60Z M100 60 L 100 65 105 65 105 60Z M130 60 L 130 65 135 65 135 60Z M145 60 L 145 65 150 65 150 60Z M5 65 L 5 70 20 70 20 65Z M25 65 L 25 70 55 70 55 65Z M65 65 L 65 70 75 70 75 65Z M85 65 L 85 70 90 70 90 65Z M95 65 L 95 70 100 70 100 65Z M105 65 L 105 70 110 70 110 65Z M115 65 L 115 70 125 70 125 65Z M145 65 L 145 70 150 70 150 65Z M10 70 L 10 75 15 75 15 70Z M20 70 L 20 75 25 75 25 70Z M30 70 L 30 75 35 75 35 70Z M40 70 L 40 75 55 75 55 70Z M60 70 L 60 75 65 75 65 70Z M70 70 L 70 75 75 75 75 70Z M80 70 L 80 75 90 75 90 70Z M115 70 L 115 75 120 75 120 70Z M125 70 L 125 75 150 75 150 70Z M20 75 L 20 80 55 80 55 75Z M70 75 L 70 80 75 80 75 75Z M80 75 L 80 80 85 80 85 75Z M90 75 L 90 80 125 80 125 75Z M135 75 L 135 80 140 80 140 75Z M145 75 L 145 80 150 80 150 75Z M5 80 L 5 85 15 85 15 80Z M40 80 L 40 85 45 85 45 80Z M55 80 L 55 85 60 85 60 80Z M65 80 L 65 85 70 85 70 80Z M75 80 L 75 85 80 85 80 80Z M95 80 L 95 85 105 85 105 80Z M110 80 L 110 85 130 85 130 80Z M135 80 L 135 85 140 85 140 80Z M145 80 L 145 85 150 85 150 80Z M10 85 L 10 90 20 90 20 85Z M35 85 L 35 90 40 90 40 85Z M50 85 L 50 90 55 90 55 85Z M65 85 L 65 90 75 90 75 85Z M80 85 L 80 90 90 90 90 85Z M95 85 L 95 90 110 90 110 85Z M130 85 L 130 90 135 90 135 85Z M5 90 L 5 95 10 95 10 90Z M25 90 L 25 95 35 95 35 90Z M40 90 L 40 95 45 95 45 90Z M50 90 L 50 95 60 95 60 90Z M70 90 L 70 95 75 95 75 90Z M80 90 L 80 95 85 95 85 90Z M90 90 L 90 95 95 95 95 90Z M100 90 L 100 95 110 95 110 90Z M125 90 L 125 95 130 95 130 90Z M135 90 L 135 95 145 95 145 90Z M5 95 L 5 100 20 100 20 95Z M25 95 L 25 100 30 100 30 95Z M35 95 L 35 100 40 100 40 95Z M45 95 L 45 100 95 100 95 95Z M100 95 L 100 100 105 100 105 95Z M110 95 L 110 100 120 100 120 95Z M130 95 L 130 100 135 100 135 95Z M145 95 L 145 100 150 100 150 95Z M5 100 L 5 105 20 105 20 100Z M50 100 L 50 105 55 105 55 100Z M65 100 L 65 105 85 105 85 100Z M95 100 L 95 105 100 105 100 100Z M110 100 L 110 105 140 105 140 100Z M5 105 L 5 110 15 110 15 105Z M25 105 L 25 110 30 110 30 105Z M35 105 L 35 110 40 110 40 105Z M45 105 L 45 110 55 110 55 105Z M75 105 L 75 110 85 110 85 105Z M90 105 L 90 110 100 110 100 105Z M105 105 L 105 110 145 110 145 105Z M45 110 L 45 115 50 115 50 110Z M55 110 L 55 115 65 115 65 110Z M70 110 L 70 115 85 115 85 110Z M105 110 L 105 115 110 115 110 110Z M125 110 L 125 115 135 115 135 110Z M5 115 L 5 120 40 120 40 115Z M60 115 L 60 120 70 120 70 115Z M75 115 L 75 120 90 120 90 115Z M100 115 L 100 120 110 120 110 115Z M115 115 L 115 120 120 120 120 115Z M125 115 L 125 120 135 120 135 115Z M5 120 L 5 125 10 125 10 120Z M35 120 L 35 125 40 125 40 120Z M50 120 L 50 125 55 125 55 120Z M60 120 L 60 125 70 125 70 120Z M75 120 L 75 125 95 125 95 120Z M100 120 L 100 125 110 125 110 120Z M125 120 L 125 125 130 125 130 120Z M5 125 L 5 130 10 130 10 125Z M15 125 L 15 130 30 130 30 125Z M35 125 L 35 130 40 130 40 125Z M45 125 L 45 130 55 130 55 125Z M60 125 L 60 130 65 130 65 125Z M80 125 L 80 130 95 130 95 125Z M100 125 L 100 130 135 130 135 125Z M140 125 L 140 130 150 130 150 125Z M5 130 L 5 135 10 135 10 130Z M15 130 L 15 135 30 135 30 130Z M35 130 L 35 135 40 135 40 130Z M45 130 L 45 135 50 135 50 130Z M60 130 L 60 135 65 135 65 130Z M75 130 L 75 135 90 135 90 130Z M100 130 L 100 135 105 135 105 130Z M110 130 L 110 135 115 135 115 130Z M120 130 L 120 135 125 135 125 130Z M140 130 L 140 135 150 135 150 130Z M5 135 L 5 140 10 140 10 135Z M15 135 L 15 140 30 140 30 135Z M35 135 L 35 140 40 140 40 135Z M50 135 L 50 140 60 140 60 135Z M70 135 L 70 140 85 140 85 135Z M90 135 L 90 140 105 140 105 135Z M110 135 L 110 140 115 140 115 135Z M120 135 L 120 140 130 140 130 135Z M135 135 L 135 140 150 140 150 135Z M5 140 L 5 145 10 145 10 140Z M35 140 L 35 145 40 145 40 140Z M45 140 L 45 145 55 145 55 140Z M65 140 L 65 145 70 145 70 140Z M75 140 L 75 145 80 145 80 140Z M95 140 L 95 145 100 145 100 140Z M110 140 L 110 145 125 145 125 140Z M130 140 L 130 145 140 145 140 140Z M145 140 L 145 145 150 145 150 140Z M5 145 L 5 150 40 150 40 145Z M45 145 L 45 150 50 150 50 145Z M65 145 L 65 150 75 150 75 145Z M80 145 L 80 150 85 150 85 145Z M100 145 L 100 150 110 150 110 145Z M125 145 L 125 150 135 150 135 145Z" stroke="none" fill="#3B579D"></path></g></svg></div>
+                                                </div>
+                                                
+                                                <!-- Insert Telerik QR here -->
+                                            </div>    
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading"><i class="fa fa-facebook-square"></i> Facebook</h6>
+                                            <strong class="small">facebook/urlhere</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="media" style="color: #5EA9DD;">
+                                        <div class="media-left">
+                                            <div class="qr">
+                                                <!-- Insert Telerik QR here -->
+
+                                                <div class="k-qrcode" id="qrMoreInfoFB" data-role="qrcode">
+                                                    <div data-role="surface" style="position: relative; width: 155px; height: 155px;">
+                                                    <svg style="width: 100%; height: 100%; overflow: hidden; left: -0.671875px; top: -0.875px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><defs></defs><g><path d="M0 0 L 155 0 155 155 0 155Z" stroke="none" fill="none"></path><path d="M5 5 L 5 10 40 10 40 5Z M45 5 L 45 10 50 10 50 5Z M55 5 L 55 10 80 10 80 5Z M95 5 L 95 10 100 10 100 5Z M115 5 L 115 10 150 10 150 5Z M5 10 L 5 15 10 15 10 10Z M35 10 L 35 15 40 15 40 10Z M50 10 L 50 15 60 15 60 10Z M70 10 L 70 15 75 15 75 10Z M85 10 L 85 15 95 15 95 10Z M100 10 L 100 15 105 15 105 10Z M115 10 L 115 15 120 15 120 10Z M145 10 L 145 15 150 15 150 10Z M5 15 L 5 20 10 20 10 15Z M15 15 L 15 20 30 20 30 15Z M35 15 L 35 20 40 20 40 15Z M55 15 L 55 20 85 20 85 15Z M115 15 L 115 20 120 20 120 15Z M125 15 L 125 20 140 20 140 15Z M145 15 L 145 20 150 20 150 15Z M5 20 L 5 25 10 25 10 20Z M15 20 L 15 25 30 25 30 20Z M35 20 L 35 25 40 25 40 20Z M70 20 L 70 25 75 25 75 20Z M80 20 L 80 25 95 25 95 20Z M105 20 L 105 25 110 25 110 20Z M115 20 L 115 25 120 25 120 20Z M125 20 L 125 25 140 25 140 20Z M145 20 L 145 25 150 25 150 20Z M5 25 L 5 30 10 30 10 25Z M15 25 L 15 30 30 30 30 25Z M35 25 L 35 30 40 30 40 25Z M50 25 L 50 30 55 30 55 25Z M70 25 L 70 30 80 30 80 25Z M85 25 L 85 30 90 30 90 25Z M95 25 L 95 30 105 30 105 25Z M115 25 L 115 30 120 30 120 25Z M125 25 L 125 30 140 30 140 25Z M145 25 L 145 30 150 30 150 25Z M5 30 L 5 35 10 35 10 30Z M35 30 L 35 35 40 35 40 30Z M55 30 L 55 35 65 35 65 30Z M70 30 L 70 35 80 35 80 30Z M85 30 L 85 35 95 35 95 30Z M115 30 L 115 35 120 35 120 30Z M145 30 L 145 35 150 35 150 30Z M5 35 L 5 40 40 40 40 35Z M45 35 L 45 40 50 40 50 35Z M55 35 L 55 40 60 40 60 35Z M65 35 L 65 40 70 40 70 35Z M75 35 L 75 40 80 40 80 35Z M85 35 L 85 40 90 40 90 35Z M95 35 L 95 40 100 40 100 35Z M105 35 L 105 40 110 40 110 35Z M115 35 L 115 40 150 40 150 35Z M45 40 L 45 45 50 45 50 40Z M55 40 L 55 45 60 45 60 40Z M70 40 L 70 45 80 45 80 40Z M85 40 L 85 45 90 45 90 40Z M5 45 L 5 50 15 50 15 45Z M20 45 L 20 50 30 50 30 45Z M35 45 L 35 50 40 50 40 45Z M50 45 L 50 50 60 50 60 45Z M65 45 L 65 50 70 50 70 45Z M75 45 L 75 50 85 50 85 45Z M90 45 L 90 50 100 50 100 45Z M115 45 L 115 50 120 50 120 45Z M145 45 L 145 50 150 50 150 45Z M5 50 L 5 55 10 55 10 50Z M45 50 L 45 55 55 55 55 50Z M60 50 L 60 55 65 55 65 50Z M80 50 L 80 55 85 55 85 50Z M90 50 L 90 55 110 55 110 50Z M120 50 L 120 55 130 55 130 50Z M135 50 L 135 55 145 55 145 50Z M10 55 L 10 60 30 60 30 55Z M35 55 L 35 60 40 60 40 55Z M55 55 L 55 60 70 60 70 55Z M80 55 L 80 60 90 60 90 55Z M120 55 L 120 60 125 60 125 55Z M135 55 L 135 60 140 60 140 55Z M5 60 L 5 65 10 65 10 60Z M45 60 L 45 65 60 65 60 60Z M85 60 L 85 65 95 65 95 60Z M100 60 L 100 65 105 65 105 60Z M130 60 L 130 65 135 65 135 60Z M145 60 L 145 65 150 65 150 60Z M5 65 L 5 70 20 70 20 65Z M25 65 L 25 70 55 70 55 65Z M65 65 L 65 70 75 70 75 65Z M85 65 L 85 70 90 70 90 65Z M95 65 L 95 70 100 70 100 65Z M105 65 L 105 70 110 70 110 65Z M115 65 L 115 70 125 70 125 65Z M145 65 L 145 70 150 70 150 65Z M10 70 L 10 75 15 75 15 70Z M20 70 L 20 75 25 75 25 70Z M30 70 L 30 75 35 75 35 70Z M40 70 L 40 75 55 75 55 70Z M60 70 L 60 75 65 75 65 70Z M70 70 L 70 75 75 75 75 70Z M80 70 L 80 75 90 75 90 70Z M115 70 L 115 75 120 75 120 70Z M125 70 L 125 75 150 75 150 70Z M20 75 L 20 80 55 80 55 75Z M70 75 L 70 80 75 80 75 75Z M80 75 L 80 80 85 80 85 75Z M90 75 L 90 80 125 80 125 75Z M135 75 L 135 80 140 80 140 75Z M145 75 L 145 80 150 80 150 75Z M5 80 L 5 85 15 85 15 80Z M40 80 L 40 85 45 85 45 80Z M55 80 L 55 85 60 85 60 80Z M65 80 L 65 85 70 85 70 80Z M75 80 L 75 85 80 85 80 80Z M95 80 L 95 85 105 85 105 80Z M110 80 L 110 85 130 85 130 80Z M135 80 L 135 85 140 85 140 80Z M145 80 L 145 85 150 85 150 80Z M10 85 L 10 90 20 90 20 85Z M35 85 L 35 90 40 90 40 85Z M50 85 L 50 90 55 90 55 85Z M65 85 L 65 90 75 90 75 85Z M80 85 L 80 90 90 90 90 85Z M95 85 L 95 90 110 90 110 85Z M130 85 L 130 90 135 90 135 85Z M5 90 L 5 95 10 95 10 90Z M25 90 L 25 95 35 95 35 90Z M40 90 L 40 95 45 95 45 90Z M50 90 L 50 95 60 95 60 90Z M70 90 L 70 95 75 95 75 90Z M80 90 L 80 95 85 95 85 90Z M90 90 L 90 95 95 95 95 90Z M100 90 L 100 95 110 95 110 90Z M125 90 L 125 95 130 95 130 90Z M135 90 L 135 95 145 95 145 90Z M5 95 L 5 100 20 100 20 95Z M25 95 L 25 100 30 100 30 95Z M35 95 L 35 100 40 100 40 95Z M45 95 L 45 100 95 100 95 95Z M100 95 L 100 100 105 100 105 95Z M110 95 L 110 100 120 100 120 95Z M130 95 L 130 100 135 100 135 95Z M145 95 L 145 100 150 100 150 95Z M5 100 L 5 105 20 105 20 100Z M50 100 L 50 105 55 105 55 100Z M65 100 L 65 105 85 105 85 100Z M95 100 L 95 105 100 105 100 100Z M110 100 L 110 105 140 105 140 100Z M5 105 L 5 110 15 110 15 105Z M25 105 L 25 110 30 110 30 105Z M35 105 L 35 110 40 110 40 105Z M45 105 L 45 110 55 110 55 105Z M75 105 L 75 110 85 110 85 105Z M90 105 L 90 110 100 110 100 105Z M105 105 L 105 110 145 110 145 105Z M45 110 L 45 115 50 115 50 110Z M55 110 L 55 115 65 115 65 110Z M70 110 L 70 115 85 115 85 110Z M105 110 L 105 115 110 115 110 110Z M125 110 L 125 115 135 115 135 110Z M5 115 L 5 120 40 120 40 115Z M60 115 L 60 120 70 120 70 115Z M75 115 L 75 120 90 120 90 115Z M100 115 L 100 120 110 120 110 115Z M115 115 L 115 120 120 120 120 115Z M125 115 L 125 120 135 120 135 115Z M5 120 L 5 125 10 125 10 120Z M35 120 L 35 125 40 125 40 120Z M50 120 L 50 125 55 125 55 120Z M60 120 L 60 125 70 125 70 120Z M75 120 L 75 125 95 125 95 120Z M100 120 L 100 125 110 125 110 120Z M125 120 L 125 125 130 125 130 120Z M5 125 L 5 130 10 130 10 125Z M15 125 L 15 130 30 130 30 125Z M35 125 L 35 130 40 130 40 125Z M45 125 L 45 130 55 130 55 125Z M60 125 L 60 130 65 130 65 125Z M80 125 L 80 130 95 130 95 125Z M100 125 L 100 130 135 130 135 125Z M140 125 L 140 130 150 130 150 125Z M5 130 L 5 135 10 135 10 130Z M15 130 L 15 135 30 135 30 130Z M35 130 L 35 135 40 135 40 130Z M45 130 L 45 135 50 135 50 130Z M60 130 L 60 135 65 135 65 130Z M75 130 L 75 135 90 135 90 130Z M100 130 L 100 135 105 135 105 130Z M110 130 L 110 135 115 135 115 130Z M120 130 L 120 135 125 135 125 130Z M140 130 L 140 135 150 135 150 130Z M5 135 L 5 140 10 140 10 135Z M15 135 L 15 140 30 140 30 135Z M35 135 L 35 140 40 140 40 135Z M50 135 L 50 140 60 140 60 135Z M70 135 L 70 140 85 140 85 135Z M90 135 L 90 140 105 140 105 135Z M110 135 L 110 140 115 140 115 135Z M120 135 L 120 140 130 140 130 135Z M135 135 L 135 140 150 140 150 135Z M5 140 L 5 145 10 145 10 140Z M35 140 L 35 145 40 145 40 140Z M45 140 L 45 145 55 145 55 140Z M65 140 L 65 145 70 145 70 140Z M75 140 L 75 145 80 145 80 140Z M95 140 L 95 145 100 145 100 140Z M110 140 L 110 145 125 145 125 140Z M130 140 L 130 145 140 145 140 140Z M145 140 L 145 145 150 145 150 140Z M5 145 L 5 150 40 150 40 145Z M45 145 L 45 150 50 150 50 145Z M65 145 L 65 150 75 150 75 145Z M80 145 L 80 150 85 150 85 145Z M100 145 L 100 150 110 150 110 145Z M125 145 L 125 150 135 150 135 145Z" stroke="none" fill="#3B579D"></path></g></svg></div></div>
+                                                
+                                                <!-- Insert Telerik QR here -->
+                                            </div>    
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading"><i class="fa fa-twitter"></i> Twitter</h6>
+                                            <strong class="small">#hashtag</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <h5>You may also call our hotline<br>
+                                <h6>xxx-xxx-xx</h6>
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-primary btn-block animate" data-target-screen="goodbye_user">End of Information</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- More information -->
+
+        <!-- Ask if scheduled-->
+        <section class="full-height section-main" data-section="ropes_is_scheduled">
+            <div class="col-xs-8 col-xs-offset-2 text-center v-center">
+                <img class="ropes-logo animate" src="assets/img/ropes-logo.svg" alt="ROPES">
+                <h6 class="text-center heading animate"> ---- </h6>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="ropes_details">Yes</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="ropes_scheduled_no">No</button>
+                </div>
+            </div>
+        </section>
+        <!-- Ask if scheduled-->
+
+        <!-- Concern -->
+        <section class="full-height section-main" data-section="employee_options">
+            <div class="col-xs-10 col-xs-offset-1 v-center">
+                <h6 class="text-center heading animate message">May I know your concern for today?</h6>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="connectors">Connector's Related</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="transfer">Internal Transfer</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="openings">Company Openings</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="requirements">Pre-employment Requirements</button>
+                    <button type="button" class="btn btn-primary btn-block animate" data-target-screen="generic_info" data-for="concerns">Other Concerns</button>
+                </div>
+            </div>
+        </section>
+        <!-- Concern -->
+
+        <!-- Bye -->
+        <section class="full-height section-main" data-section="goodbye_user">
+
+            <div class="col-xs-10 col-xs-offset-1 text-center v-center">
+
+                <div class="text-center heading animate">
+                    <div class="message"><h4>Have a <span class="h4" id="describeDay">great</span> <span class="h4" id="partOfDay">day</span>!</h4></div>
+                    <hr>
+                    <span class="small h6 animate">This will automatically restart in<br><strong class="seconds" id="byeDuration">X time unit</strong></span>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary btn-block animate js_go-home" data-target-prev="initial_options">Back to start</button>
+                </div>
+
+            </div>
+        </section>
+        <!-- Bye -->
+
+    </main>
+
+
+    <!-- Global Footer -->
+    <footer class="navbar navbar-footer navbar-fixed-bottom" role="banner" id="footer">
+        <div class="avatar">
+            <img src="assets/img/uno-dimension-setter.png" class="img-responsive img-setter" alt="Uno">
+            <u class="img-responsive uno shadow-moving" id="unoImage" data-uno-image="welcoming-pose">
+                <i class="ropes-placard"></i>
+                <div class="upper-torso body-moving">
+                    <span class="face" id="face">
+                        <i class="eye eye-left blinking">
+                            <p class="pupil"></p>
+                        </i>
+                        <i class="eye eye-right blinking">
+                            <p class="pupil"></p>
+                        </i>
+                        <i class="mouth"></i>
+                    </span>
+
+                    <span class="arm arm-left">
+                        <i class="hand hand-left"></i>
+                    </span>
+
+                    <span class="arm arm-right">
+                        <i class="hand hand-right"></i>
+                    </span>
+
+                    <span class="shoulder shoulder-left"></span>
+                    <span class="shoulder shoulder-right"></span>
+
+                </div>
+                <div class="lower-torso">
+                    <i class="leg leg-left leg-left-tap"></i>
+                    <i class="leg leg-right leg-right-tap"></i>
+                </div>
+            </u>
+        </div>
+        <!-- <i class="shading"></i> -->
+        <div class="text">
+            <span id="messageUno">Hi, I'm Uno. Welcome to [24]7!</span>
+        </div>
+    </footer>
+    <!-- Global Footer -->
+
+    <div class="modal fade" id="keyboard">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                               
+                <ul class="keyboard-set keyboard-alphanumeric">
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="@" type="button" class="btn btn-key"><strong>@</strong></button></li>
+                            <li><button data-key=".com" type="button" class="btn btn-key"><strong>.com</strong></button></li>
+                            <li><button data-key="." type="button" class="btn btn-key">.</button></li>
+                            <li><button data-key="-" type="button" class="btn btn-key">-</button></li>
+                            <li><button data-key="_" type="button" class="btn btn-key">_</button></li>
+                        </ul>
+                    </li>
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="q" type="button" class="btn btn-key">q</button></li>
+                            <li><button data-key="w" type="button" class="btn btn-key">w</button></li>
+                            <li><button data-key="e" type="button" class="btn btn-key">e</button></li>
+                            <li><button data-key="r" type="button" class="btn btn-key">r</button></li>
+                            <li><button data-key="t" type="button" class="btn btn-key">t</button></li>
+                            <li><button data-key="y" type="button" class="btn btn-key">y</button></li>
+                            <li><button data-key="u" type="button" class="btn btn-key">u</button></li>
+                            <li><button data-key="i" type="button" class="btn btn-key">i</button></li>
+                            <li><button data-key="o" type="button" class="btn btn-key">o</button></li>
+                            <li><button data-key="p" type="button" class="btn btn-key">p</button></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="a" type="button" class="btn btn-key">a</button></li>
+                            <li><button data-key="s" type="button" class="btn btn-key">s</button></li>
+                            <li><button data-key="d" type="button" class="btn btn-key">d</button></li>
+                            <li><button data-key="f" type="button" class="btn btn-key">f</button></li>
+                            <li><button data-key="g" type="button" class="btn btn-key">g</button></li>
+                            <li><button data-key="h" type="button" class="btn btn-key">h</button></li>
+                            <li><button data-key="j" type="button" class="btn btn-key">j</button></li>
+                            <li><button data-key="k" type="button" class="btn btn-key">k</button></li>
+                            <li><button data-key="l" type="button" class="btn btn-key">l</button></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="shift" type="button" class="btn btn-key"><i class="md md-forward"></i></button></li>
+                            <li><button data-key="z" type="button" class="btn btn-key">z</button></li>
+                            <li><button data-key="x" type="button" class="btn btn-key">x</button></li>
+                            <li><button data-key="c" type="button" class="btn btn-key">c</button></li>
+                            <li><button data-key="v" type="button" class="btn btn-key">v</button></li>
+                            <li><button data-key="b" type="button" class="btn btn-key">b</button></li>
+                            <li><button data-key="n" type="button" class="btn btn-key">n</button></li>
+                            <li><button data-key="ñ" type="button" class="btn btn-key">ñ</button></li>
+                            <li><button data-key="m" type="button" class="btn btn-key">m</button></li>
+                            <li><button data-key="backspace" type="button" class="btn btn-key"><i class="md md-lg md-fw md-tag-backspace"></i></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys keyboard-keys-misc">
+                            <li><button data-key="numbers" type="button" class="btn btn-key"><strong>123</strong></button></li>
+                            <li class="spacebar"><button data-key="spacebar" type="button" class="btn btn-key">spacebar</button></li>
+                            <li><button data-key="kbd-hide" type="button" class="btn btn-key"><i class="md md-lg md-fw md-keyboard-hide"></i></button></li>
+                            <li><button data-key="clear" type="button" class="btn btn-key btn-clear">
+                                <i class="md md-lg md-format-clear-all"></i>
+                                </button>
+                            </li>
+                            <li><button data-key="submit" type="button" class="btn btn-key btn-primary btn-okay"><strong class="md-fw">OK</strong></button></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="keyboard-set keyboard-numeric">
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="1" type="button" class="btn btn-key">1</button></li>
+                            <li><button data-key="2" type="button" class="btn btn-key">2</button></li>
+                            <li><button data-key="3" type="button" class="btn btn-key">3</button></li>
+                            <li><button data-key="4" type="button" class="btn btn-key">4</button></li>
+                        </ul>
+                    </li>
+
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="5" type="button" class="btn btn-key">5</button></li>
+                            <li><button data-key="6" type="button" class="btn btn-key">6</button></li>
+                            <li><button data-key="7" type="button" class="btn btn-key">7</button></li>
+
+                        </ul>
+                    </li>
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="8" type="button" class="btn btn-key">8</button></li>
+                            <li><button data-key="9" type="button" class="btn btn-key">9</button></li>
+                            <li><button data-key="0" type="button" class="btn btn-key">0</button></li>
+                            <li><button data-key="backspace" type="button" class="btn btn-key"><i class="md md-lg md-fw md-tag-backspace"></i></button></li>
+                        </ul>
+                    </li>
+                    <li class="keyboard-row">
+                        <ul class="keyboard-keys">
+                            <li><button data-key="alpha" type="button" class="btn btn-key"><strong>abc</strong></button></li>
+                            <li><button data-key="kbd-hide" type="button" class="btn btn-key"><i class="md md-lg md-fw md-keyboard-hide"></i></button></li>
+                            <li><button data-key="clear" type="button" class="btn btn-key btn-clear"><i class="md md-lg md-format-clear-all"></i></button></li>
+                            <li><button data-key="submit" type="button" class="btn btn-key btn-primary btn-okay"><strong class="md-fw">OK</strong></button></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets-common/js/jquery-1.11.2.min.js"></script>
+    <script src="assets-common/js/bootstrap.min.js"></script>
+    <script src="assets-common/js/velocity.min.js"></script>
+    <script src="assets-common/js/velocity.ui.min.js"></script>
+    <script src="assets/js/keyboard.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

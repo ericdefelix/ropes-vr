@@ -1,0 +1,463 @@
+// Blinking Uno eye
+@mixin uno-image-base() {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: block;
+    position: absolute;
+    content: '';
+}
+
+// Base
+.uno {
+    width: 100%;
+    height: 24vh;
+    top: -1vh;
+    bottom: 4vh;
+    position: absolute;
+    z-index: 2;
+    // background-image: url(../img/uno.png);
+    background-repeat: no-repeat;
+    background-size: 28vh;
+    display: block;
+    pointer-events: none;
+    background-position-x: center;
+
+    &:after {
+        display: block;
+        content: '';
+        border-radius: 100%;
+        width: 70%;
+        height: 16%;
+        position: absolute;
+        bottom: -4%;
+        z-index: 0;
+        background-color: rgba(0,0,0,0.1);
+        left: 15%;
+        right: 15%;
+    }
+}
+
+.upper-torso {
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+}
+
+
+.face {
+    @include uno-image-base();
+    background-image: url(../img/uno/face.png);
+    width: 62%;
+    height: 58%;
+    top: 14%;
+    left: 19%;
+    z-index: 10;
+
+
+    i.eye {
+        @include uno-image-base();
+        background-color: transparent;
+        top: 29%;
+        width: 14%;
+        height: 25%;
+        border-radius: 100%;
+        z-index: 15;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+
+        > p.pupil {
+            margin: 0;
+            z-index: 1;
+            background-image: url(../img/uno/eye-shine.png);
+            background-repeat: no-repeat;
+            background-color: #000;
+            background-size: contain;
+            display: block;
+            top: 16%;
+            left: 12%;
+            width: 76%;
+            height: 82%;
+            border-radius: 100%;
+        }
+
+        &.eye-left { 
+            left: 32%;
+        }
+        &.eye-right {
+            right: 31%;
+        }
+
+        &:after {
+            background-color: white;
+            display: block;
+            content: '';
+            width: 120%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        &:before {
+            display: block;
+            content: '';
+            width: 120%;
+            height: 100%;
+            position: absolute;
+            z-index: 15;
+            background-color: #9fb7be;
+            @include gradient-vertical(#9fb7be, darken(#9fb7be, 5%));
+            top: -100%;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    i.mouth {
+        @include uno-image-base();
+        background-image: url(../img/uno/mouth.png);
+        top: 55%;
+        width: 45%;
+        height: 28%;
+    }    
+}
+
+.shoulder {
+    @include uno-image-base();
+    border-radius: 40%;
+    width: 7%;
+    height: 12%;
+    background-color: #9fb7be;
+    @include box-shadow(inset 0.4vw 0 0 #adc3c9);
+    @include transform-origin(top);
+    z-index: 5;
+
+    &.shoulder-left { 
+        top: 46%;
+        left: 23%;
+        border-top-left-radius: 20%;
+        @include box-shadow(inset 0.4vw 0 0 #adc3c9);
+        @include transform(translateY(0) rotateZ(41deg));
+    }
+
+    &.shoulder-right { 
+        top: 46%;
+        right: 23%;
+        border-top-right-radius: 20%;
+        @include box-shadow(inset -0.4vw 0 0 #adc3c9);
+        @include transform(translateX(0%) translateY(0%) rotateZ(-41deg));
+        @include transition-property(rotateZ);
+    }
+}
+
+.arm {
+    @include uno-image-base();
+    border-radius: 100%;
+    width: 7%;
+    height: 13%;
+    background-color: #9fb7be;
+    @include box-shadow(inset 0.4vw 0 0 #adc3c9);
+    @include transform-origin(top);
+    z-index: 10;
+
+    &.arm-left { 
+        top: 51%;
+        left: 18.3%;
+        border-top-right-radius: 70%;
+        border-top-left-radius: 70%;
+        @include transform(rotateZ(47deg));
+        @include box-shadow(inset 0.4vw 0 0 #adc3c9);
+        @include transform(translateY(0) rotateZ(27deg));
+    }
+
+    &.arm-right { 
+        top: 51%;
+        right: 18.3%;
+        border-top-right-radius: 70%;
+        border-top-left-radius: 70%;
+        @include box-shadow(inset -0.4vw 0 0 #adc3c9);
+        @include transform(translateY(0) rotateZ(-27deg));
+        @include transition-property(rotateZ);
+    }
+}
+
+.hand {
+    @include uno-image-base();
+    background-image: url(../img/uno/hands.png);
+    background-repeat: no-repeat;
+    z-index: 5;
+    width: 300%;
+    height: 200%;
+
+    &.hand-left {
+        background-position: 0 0;
+        top: 48%;
+        left: -205%;
+        @include transform(rotateZ(-68deg));
+        @include transform-origin(81% 4%);
+    }
+
+    &.hand-right {
+        top: 48%;
+        right: -238%;
+        background-position: 15% 0;
+        @include transform(rotateZ(68deg));
+        @include transform-origin(4% 4%);
+    }
+}
+
+.leg {
+    @include uno-image-base();
+    @include transform-origin(top);
+    width: 30%;
+    height: 31%;
+    z-index: 5;
+    bottom: 0;
+
+    &.leg-left {
+        background-image: url(../img/uno/leg-left.png);
+        left: 19%;
+    }
+    &.leg-right {
+        background-image: url(../img/uno/leg-right.png);
+        right: 19%;
+    }
+}
+
+// Animation variations
+.uno {
+    &[data-uno-image="welcome"] {  
+        .mouth { left: 30%; background-position: center top; }
+        .hand-right {
+            background-position: 60% 0;
+            top: 35%;
+            right: -242%;
+            @include transform(rotateZ(47deg));
+        }
+        .arm-right {
+            top: 55%;
+            @include transform(rotateZ(143deg));
+        }
+    }
+    &[data-uno-image="relaxed"] {  
+        .mouth { left: 30%; background-position: center top; }
+        .hand-right {
+            background-position: 15% 0;
+            top: 35%;
+            right: -242%;
+        }
+    }
+    &[data-uno-image="thumbs-up"] {  
+        .mouth { left: 30%; background-position: center top; }
+        .hand-right {
+            @include transform(rotateZ(8deg));
+            background-position: 29% 0;      
+            top: -70%;
+            right: -40%;
+        }
+    }
+
+    .face {
+        &:before, &:after {
+            @include uno-image-base();
+            @include transition(height .2s $easing);
+            width: 15%;
+            height: 5%;
+            background-color: #ADC3C9;
+            z-index: 20;
+            top: 50%;
+            border-top-left-radius: 100%;
+            border-top-right-radius: 100%;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            @include transform-origin(bottom);
+            @include transform(scaleY(0));
+            @include transition(transform .5s $easing);
+        }
+        &:before { left: 31%; }
+        &:after { right: 31%; }
+    }
+
+    .mouth {
+        &:before, &:after {
+            width: 41%;
+            height: 66%;
+            z-index: 20;
+            background-color: #ADC3C9;
+            border-radius: 100%;
+            @include uno-image-base();
+            @include transition(transform .1s $easing);
+            @include box-shadow(inset 0 -2px 0 rgba(61, 95, 105, 0.51));
+            @include transform-origin(top);
+        }
+        &:before {
+            left: -16%;
+            top: -158%;
+            @include transform(rotateZ(-35deg) scaleY(0));
+        }
+        &:after {
+            right: 0%;
+            top: -167%;
+            @include transform(rotateZ(13deg) scaleY(0));
+        }    
+    }
+
+    &[data-uno-image="making-statement"] {
+        .face {
+            &:before, &:after {
+                @include transform(scaleY(1));
+                @include transition(transform .1s $easing);
+            }
+        }
+
+        .mouth { left: 22%; background-position: center bottom; }
+        .hand-right {
+            @include transform(rotateZ(-13deg));
+            background-position: 29% 0;
+            top: -30%;
+            right: 12%;
+        }
+
+        .hand-left {
+            transform: rotateZ(23deg);
+            background-position: 43% 0;
+            top: -20%;
+            left: -8%;
+        }
+    }
+    &[data-uno-image="looking-up"] {  
+        .mouth { left: 30%; background-position: center top; }
+        .hand-right {
+            background-position: 59% 0;
+            top: 35%;
+            right: -242%;
+        }
+    }
+    &[data-uno-image="holding-paper"] {  
+        .mouth { left: 30%; background-position: center top; }
+    }
+
+    .ropes-placard {
+        @include uno-image-base();
+        background-image: url(../img/uno/placard.png);
+        background-size: contain;
+        width: 65%;
+        height: 50%;
+        z-index: 20;
+        top: -25%;
+        right: calc(50% - 46%);
+        display: none;
+        @include transform-origin(80% 90%);
+    }
+
+    &[data-uno-image="ropes-placard"] {  
+        .mouth { left: 30%; background-position: center top; }
+        .hand-right {
+            background-position: 77% 0;
+            top: 35%;
+            right: -412%;
+            width: 360%;
+        }
+    }
+    &[data-uno-image="holding-mobile"] {
+        .mouth { left: 30%; background-position: center top; }
+    }
+    &[data-uno-image="holding-phone"] {  
+        .mouth { left: 30%; background-position: center top; }
+    }
+    &[data-uno-image="looking-disappointed"] {  
+        .mouth { 
+            top: 66%; height: 9%; left: 30%; background-position: center 68%;
+
+            &:before, &:after { @include transition(transform .2s $easing); height: 146%; }
+            &:after { @include transform(rotateZ(13deg) scaleY(1)); top: -457%; }
+            &:before { @include transform(rotateZ(-35deg) scaleY(1)); top: -438%; }
+        }
+    }
+    &[data-uno-image="looking-puzzled"] {  
+        .mouth { 
+            top: 58%; height: 21%; left: 30%; background-position: center 44%;
+
+            &:before, &:after { @include transition(transform .2s $easing); }
+            &:after { @include transform(rotateZ(13deg) scaleY(1)); }
+            &:before { @include transform(rotateZ(-35deg) scaleY(1)); }
+
+        }
+        .hand-right {
+            background-position: 15% 0;
+            top: 58%;
+            right: -228%;
+            @include transform(rotateZ(36deg));
+        }
+    }
+}
+
+
+// Animation
+.uno.shadow-moving:after {
+    animation: shadowmoving 4s infinite;
+    -webkit-animation: shadowmoving 4s infinite;
+    -moz-animation: shadowmoving 4s infinite;
+}
+
+.eye.blinking:before {
+    animation: blinking 0.4s 2;
+    -webkit-animation: blinking 0.4s 2;
+    -moz-animation: blinking 0.4s 2;
+}
+
+.body-moving {
+    animation: breathing 4s infinite;
+    -webkit-animation: breathing 4s infinite;
+    -moz-animation: breathing 4s infinite;
+}
+
+*[data-arm-move="arm-moving-left"] {
+    animation: arm_moving_left 4s infinite;
+    -webkit-animation: arm_moving_left 4s infinite;
+    -moz-animation: arm_moving_left 4s infinite;
+    @include transition-delay(1s);
+}
+
+*[data-arm-move="arm-moving-right"] {
+    animation: arm_moving_right 4s infinite;
+    -webkit-animation: arm_moving_right 4s infinite;
+    -moz-animation: arm_moving_right 4s infinite;
+    @include transition-delay(1s);
+}
+
+@-webkit-keyframes arm_moving_left {
+    0% { @include transform(translateY(0) rotateZ(47deg)); }
+    50% { @include transform(translateY(-1.2%) rotateZ(50deg)); }
+    100% { @include transform(translateY(0%) rotateZ(47deg)); }
+}
+
+@-webkit-keyframes arm_moving_right {
+    0% { @include transform(translateY(0) rotateZ(-47deg)); }
+    50% { @include transform(translateY(-1.2%) rotateZ(-50deg)); }
+    100% { @include transform(translateY(0%) rotateZ(-47deg)); }
+}
+
+@-webkit-keyframes breathing {
+    0% { @include transform(translateY(0)); }
+    50% { @include transform(translateY(1.4%)); }
+    100% { @include transform(translateY(0%)); }
+}
+
+@-webkit-keyframes shadowmoving {
+    0% { @include transform(scaleX(1) scaleY(1)); }
+    50% { @include transform(scaleX(1.015) scaleX(1.015)); }
+    100% { @include transform(scaleX(1) scaleX(1)); }
+}
+
+@-webkit-keyframes blinking {
+    0% { @include transform(translateY(0)); }
+    50% { @include transform(translateY(100%)); }
+    100% { @include transform(translateY(0)); }
+}

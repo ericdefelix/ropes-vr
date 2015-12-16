@@ -1,0 +1,70 @@
+.error-page {
+  background-color: $gray-lighter;
+}
+
+.img-error-container,.spinning-gears {
+  width: 70%;
+  height: 50%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: $navbar-height; 
+  left: 0; 
+  bottom: 0; 
+  right: 0;
+  overflow: inherit;
+  text-align: center;
+}
+
+.img-error-container > img {
+  display: block;
+  margin: auto;
+  height: auto;
+
+  $img: 1200px !default;
+  @media (max-width: $screen-xs-max) {
+    max-width: 100%;
+  }
+  @media (min-width: $screen-sm-min) {
+    width: ($img/2)-50;
+    max-width: ($img/2)-50; 
+  }
+  @media (min-width: $screen-md-min) {
+    width: $img/2;
+    max-width: $img/2; 
+  }
+}
+
+.error-action {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 15px;
+}
+
+.spinning-gears {
+  margin-top: -10px;
+  .gear-one {
+    display: inline-block;
+    position: absolute;
+    margin-left: -78px;
+    color: $brand-turquoise;
+  }
+
+  .gear-two {
+    display: inline-block;
+    position: absolute;
+    margin-left: -25px;
+    color: $brand-blue;
+  }
+
+  .gear-three {
+    display: inline-block;
+    position: absolute;
+    top: 47px;
+    margin-left: -25px;
+    color: $brand-burgundy;
+  }
+}
